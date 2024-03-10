@@ -50,6 +50,6 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     @Parameter(title: "Metric", default: .distance)
     var metric: WidgetMetrics
     
-    @Parameter(title: "Goal", default: "")
-    var goal: String
+    @Parameter(title: "Goal", default: 0.0)
+    var goal: Double
 }

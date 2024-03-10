@@ -16,11 +16,14 @@ struct ContentView: View {
     @State private var stravaID: String?
     @State private var token: String?
     
+   
+    
     var isLogged: Bool {
         stravaID != nil && token != nil
     }
     
     var body: some View {
+       
         ZStack {
             Image("splash")
                 .resizable()
@@ -51,14 +54,14 @@ struct ContentView: View {
         
     
      func loadUserId() {
-        if let savedUserId = UserDefaults.standard.string(forKey: "strava_id") {
+        if let savedUserId = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "strava_id") {
             stravaID = savedUserId
         } else {
             // Handle the case where the value is not found (optional)
             print("strava_id not found in UserDefaults")
         }
          
-         if let savedToken = UserDefaults.standard.string(forKey: "token") {
+         if let savedToken = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "token") {
              token = savedToken
          } else {
              // Handle the case where the value is not found (optional)
@@ -75,8 +78,8 @@ struct ContentView: View {
 
         if _stravaID != nil && _token != nil {
             
-            UserDefaults.standard.set(_stravaID, forKey: "strava_id")
-            UserDefaults.standard.set(_token, forKey: "token")
+            UserDefaults(suiteName: "group.runride_studio")!.set(_stravaID, forKey: "strava_id")
+            UserDefaults(suiteName: "group.runride_studio")!.set(_token, forKey: "token")
             stravaID = _stravaID
             token = _token
         }
@@ -180,14 +183,13 @@ struct ViewSettings: View {
             .foregroundColor(.white)
         Toggle("Use Imperial system", isOn: $useImperial)
             .onChange(of: useImperial) {
-                let userDefaults = UserDefaults.standard
-                userDefaults.set(useImperial, forKey: "useImperial")
+                UserDefaults(suiteName: "group.runride_studio")!.set(useImperial, forKey: "useImperial")
             }
             .foregroundColor(.white)
 
         Button("Logout") {
-            UserDefaults.standard.removeObject(forKey: "token")
-            UserDefaults.standard.removeObject(forKey: "strava_id")
+            UserDefaults(suiteName: "group.runride_studio")!.removeObject(forKey: "token")
+            UserDefaults(suiteName: "group.runride_studio")!.removeObject(forKey: "strava_id")
             token = nil
             stravaID = nil
         }
@@ -215,7 +217,7 @@ struct ViewSettings: View {
     
     
     func loadSettings () {
-        let savedUseImperial = UserDefaults.standard.bool(forKey: "useImperial")
+        let savedUseImperial = UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
         useImperial = savedUseImperial
    }
 }

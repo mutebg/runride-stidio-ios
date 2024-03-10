@@ -12,6 +12,5 @@ import SwiftUI
 struct RunRide_WidgetBundle: WidgetBundle {
     var body: some Widget {
         RunRide_Widget()
-        RunRide_WidgetLiveActivity()
     }
 }

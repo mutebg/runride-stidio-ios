@@ -9,26 +9,35 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: AppIntentTimelineProvider {
+    func timeline(
+        for configuration: Self.Intent,
+        in context: Self.Context
+    ) async -> Timeline<SimpleEntry> {
+        
+        let currentDate = Date() // Get the current date and time
+        let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
+        
+        do {
+            let stravaData = try  await ApiFetcher.fetchData(
+                sport: configuration.sport.rawValue,
+                interval: configuration.period.rawValue,
+                metric: configuration.metric.rawValue
+            )
+                        
+            let entry = SimpleEntry(date: currentDate, value: stravaData.v, activities: stravaData.a, configuration: configuration)
+            return Timeline(entries: [entry], policy: .after(nextUpdate))
+        } catch {
+            let entry = SimpleEntry(date: currentDate, value: 0, activities: 0, configuration: configuration)
+            return Timeline(entries: [entry], policy: .after(nextUpdate))
+        }
+    }
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), value: 100, activities: 8, configuration: ConfigurationAppIntent())
+        SimpleEntry(date: Date(), value: 5100, activities: 8, configuration: ConfigurationAppIntent())
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), value: 100, activities: 8, configuration: configuration)
-    }
-    
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, value: 100, activities: 8, configuration: configuration)
-            entries.append(entry)
-        }
-
-        return Timeline(entries: entries, policy: .atEnd)
+        SimpleEntry(date: Date(), value: 5100, activities: 8, configuration: configuration)
     }
 }
 
@@ -40,14 +49,109 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct RunRide_WidgetEntryView : View {
+    let useMetric = !UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
     var entry: Provider.Entry
+    var value: Double {
+        return entry.value
+    }
+    
+   
 
-    var body: some View {
-        VStack {
-            Text("This " + entry.configuration.period.rawValue)
-            Text("Value: " + String(entry.value))
-            Text("Activities: " + String(entry.activities))
+    var currentValue: Double {
+        switch entry.configuration.metric.rawValue {
+            case "distance": return getDistance(value, useMetric: useMetric)
+            case "time": return getTime(value)
+            case "elevation": return getElevation(value, useMetric: useMetric)
+            default: return 0
         }
+    }
+    
+    var currentMetric: String {
+        switch entry.configuration.metric.rawValue {
+            case "distance": return useMetric ? "km" : "ml"
+            case "time": return "h"
+            case "elevation": return useMetric ? "m" : "ft"
+            default: return ""
+        }
+    }
+    
+    var currentWordPeriod: String {
+        entry.configuration.period.rawValue.lowercased().replacingOccurrences(of: "ly", with: "")
+    }
+    
+    var currentGoal: Double {
+        entry.configuration.goal
+    }
+    
+    let grayColor = Color(red: 0.3, green: 0.3, blue: 0.3);
+    
+    var goalPercent: Int {
+        let v = currentValue / ( currentGoal / 100 )
+        if  v.isNaN || v.isInfinite {
+            return 0
+        }
+        return Int(v)
+    }
+    
+    var progressPercent: Double {
+        let v = currentValue / currentGoal;
+        if v > 1 {
+            return 1
+        }
+        if v == 0 {
+            return 0.08
+        }
+        return v
+    }
+    
+    
+    var acitivitiesLabel: String {
+        return entry.activities > 0 ? "activities" : "activity"
+    }
+
+   
+    var body: some View {
+        VStack(alignment: HorizontalAlignment.leading, spacing: 5 ) {
+            Text("This " + currentWordPeriod)
+                .font(.system(size: 14))
+                .foregroundColor(grayColor)
+            Divider()
+            Spacer()
+            HStack(alignment: VerticalAlignment.bottom, spacing: 1){
+                Text( String( currentValue ))
+                    .font(.system(size: 28) .bold())
+                    .foregroundColor(.accentColor)
+                Text(currentMetric)
+                    .font(.system(size: 16))
+                    .foregroundColor(.accentColor)
+                    .padding(.bottom, 4)
+                Spacer()
+            }
+            Text( String(entry.activities) + " " + acitivitiesLabel)
+                .font(.system(size: 14))
+                .foregroundColor(grayColor)
+            Text( currentGoal > 0 ? String(goalPercent) + "% of the goal" : "No goal")
+                .font(.system(size: 14))
+                .foregroundColor(grayColor)
+                .padding(.bottom, 4)
+            
+            ProgressView(value: progressPercent)
+                .scaleEffect(x: 1.0, y: 3.0, anchor: .center)
+                .tint(.accentColor)
+                .padding(.bottom, 2)
+        }
+    }
+    
+    func getTime(_ value: Double) -> Double {
+        return value / 3600  // 60 seconds * 60 minutes = 3600 seconds per hour
+    }
+    
+    func getDistance(_ value: Double, useMetric: Bool) -> Double {
+        return useMetric ? value : value * 0.621371
+    }
+    
+    func getElevation(_ value: Double, useMetric: Bool) -> Double {
+        return useMetric ? value : value * 3.28084
     }
 }
 
@@ -58,14 +162,15 @@ struct RunRide_Widget: Widget {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             RunRide_WidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
-        }
+        }.supportedFamilies([.systemSmall])
+        
     }
 }
 
 extension ConfigurationAppIntent {
     fileprivate static var runner: ConfigurationAppIntent {
         let intent = ConfigurationAppIntent()
-        intent.goal = "200"
+        intent.goal = 200.0
         intent.sport = .run
         intent.period = .monthly
         intent.metric = .distance
@@ -74,17 +179,17 @@ extension ConfigurationAppIntent {
     
     fileprivate static var ridder: ConfigurationAppIntent {
         let intent = ConfigurationAppIntent()
-        intent.goal = "160"
+        intent.goal = 160.0
         intent.sport = .ride
         intent.period = .weekly
         intent.metric = .distance
         return intent
     }
 }
-
-#Preview(as: .systemSmall) {
-    RunRide_Widget()
-} timeline: {
-    SimpleEntry(date: .now, value: 100, activities: 8, configuration: .runner)
-    SimpleEntry(date: .now, value: 100, activities: 8, configuration: .ridder)
-}
+//
+//#Preview(as: .systemSmall) {
+//    RunRide_Widget()
+//} timeline: {
+//    SimpleEntry(date: .now, value: 150, activities: 8, configuration: .runner)
+//    SimpleEntry(date: .now, value: 120, activities: 8, configuration: .ridder)
+//}
