@@ -7,23 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		614C38AD2B99F58E001A1F32 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AC2B99F58E001A1F32 /* WidgetKit.framework */; };
+		614C38AF2B99F58E001A1F32 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AE2B99F58E001A1F32 /* SwiftUI.framework */; };
+		614C38B22B99F58F001A1F32 /* RunRide_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38B12B99F58F001A1F32 /* RunRide_WidgetBundle.swift */; };
+		614C38B42B99F58F001A1F32 /* RunRide_WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38B32B99F58F001A1F32 /* RunRide_WidgetLiveActivity.swift */; };
+		614C38B62B99F58F001A1F32 /* RunRide_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38B52B99F58F001A1F32 /* RunRide_Widget.swift */; };
+		614C38B82B99F58F001A1F32 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38B72B99F58F001A1F32 /* AppIntent.swift */; };
+		614C38BA2B99F594001A1F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 614C38B92B99F594001A1F32 /* Assets.xcassets */; };
+		614C38BE2B99F594001A1F32 /* RunRide WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 614C38AA2B99F58E001A1F32 /* RunRide WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		614C38C42B99FB69001A1F32 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38C32B99FB69001A1F32 /* Enums.swift */; };
+		614C38C52B99FB69001A1F32 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38C32B99FB69001A1F32 /* Enums.swift */; };
 		61789DA32B94CB5F000E8B0B /* RunRide_Studio_WidgetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61789DA22B94CB5F000E8B0B /* RunRide_Studio_WidgetsApp.swift */; };
 		61789DA52B94CB5F000E8B0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61789DA42B94CB5F000E8B0B /* ContentView.swift */; };
-		61789DA72B94CB5F000E8B0B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61789DA62B94CB5F000E8B0B /* Item.swift */; };
 		61789DA92B94CB60000E8B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DA82B94CB60000E8B0B /* Assets.xcassets */; };
 		61789DAC2B94CB60000E8B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */; };
+		61BDD59A2B94F04200264BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD5992B94F04200264BD5 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		614C38BC2B99F594001A1F32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61789D972B94CB5F000E8B0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 614C38A92B99F58E001A1F32;
+			remoteInfo = "RunRide WidgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		614C38BF2B99F594001A1F32 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				614C38BE2B99F594001A1F32 /* RunRide WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		614C38AA2B99F58E001A1F32 /* RunRide WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "RunRide WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		614C38AC2B99F58E001A1F32 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		614C38AE2B99F58E001A1F32 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		614C38B12B99F58F001A1F32 /* RunRide_WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRide_WidgetBundle.swift; sourceTree = "<group>"; };
+		614C38B32B99F58F001A1F32 /* RunRide_WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRide_WidgetLiveActivity.swift; sourceTree = "<group>"; };
+		614C38B52B99F58F001A1F32 /* RunRide_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRide_Widget.swift; sourceTree = "<group>"; };
+		614C38B72B99F58F001A1F32 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		614C38B92B99F594001A1F32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		614C38BB2B99F594001A1F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		614C38C32B99FB69001A1F32 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		61789D9F2B94CB5F000E8B0B /* RunRide Studio Widgets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RunRide Studio Widgets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61789DA22B94CB5F000E8B0B /* RunRide_Studio_WidgetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRide_Studio_WidgetsApp.swift; sourceTree = "<group>"; };
 		61789DA42B94CB5F000E8B0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		61789DA62B94CB5F000E8B0B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		61789DA82B94CB60000E8B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		61789DB42B94E503000E8B0B /* RunRide-Studio-Widgets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RunRide-Studio-Widgets-Info.plist"; sourceTree = SOURCE_ROOT; };
+		61BDD5992B94F04200264BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		614C38A72B99F58E001A1F32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				614C38AF2B99F58E001A1F32 /* SwiftUI.framework in Frameworks */,
+				614C38AD2B99F58E001A1F32 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61789D9C2B94CB5F000E8B0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -34,10 +88,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		614C38AB2B99F58E001A1F32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				614C38AC2B99F58E001A1F32 /* WidgetKit.framework */,
+				614C38AE2B99F58E001A1F32 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		614C38B02B99F58F001A1F32 /* RunRide Widget */ = {
+			isa = PBXGroup;
+			children = (
+				614C38B12B99F58F001A1F32 /* RunRide_WidgetBundle.swift */,
+				614C38B32B99F58F001A1F32 /* RunRide_WidgetLiveActivity.swift */,
+				614C38B52B99F58F001A1F32 /* RunRide_Widget.swift */,
+				614C38B72B99F58F001A1F32 /* AppIntent.swift */,
+				614C38B92B99F594001A1F32 /* Assets.xcassets */,
+				614C38BB2B99F594001A1F32 /* Info.plist */,
+				614C38C32B99FB69001A1F32 /* Enums.swift */,
+			);
+			path = "RunRide Widget";
+			sourceTree = "<group>";
+		};
 		61789D962B94CB5F000E8B0B = {
 			isa = PBXGroup;
 			children = (
 				61789DA12B94CB5F000E8B0B /* RunRide Studio Widgets */,
+				614C38B02B99F58F001A1F32 /* RunRide Widget */,
+				614C38AB2B99F58E001A1F32 /* Frameworks */,
 				61789DA02B94CB5F000E8B0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				61789D9F2B94CB5F000E8B0B /* RunRide Studio Widgets.app */,
+				614C38AA2B99F58E001A1F32 /* RunRide WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,9 +133,10 @@
 		61789DA12B94CB5F000E8B0B /* RunRide Studio Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				61BDD5992B94F04200264BD5 /* AppDelegate.swift */,
+				61789DB42B94E503000E8B0B /* RunRide-Studio-Widgets-Info.plist */,
 				61789DA22B94CB5F000E8B0B /* RunRide_Studio_WidgetsApp.swift */,
 				61789DA42B94CB5F000E8B0B /* ContentView.swift */,
-				61789DA62B94CB5F000E8B0B /* Item.swift */,
 				61789DA82B94CB60000E8B0B /* Assets.xcassets */,
 				61789DAA2B94CB60000E8B0B /* Preview Content */,
 			);
@@ -73,6 +154,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		614C38A92B99F58E001A1F32 /* RunRide WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 614C38C22B99F594001A1F32 /* Build configuration list for PBXNativeTarget "RunRide WidgetExtension" */;
+			buildPhases = (
+				614C38A62B99F58E001A1F32 /* Sources */,
+				614C38A72B99F58E001A1F32 /* Frameworks */,
+				614C38A82B99F58E001A1F32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RunRide WidgetExtension";
+			productName = "RunRide WidgetExtension";
+			productReference = 614C38AA2B99F58E001A1F32 /* RunRide WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		61789D9E2B94CB5F000E8B0B /* RunRide Studio Widgets */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61789DAF2B94CB60000E8B0B /* Build configuration list for PBXNativeTarget "RunRide Studio Widgets" */;
@@ -80,10 +178,12 @@
 				61789D9B2B94CB5F000E8B0B /* Sources */,
 				61789D9C2B94CB5F000E8B0B /* Frameworks */,
 				61789D9D2B94CB5F000E8B0B /* Resources */,
+				614C38BF2B99F594001A1F32 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				614C38BD2B99F594001A1F32 /* PBXTargetDependency */,
 			);
 			name = "RunRide Studio Widgets";
 			productName = "RunRide Studio Widgets";
@@ -100,6 +200,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					614C38A92B99F58E001A1F32 = {
+						CreatedOnToolsVersion = 15.0;
+					};
 					61789D9E2B94CB5F000E8B0B = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -119,11 +222,20 @@
 			projectRoot = "";
 			targets = (
 				61789D9E2B94CB5F000E8B0B /* RunRide Studio Widgets */,
+				614C38A92B99F58E001A1F32 /* RunRide WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		614C38A82B99F58E001A1F32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				614C38BA2B99F594001A1F32 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61789D9D2B94CB5F000E8B0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,19 +248,92 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		614C38A62B99F58E001A1F32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				614C38B42B99F58F001A1F32 /* RunRide_WidgetLiveActivity.swift in Sources */,
+				614C38B82B99F58F001A1F32 /* AppIntent.swift in Sources */,
+				614C38C52B99FB69001A1F32 /* Enums.swift in Sources */,
+				614C38B22B99F58F001A1F32 /* RunRide_WidgetBundle.swift in Sources */,
+				614C38B62B99F58F001A1F32 /* RunRide_Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61789D9B2B94CB5F000E8B0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61BDD59A2B94F04200264BD5 /* AppDelegate.swift in Sources */,
 				61789DA52B94CB5F000E8B0B /* ContentView.swift in Sources */,
-				61789DA72B94CB5F000E8B0B /* Item.swift in Sources */,
+				614C38C42B99FB69001A1F32 /* Enums.swift in Sources */,
 				61789DA32B94CB5F000E8B0B /* RunRide_Studio_WidgetsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		614C38BD2B99F594001A1F32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 614C38A92B99F58E001A1F32 /* RunRide WidgetExtension */;
+			targetProxy = 614C38BC2B99F594001A1F32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		614C38C02B99F594001A1F32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RunRide Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "RunRide Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "runride.studio.RunRide-Studio-Widgets.RunRide-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		614C38C12B99F594001A1F32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RunRide Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "RunRide Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "runride.studio.RunRide-Studio-Widgets.RunRide-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		61789DAD2B94CB60000E8B0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -271,6 +456,7 @@
 		61789DB02B94CB60000E8B0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -278,6 +464,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"RunRide Studio Widgets/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RunRide-Studio-Widgets-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +486,7 @@
 		61789DB12B94CB60000E8B0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -306,6 +494,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"RunRide Studio Widgets/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RunRide-Studio-Widgets-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +516,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		614C38C22B99F594001A1F32 /* Build configuration list for PBXNativeTarget "RunRide WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				614C38C02B99F594001A1F32 /* Debug */,
+				614C38C12B99F594001A1F32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		61789D9A2B94CB5F000E8B0B /* Build configuration list for PBXProject "RunRide Studio Widgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
