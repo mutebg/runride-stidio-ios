@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: AppIntentTimelineProvider {
+struct ProviderGoal: AppIntentTimelineProvider {
     func timeline(
         for configuration: Self.Intent,
         in context: Self.Context
@@ -33,10 +33,10 @@ struct Provider: AppIntentTimelineProvider {
     }
     
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), value: 5100, activities: 8, configuration: ConfigurationAppIntent())
+        SimpleEntry(date: Date(), value: 5100, activities: 8, configuration: ConfigurationAppIntentGoal())
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+    func snapshot(for configuration: ConfigurationAppIntentGoal, in context: Context) async -> SimpleEntry {
         SimpleEntry(date: Date(), value: 5100, activities: 8, configuration: configuration)
     }
 }
@@ -45,12 +45,12 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let value: Double
     let activities: Int
-    let configuration: ConfigurationAppIntent
+    let configuration: ConfigurationAppIntentGoal
 }
 
 struct RunRide_WidgetEntryView : View {
     let useMetric = !UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
-    var entry: Provider.Entry
+    var entry: ProviderGoal.Entry
     var value: Double {
         return entry.value
     }
@@ -83,7 +83,8 @@ struct RunRide_WidgetEntryView : View {
         entry.configuration.goal
     }
     
-    let grayColor = Color(red: 0.3, green: 0.3, blue: 0.3);
+    //let grayColor = Color(red: 0.3, green: 0.3, blue: 0.3);
+    let grayColor = Color(.label);
     
     var goalPercent: Int {
         let v = currentValue / ( currentGoal / 100 )
@@ -159,7 +160,7 @@ struct RunRide_Widget: Widget {
     let kind: String = "RunRide_Widget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntentGoal.self, provider: ProviderGoal()) { entry in
             RunRide_WidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }.supportedFamilies([.systemSmall])
@@ -167,9 +168,9 @@ struct RunRide_Widget: Widget {
     }
 }
 
-extension ConfigurationAppIntent {
-    fileprivate static var runner: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
+extension ConfigurationAppIntentGoal {
+    fileprivate static var runner: ConfigurationAppIntentGoal {
+        let intent = ConfigurationAppIntentGoal()
         intent.goal = 200.0
         intent.sport = .run
         intent.period = .monthly
@@ -177,8 +178,8 @@ extension ConfigurationAppIntent {
         return intent
     }
     
-    fileprivate static var ridder: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
+    fileprivate static var ridder: ConfigurationAppIntentGoal {
+        let intent = ConfigurationAppIntentGoal()
         intent.goal = 160.0
         intent.sport = .ride
         intent.period = .weekly

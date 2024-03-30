@@ -37,7 +37,7 @@ enum WidgetMetrics: String, AppEnum {
     ]
 }
 
-struct ConfigurationAppIntent: WidgetConfigurationIntent {
+struct ConfigurationAppIntentGoal: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Configuration"
     static var description = IntentDescription("This is an example widget.")
 
@@ -53,3 +53,15 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     @Parameter(title: "Goal", default: 0.0)
     var goal: Double
 }
+
+struct ConfigurationAppIntentSnapshot: WidgetConfigurationIntent {
+    static var title: LocalizedStringResource = "Configuration"
+    static var description = IntentDescription("This is an example widget.")
+
+    @Parameter(title: "Sport", default: .run)
+    var sport: WidgetSports
+    
+    @Parameter(title: "Time frame", default: .weekly)
+    var period: WidgetIntervals
+}
+
