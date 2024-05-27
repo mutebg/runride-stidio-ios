@@ -44,19 +44,19 @@ struct ContentView: View {
     }
         
     func loadUserId() {
-        if let savedUserId = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "strava_id") {
+        if let savedUserId = UserDefaultsConfig.stravaId {
             stravaID = savedUserId
         } else {
             // Handle the case where the value is not found (optional)
             print("strava_id not found in UserDefaults")
         }
          
-         if let savedToken = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "token") {
-             token = savedToken
-         } else {
-             // Handle the case where the value is not found (optional)
-             print("strava_id not found in UserDefaults")
-         }
+        if let savedToken = UserDefaultsConfig.stravaToken {
+            token = savedToken
+        } else {
+            // Handle the case where the value is not found (optional)
+            print("strava_id not found in UserDefaults")
+        }
     }
     
     func handleDeeplink(url: URL) {
@@ -67,8 +67,8 @@ struct ContentView: View {
         let _token = queryItems.first(where: { $0.name == "token" })?.value
 
         if _stravaID != nil && _token != nil {
-            UserDefaults(suiteName: "group.runride_studio")!.set(_stravaID, forKey: "strava_id")
-            UserDefaults(suiteName: "group.runride_studio")!.set(_token, forKey: "token")
+            UserDefaultsConfig.stravaId = _stravaID
+            UserDefaultsConfig.stravaToken = _token
             stravaID = _stravaID
             token = _token
         }

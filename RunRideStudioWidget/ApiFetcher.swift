@@ -30,7 +30,7 @@ struct ApiFetcher {
     static func fetchData(sport: String, interval: String, metric: String) async throws -> StravaData {
         
         var token = ""
-        if  let cToken = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "token")  {
+        if let cToken = UserDefaultsConfig.stravaToken {
             token = cToken
         }
         
@@ -50,7 +50,7 @@ struct ApiFetcher {
     static func fetchSnapshot(sport: String, interval: String) async throws -> SnapshotData {
 
         var token = ""
-        if  let cToken = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "token")  {
+        if let cToken = UserDefaultsConfig.stravaToken {
             token = cToken
         }
         

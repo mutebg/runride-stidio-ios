@@ -49,13 +49,13 @@ struct SettingsView: View {
             .foregroundColor(.white)
         Toggle("Use Imperial system", isOn: $useImperial)
             .onChange(of: useImperial) {
-                UserDefaults(suiteName: "group.runride_studio")!.set(useImperial, forKey: "useImperial")
+                UserDefaultsConfig.useImperial = useImperial
             }
             .foregroundColor(.white)
 
         Button("Logout") {
-            UserDefaults(suiteName: "group.runride_studio")!.removeObject(forKey: "token")
-            UserDefaults(suiteName: "group.runride_studio")!.removeObject(forKey: "strava_id")
+            UserDefaultsConfig.stravaId = nil
+            UserDefaultsConfig.stravaToken = nil
             token = nil
             stravaID = nil
         }
@@ -83,7 +83,6 @@ struct SettingsView: View {
     
     
     func loadSettings () {
-        let savedUseImperial = UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
-        useImperial = savedUseImperial
+        useImperial = UserDefaultsConfig.useImperial
    }
 }

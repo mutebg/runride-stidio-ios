@@ -96,7 +96,7 @@ struct SnapshotEntry: TimelineEntry {
 }
 
 struct RunRideStudioWidgetEntryView : View {
-    let useMetric = !UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
+    let useMetric = !UserDefaultsConfig.useImperial
     var entry: ProviderGoal.Entry
     var value: Double {
         return entry.value
@@ -210,7 +210,7 @@ struct RunRideStudioWidgetEntryViewSnapshot : View {
 
     var entry: ProviderSnapshot.Entry
     @Environment(\.widgetFamily) var widgetFamily
-    let useMetric = !UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
+    let useMetric = !UserDefaultsConfig.useImperial
     
     var d: String {
         return getDistance(entry.d, useMetric: useMetric)
