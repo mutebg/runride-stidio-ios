@@ -10,7 +10,7 @@ import SafariServices
 
 struct StravaAuthView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> SFSafariViewController {
-        let authURL = URL(string: "https://api-izq36taffa-uc.a.run.app/login?platform=ios");
+        let authURL = URL(string: NetworkConstants.login + "?platform=ios");
         return SFSafariViewController(url: authURL!)
     }
 
