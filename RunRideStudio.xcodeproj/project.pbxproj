@@ -65,7 +65,7 @@
 		61789DA42B94CB5F000E8B0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61789DA82B94CB60000E8B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		61789DB42B94E503000E8B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info.plist"; sourceTree = SOURCE_ROOT; };
+		61789DB42B94E503000E8B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RunRideStudio/Resource/Info.plist; sourceTree = SOURCE_ROOT; };
 		C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRideStudioApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,11 +135,8 @@
 		61789DA12B94CB5F000E8B0B /* RunRideStudio */ = {
 			isa = PBXGroup;
 			children = (
-				6124F5ED2B9DB6E40030C54C /* RunRideStudio.entitlements */,
-				61789DB42B94E503000E8B0B /* Info.plist */,
-				C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */,
-				61789DA42B94CB5F000E8B0B /* ContentView.swift */,
-				61789DA82B94CB60000E8B0B /* Assets.xcassets */,
+				C284E9A82C04A6390064D086 /* Resource */,
+				C284E9A72C04A6330064D086 /* Source */,
 				61789DAA2B94CB60000E8B0B /* Preview Content */,
 			);
 			path = RunRideStudio;
@@ -151,6 +148,41 @@
 				61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C284E9A72C04A6330064D086 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C284E9A92C04A64E0064D086 /* Base */,
+				C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		C284E9A82C04A6390064D086 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				61789DA82B94CB60000E8B0B /* Assets.xcassets */,
+				61789DB42B94E503000E8B0B /* Info.plist */,
+				6124F5ED2B9DB6E40030C54C /* RunRideStudio.entitlements */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C284E9A92C04A64E0064D086 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C284E9AA2C04A6600064D086 /* View */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C284E9AA2C04A6600064D086 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61789DA42B94CB5F000E8B0B /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,14 +503,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = RunRideStudio/RunRideStudio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RunRideStudio/Resource/RunRideStudio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RunRideStudio/Preview Content\"";
 				DEVELOPMENT_TEAM = 3668S4ATNC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = RunRideStudio/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -506,14 +538,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = RunRideStudio/RunRideStudio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RunRideStudio/Resource/RunRideStudio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RunRideStudio/Preview Content\"";
 				DEVELOPMENT_TEAM = 3668S4ATNC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = RunRideStudio/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
