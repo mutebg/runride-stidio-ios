@@ -10,7 +10,10 @@ import SwiftUI
 
 @main
 struct RunRide_WidgetBundle: WidgetBundle {
+    
+    @WidgetBundleBuilder
     var body: some Widget {
+        Snapshot()
         RunRide_Widget()
     }
 }

@@ -23,20 +23,18 @@ struct SnapshotData: Decodable {
     let ad: Int
 }
 
-
 struct ApiFetcher {
+    
+    static var baseUrl = "https://api-izq36taffa-uc.a.run.app/mobile/"
+    
     static func fetchData(sport: String, interval: String, metric: String) async throws -> StravaData {
         
-        //let useMetric = !UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
-        //let token = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "token")
-        //let stravaID = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "strava_id")
         var token = ""
         if  let cToken = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "token")  {
             token = cToken
         }
         
-        let url = URL(string: "https://api-izq36taffa-uc.a.run.app/mobile/simple?type=" + sport + "&token=" + token + "&interval=" + interval + "&metric=" + metric)!
-        print(url);
+        let url = URL(string: baseUrl + "simple?type=" + sport + "&token=" + token + "&interval=" + interval + "&metric=" + metric)!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -56,8 +54,7 @@ struct ApiFetcher {
             token = cToken
         }
         
-        let url = URL(string: "https://api-izq36taffa-uc.a.run.app/mobile/snapshot?type=" + sport + "&token=" + token + "&interval=" + interval)!
-        
+        let url = URL(string: baseUrl + "snapshot?type=" + sport + "&token=" + token + "&interval=" + interval)!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
