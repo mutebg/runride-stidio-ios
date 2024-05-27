@@ -9,7 +9,7 @@ import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct RunRide_WidgetAttributes: ActivityAttributes {
+struct RunRideStudioWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
         var emoji: String
@@ -19,9 +19,9 @@ struct RunRide_WidgetAttributes: ActivityAttributes {
     var name: String
 }
 
-struct RunRide_WidgetLiveActivity: Widget {
+struct RunRideStudioWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: RunRide_WidgetAttributes.self) { context in
+        ActivityConfiguration(for: RunRideStudioWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
                 Text("Hello \(context.state.emoji)")
@@ -56,25 +56,25 @@ struct RunRide_WidgetLiveActivity: Widget {
     }
 }
 
-extension RunRide_WidgetAttributes {
-    fileprivate static var preview: RunRide_WidgetAttributes {
-        RunRide_WidgetAttributes(name: "World")
+extension RunRideStudioWidgetAttributes {
+    fileprivate static var preview: RunRideStudioWidgetAttributes {
+        RunRideStudioWidgetAttributes(name: "World")
     }
 }
 
-extension RunRide_WidgetAttributes.ContentState {
-    fileprivate static var smiley: RunRide_WidgetAttributes.ContentState {
-        RunRide_WidgetAttributes.ContentState(emoji: "😀")
+extension RunRideStudioWidgetAttributes.ContentState {
+    fileprivate static var smiley: RunRideStudioWidgetAttributes.ContentState {
+        RunRideStudioWidgetAttributes.ContentState(emoji: "😀")
      }
      
-     fileprivate static var starEyes: RunRide_WidgetAttributes.ContentState {
-         RunRide_WidgetAttributes.ContentState(emoji: "🤩")
+     fileprivate static var starEyes: RunRideStudioWidgetAttributes.ContentState {
+         RunRideStudioWidgetAttributes.ContentState(emoji: "🤩")
      }
 }
 
-#Preview("Notification", as: .content, using: RunRide_WidgetAttributes.preview) {
-   RunRide_WidgetLiveActivity()
+#Preview("Notification", as: .content, using: RunRideStudioWidgetAttributes.preview) {
+   RunRideStudioWidgetLiveActivity()
 } contentStates: {
-    RunRide_WidgetAttributes.ContentState.smiley
-    RunRide_WidgetAttributes.ContentState.starEyes
+    RunRideStudioWidgetAttributes.ContentState.smiley
+    RunRideStudioWidgetAttributes.ContentState.starEyes
 }
