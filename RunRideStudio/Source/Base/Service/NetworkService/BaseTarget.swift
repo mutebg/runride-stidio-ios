@@ -57,7 +57,8 @@ extension BaseTarget {
     ) {
         guard queryParameters.count > 0 else { return }
         
-        components?.queryItems = [URLQueryItem]()
+        let queryItems = components?.queryItems ?? []
+        components?.queryItems = queryItems
         
         queryParameters.forEach { key, value in
             if !key.isEmpty && !value.isEmpty {
