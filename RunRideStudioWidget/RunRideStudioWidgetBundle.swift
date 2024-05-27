@@ -10,7 +10,9 @@ import WidgetKit
 
 @main
 struct RunRideStudioWidgetBundle: WidgetBundle {
+    @WidgetBundleBuilder
     var body: some Widget {
+        Snapshot()
         RunRideStudioWidget()
     }
 }
