@@ -24,7 +24,6 @@ struct SnapshotData: Decodable {
 }
 
 struct ApiFetcher {
-    
     static var baseUrl = "https://api-izq36taffa-uc.a.run.app/mobile/"
     
     static func fetchData(sport: String, interval: String, metric: String) async throws -> StravaData {

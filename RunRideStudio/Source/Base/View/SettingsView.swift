@@ -14,11 +14,9 @@ struct SettingsView: View {
     
     var body: some View {
         Text("Welcome")
-        .font(.system(size: 20))
-        .foregroundColor(.white)
-        .frame(maxWidth: .infinity, alignment: .leading)
-            
-            
+            .font(.system(size: 20))
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity, alignment: .leading)
         
         Text("This app is part of www.RunRide.Studio platform, you can check your stats and infographics using same strava login")
             .font(.system(size: 16))
@@ -29,7 +27,6 @@ struct SettingsView: View {
             if let url = URL(string: "https://runride.studio/ok?token=" + ( token ?? "" ) + "&id=" + (stravaID ?? "")) {
                 UIApplication.shared.open(url)
             }
-            
         }.frame(
             minWidth: 100, maxWidth: .infinity
         )
@@ -42,11 +39,11 @@ struct SettingsView: View {
         
         Divider()
         
-        
         Text("Settings")
-        .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .font(.system(size: 20))
             .foregroundColor(.white)
+
         Toggle("Use Imperial system", isOn: $useImperial)
             .onChange(of: useImperial) {
                 UserDefaultsConfig.useImperial = useImperial
@@ -68,19 +65,17 @@ struct SettingsView: View {
         )
         .foregroundColor(.white)
         .cornerRadius(5)
-      
         
         Divider().onAppear {
             loadSettings()
         }
         
         Text("Powered by Strava")
-        .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .font(.system(size: 14))
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
     }
-    
     
     func loadSettings () {
         useImperial = UserDefaultsConfig.useImperial

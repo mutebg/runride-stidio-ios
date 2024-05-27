@@ -18,7 +18,7 @@ struct ProviderGoal: AppIntentTimelineProvider {
         let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
         
         do {
-            let stravaData = try  await ApiFetcher.fetchData(
+            let stravaData = try await ApiFetcher.fetchData(
                 sport: configuration.sport.rawValue,
                 interval: configuration.period.rawValue,
                 metric: configuration.metric.rawValue
