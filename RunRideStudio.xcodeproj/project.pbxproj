@@ -16,8 +16,6 @@
 		614C38B82B99F58F001A1F32 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38B72B99F58F001A1F32 /* AppIntent.swift */; };
 		614C38BA2B99F594001A1F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 614C38B92B99F594001A1F32 /* Assets.xcassets */; };
 		614C38BE2B99F594001A1F32 /* RunRideStudioWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		614C38C42B99FB69001A1F32 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38C32B99FB69001A1F32 /* Enums.swift */; };
-		614C38C52B99FB69001A1F32 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38C32B99FB69001A1F32 /* Enums.swift */; };
 		61789DA52B94CB5F000E8B0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61789DA42B94CB5F000E8B0B /* ContentView.swift */; };
 		61789DA92B94CB60000E8B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DA82B94CB60000E8B0B /* Assets.xcassets */; };
 		61789DAC2B94CB60000E8B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */; };
@@ -63,7 +61,6 @@
 		614C38B72B99F58F001A1F32 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		614C38B92B99F594001A1F32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		614C38BB2B99F594001A1F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		614C38C32B99FB69001A1F32 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		61789D9F2B94CB5F000E8B0B /* RunRideStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunRideStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61789DA42B94CB5F000E8B0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61789DA82B94CB60000E8B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,7 +110,6 @@
 				614C38B72B99F58F001A1F32 /* AppIntent.swift */,
 				614C38B92B99F594001A1F32 /* Assets.xcassets */,
 				614C38BB2B99F594001A1F32 /* Info.plist */,
-				614C38C32B99FB69001A1F32 /* Enums.swift */,
 				6124F5EF2B9DBB2E0030C54C /* ApiFetcher.swift */,
 			);
 			path = RunRideStudioWidget;
@@ -296,7 +292,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				614C38B82B99F58F001A1F32 /* AppIntent.swift in Sources */,
-				614C38C52B99FB69001A1F32 /* Enums.swift in Sources */,
 				6124F5F12B9DBB2E0030C54C /* ApiFetcher.swift in Sources */,
 				614C38B22B99F58F001A1F32 /* RunRide_WidgetBundle.swift in Sources */,
 				614C38B62B99F58F001A1F32 /* RunRide_Widget.swift in Sources */,
@@ -312,7 +307,6 @@
 				C284E9B02C04A76B0064D086 /* LoginView.swift in Sources */,
 				C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */,
 				6124F5F02B9DBB2E0030C54C /* ApiFetcher.swift in Sources */,
-				614C38C42B99FB69001A1F32 /* Enums.swift in Sources */,
 				C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
