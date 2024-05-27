@@ -6,17 +6,13 @@
 //
 
 import SwiftUI
-import SwiftData
 import SafariServices
 
 struct ContentView: View {
      
-    
     @State private var useImperial = false
     @State private var stravaID: String?
     @State private var token: String?
-    
-   
     
     var isLogged: Bool {
         stravaID != nil && token != nil
@@ -52,8 +48,7 @@ struct ContentView: View {
         }
     }
         
-    
-     func loadUserId() {
+    func loadUserId() {
         if let savedUserId = UserDefaults(suiteName: "group.runride_studio")!.string(forKey: "strava_id") {
             stravaID = savedUserId
         } else {
@@ -84,8 +79,6 @@ struct ContentView: View {
             token = _token
         }
     }
-    
-   
 }
 
 struct ViewLogin: View {
