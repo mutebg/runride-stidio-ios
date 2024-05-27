@@ -1,6 +1,6 @@
 //
 //  ApiFetcher.swift
-//  RunRide Studio Widgets
+//  RunRideStudioWidget
 //
 //  Created by Stoyan Delev on 10.03.24.
 //
