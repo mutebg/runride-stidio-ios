@@ -11,8 +11,6 @@
 		6124F5F12B9DBB2E0030C54C /* ApiFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6124F5EF2B9DBB2E0030C54C /* ApiFetcher.swift */; };
 		614C38AD2B99F58E001A1F32 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AC2B99F58E001A1F32 /* WidgetKit.framework */; };
 		614C38AF2B99F58E001A1F32 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AE2B99F58E001A1F32 /* SwiftUI.framework */; };
-		614C38B22B99F58F001A1F32 /* RunRide_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38B12B99F58F001A1F32 /* RunRide_WidgetBundle.swift */; };
-		614C38B62B99F58F001A1F32 /* RunRide_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38B52B99F58F001A1F32 /* RunRide_Widget.swift */; };
 		614C38B82B99F58F001A1F32 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614C38B72B99F58F001A1F32 /* AppIntent.swift */; };
 		614C38BA2B99F594001A1F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 614C38B92B99F594001A1F32 /* Assets.xcassets */; };
 		614C38BE2B99F594001A1F32 /* RunRideStudioWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -23,6 +21,8 @@
 		C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AD2C04A7460064D086 /* StravaAuthView.swift */; };
 		C284E9B02C04A76B0064D086 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AF2C04A76B0064D086 /* LoginView.swift */; };
 		C284E9B22C04A77E0064D086 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9B12C04A77E0064D086 /* SettingsView.swift */; };
+		C284E9B72C04ABFA0064D086 /* RunRideStudioWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9B52C04AB4F0064D086 /* RunRideStudioWidgetBundle.swift */; };
+		C284E9B82C04ABFB0064D086 /* RunRideStudioWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9B32C04AB270064D086 /* RunRideStudioWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +56,6 @@
 		614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RunRideStudioWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		614C38AC2B99F58E001A1F32 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		614C38AE2B99F58E001A1F32 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		614C38B12B99F58F001A1F32 /* RunRide_WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRide_WidgetBundle.swift; sourceTree = "<group>"; };
-		614C38B52B99F58F001A1F32 /* RunRide_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRide_Widget.swift; sourceTree = "<group>"; };
 		614C38B72B99F58F001A1F32 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		614C38B92B99F594001A1F32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		614C38BB2B99F594001A1F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		C284E9AD2C04A7460064D086 /* StravaAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthView.swift; sourceTree = "<group>"; };
 		C284E9AF2C04A76B0064D086 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C284E9B12C04A77E0064D086 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C284E9B32C04AB270064D086 /* RunRideStudioWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRideStudioWidget.swift; sourceTree = "<group>"; };
+		C284E9B52C04AB4F0064D086 /* RunRideStudioWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRideStudioWidgetBundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +105,12 @@
 			isa = PBXGroup;
 			children = (
 				6124F5EE2B9DB7760030C54C /* RunRideStudioWidgetExtension.entitlements */,
-				614C38B12B99F58F001A1F32 /* RunRide_WidgetBundle.swift */,
-				614C38B52B99F58F001A1F32 /* RunRide_Widget.swift */,
 				614C38B72B99F58F001A1F32 /* AppIntent.swift */,
 				614C38B92B99F594001A1F32 /* Assets.xcassets */,
 				614C38BB2B99F594001A1F32 /* Info.plist */,
 				6124F5EF2B9DBB2E0030C54C /* ApiFetcher.swift */,
+				C284E9B32C04AB270064D086 /* RunRideStudioWidget.swift */,
+				C284E9B52C04AB4F0064D086 /* RunRideStudioWidgetBundle.swift */,
 			);
 			path = RunRideStudioWidget;
 			sourceTree = "<group>";
@@ -292,9 +292,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				614C38B82B99F58F001A1F32 /* AppIntent.swift in Sources */,
+				C284E9B82C04ABFB0064D086 /* RunRideStudioWidget.swift in Sources */,
 				6124F5F12B9DBB2E0030C54C /* ApiFetcher.swift in Sources */,
-				614C38B22B99F58F001A1F32 /* RunRide_WidgetBundle.swift in Sources */,
-				614C38B62B99F58F001A1F32 /* RunRide_Widget.swift in Sources */,
+				C284E9B72C04ABFA0064D086 /* RunRideStudioWidgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

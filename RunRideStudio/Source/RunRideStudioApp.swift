@@ -1,6 +1,6 @@
 //
 //  RunRideStudioApp.swift
-//  RunRide Studio Widgets
+//  RunRideStudio
 //
 //  Created by Arman Turalin on 27.05.2024.
 //

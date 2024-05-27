@@ -64,4 +64,3 @@ struct ConfigurationAppIntentSnapshot: WidgetConfigurationIntent {
     @Parameter(title: "Time frame", default: .weekly)
     var period: WidgetIntervals
 }
-

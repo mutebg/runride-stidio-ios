@@ -1,12 +1,12 @@
 //
-//  RunRide_Widget.swift
-//  RunRide Widget
+//  RunRideStudioWidget.swift
+//  RunRideStudio
 //
 //  Created by Stoyan Delev on 7.03.24.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct ProviderGoal: AppIntentTimelineProvider {
     func timeline(
@@ -48,14 +48,12 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationAppIntentGoal
 }
 
-struct RunRide_WidgetEntryView : View {
+struct RunRideStudioWidgetEntryView : View {
     let useMetric = !UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
     var entry: ProviderGoal.Entry
     var value: Double {
         return entry.value
     }
-    
-   
 
     var currentValue: Double {
         switch entry.configuration.metric.rawValue {
@@ -110,7 +108,6 @@ struct RunRide_WidgetEntryView : View {
         return entry.activities > 0 ? "activities" : "activity"
     }
 
-   
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 5 ) {
             Text("This " + currentWordPeriod)
@@ -119,7 +116,7 @@ struct RunRide_WidgetEntryView : View {
             Divider()
             Spacer()
             HStack(alignment: VerticalAlignment.bottom, spacing: 1){
-                Text( String( currentValue ))
+                Text(String( currentValue ))
                     .font(.system(size: 28) .bold())
                     .foregroundColor(.accentColor)
                 Text(currentMetric)
@@ -128,10 +125,10 @@ struct RunRide_WidgetEntryView : View {
                     .padding(.bottom, 4)
                 Spacer()
             }
-            Text( String(entry.activities) + " " + acitivitiesLabel)
+            Text(String(entry.activities) + " " + acitivitiesLabel)
                 .font(.system(size: 14))
                 .foregroundColor(grayColor)
-            Text( currentGoal > 0 ? String(goalPercent) + "% of the goal" : "No goal")
+            Text(currentGoal > 0 ? String(goalPercent) + "% of the goal" : "No goal")
                 .font(.system(size: 14))
                 .foregroundColor(grayColor)
                 .padding(.bottom, 4)
@@ -156,12 +153,12 @@ struct RunRide_WidgetEntryView : View {
     }
 }
 
-struct RunRide_Widget: Widget {
+struct RunRideStudioWidget: Widget {
     let kind: String = "RunRide_Widget"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntentGoal.self, provider: ProviderGoal()) { entry in
-            RunRide_WidgetEntryView(entry: entry)
+            RunRideStudioWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }.supportedFamilies([.systemSmall])
         
@@ -187,10 +184,10 @@ extension ConfigurationAppIntentGoal {
         return intent
     }
 }
-//
-//#Preview(as: .systemSmall) {
-//    RunRide_Widget()
-//} timeline: {
-//    SimpleEntry(date: .now, value: 150, activities: 8, configuration: .runner)
-//    SimpleEntry(date: .now, value: 120, activities: 8, configuration: .ridder)
-//}
+
+#Preview(as: .systemSmall) {
+    RunRideStudioWidget()
+} timeline: {
+    SimpleEntry(date: .now, value: 150, activities: 8, configuration: .runner)
+    SimpleEntry(date: .now, value: 120, activities: 8, configuration: .ridder)
+}
