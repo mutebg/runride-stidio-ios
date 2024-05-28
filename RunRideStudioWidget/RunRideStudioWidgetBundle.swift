@@ -1,19 +1,18 @@
 //
-//  RunRide_WidgetBundle.swift
-//  RunRide Widget
+//  RunRideStudioWidgetBundle.swift
+//  RunRideStudio
 //
 //  Created by Stoyan Delev on 7.03.24.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 @main
-struct RunRide_WidgetBundle: WidgetBundle {
-    
+struct RunRideStudioWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
         Snapshot()
-        RunRide_Widget()
+        RunRideStudioWidget()
     }
 }

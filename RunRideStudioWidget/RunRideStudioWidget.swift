@@ -1,35 +1,25 @@
 //
-//  RunRide_Widget.swift
-//  RunRide Widget
+//  RunRideStudioWidget.swift
+//  RunRideStudio
 //
 //  Created by Stoyan Delev on 7.03.24.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct ProviderGoal: AppIntentTimelineProvider {
+    private let networkService: WidgetServiceProtocol
+    
+    init(networkService: WidgetServiceProtocol = WidgetService()) {
+        self.networkService = networkService
+    }
+
     func timeline(
         for configuration: Self.Intent,
         in context: Self.Context
     ) async -> Timeline<GoalEntry> {
-        
-        let currentDate = Date() // Get the current date and time
-        let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
-        
-        do {
-            let stravaData = try  await ApiFetcher.fetchData(
-                sport: configuration.sport.rawValue,
-                interval: configuration.period.rawValue,
-                metric: configuration.metric.rawValue
-            )
-                        
-            let entry = GoalEntry(date: currentDate, value: stravaData.v, activities: stravaData.a, configuration: configuration)
-            return Timeline(entries: [entry], policy: .after(nextUpdate))
-        } catch {
-            let entry = GoalEntry(date: currentDate, value: 0, activities: 0, configuration: configuration)
-            return Timeline(entries: [entry], policy: .after(nextUpdate))
-        }
+        await goalData(for: configuration)
     }
     
     func placeholder(in context: Context) -> GoalEntry {
@@ -39,39 +29,86 @@ struct ProviderGoal: AppIntentTimelineProvider {
     func snapshot(for configuration: ConfigurationAppIntentGoal, in context: Context) async -> GoalEntry {
         GoalEntry(date: Date(), value: 5100, activities: 8, configuration: configuration)
     }
+    
+    private func goalData(for configuration: Self.Intent) async -> Timeline<GoalEntry> {
+        let currentDate = Date() // Get the current date and time
+        let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
+        
+        let result = await networkService.getGoalData(
+            sportType: configuration.sport.rawValue,
+            interval: configuration.period.rawValue,
+            metric: configuration.metric.rawValue
+        )
+        
+        switch result {
+        case let .success(data):
+            let entry = GoalEntry(
+                date: currentDate,
+                value: data.v,
+                activities: data.a,
+                configuration: configuration
+            )
+            return Timeline(entries: [entry], policy: .after(nextUpdate))
+        case .failure:
+            let entry = GoalEntry(date: currentDate, value: 0, activities: 0, configuration: configuration)
+            return Timeline(entries: [entry], policy: .after(nextUpdate))
+        }
+    }
 }
 
 struct ProviderSnapshot: AppIntentTimelineProvider {
+    private let networkService: WidgetServiceProtocol
+    
+    init(networkService: WidgetServiceProtocol = WidgetService()) {
+        self.networkService = networkService
+    }
+
     func timeline(
         for configuration: Self.Intent,
         in context: Self.Context
     ) async -> Timeline<SnapshotEntry> {
-        
-        let currentDate = Date() // Get the current date and time
-        let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
-        
-        do {
-            let snapshotData = try  await ApiFetcher.fetchSnapshot(
-                sport: configuration.sport.rawValue,
-                interval: configuration.period.rawValue
-            )
-                        
-            let entry = SnapshotEntry(
-                
-                date: currentDate, d: snapshotData.d, dd: snapshotData.dd, t: snapshotData.t, td: snapshotData.td, e:snapshotData.e, ed: snapshotData.ed, a: snapshotData.a, ad: snapshotData.ad , configuration: configuration)
-            return Timeline(entries: [entry], policy: .after(nextUpdate))
-        } catch {
-            let entry = SnapshotEntry(date: currentDate, d: 0, dd:0, t: 0, td:0, e:0, ed:0, a:0, ad:0, configuration: configuration)
-            return Timeline(entries: [entry], policy: .after(nextUpdate))
-        }
+        await snapshotData(for: configuration)
     }
     
     func placeholder(in context: Context) -> SnapshotEntry {
-        SnapshotEntry(date: Date(), d: 0, dd:0, t: 0, td:0, e:0, ed:0, a:0, ad:0, configuration: ConfigurationAppIntentSnapshot())
+        SnapshotEntry(date: Date(), configuration: ConfigurationAppIntentSnapshot())
     }
 
     func snapshot(for configuration: ConfigurationAppIntentSnapshot, in context: Context) async -> SnapshotEntry {
-        SnapshotEntry(date: Date(), d: 0, dd:0, t: 0, td:0, e:0, ed:0, a:0, ad:0, configuration: configuration)
+        SnapshotEntry(date: Date(), configuration: configuration)
+    }
+    
+    private func snapshotData(for configuration: Self.Intent) async -> Timeline<SnapshotEntry> {
+        let currentDate = Date() // Get the current date and time
+        let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
+        
+        let result = await networkService.getSnapshotData(
+            sportType: configuration.sport.rawValue,
+            interval: configuration.period.rawValue
+        )
+        
+        switch result {
+        case let .success(data):
+            let entry = SnapshotEntry(
+                date: currentDate,
+                d: data.d,
+                dd: data.dd,
+                t: data.t,
+                td: data.td,
+                e: data.e,
+                ed: data.ed,
+                a: data.a,
+                ad: data.ad,
+                configuration: configuration
+            )
+            return Timeline(entries: [entry], policy: .after(nextUpdate))
+        case .failure:
+            let entry = SnapshotEntry(
+                date: currentDate,
+                configuration: configuration
+            )
+            return Timeline(entries: [entry], policy: .after(nextUpdate))
+        }
     }
 }
 
@@ -93,15 +130,39 @@ struct SnapshotEntry: TimelineEntry {
     let a: Int
     let ad: Int
     let configuration: ConfigurationAppIntentSnapshot
+    
+    init(
+        date: Date,
+        d: Double = .zero,
+        dd: Double = .zero,
+        t: Int = .zero,
+        td: Int = .zero,
+        e: Int = .zero,
+        ed: Int = .zero,
+        a: Int = .zero,
+        ad: Int = .zero,
+        configuration: ConfigurationAppIntentSnapshot
+    ) {
+        self.date = date
+        self.d = d
+        self.dd = dd
+        self.t = t
+        self.td = td
+        self.e = e
+        self.ed = ed
+        self.a = a
+        self.ad = ad
+        self.configuration = configuration
+    }
 }
 
-struct RunRide_WidgetEntryView : View {
-    let useMetric = !UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
+struct RunRideStudioWidgetEntryView : View {
+    let useMetric = !UserDefaultsConfig.useImperial
     var entry: ProviderGoal.Entry
     var value: Double {
         return entry.value
     }
-    
+
     var currentValue: Double {
         switch entry.configuration.metric.rawValue {
             case "distance": return getDistance(value, useMetric: useMetric)
@@ -150,7 +211,6 @@ struct RunRide_WidgetEntryView : View {
         return v
     }
     
-    
     var acitivitiesLabel: String {
         return entry.activities > 0 ? "activities" : "activity"
     }
@@ -170,7 +230,7 @@ struct RunRide_WidgetEntryView : View {
             Divider()
             Spacer()
             HStack(alignment: VerticalAlignment.bottom, spacing: 1){
-                Text( String(format: formatLenght, currentValue))
+                Text(String(format: formatLenght, currentValue))
                     .font(.system(size: 28) .bold())
                     .foregroundColor(.accentColor)
                 Text(currentMetric)
@@ -179,10 +239,10 @@ struct RunRide_WidgetEntryView : View {
                     .padding(.bottom, 4)
                 Spacer()
             }
-            Text( String(entry.activities) + " " + acitivitiesLabel)
+            Text(String(entry.activities) + " " + acitivitiesLabel)
                 .font(.system(size: 14))
                 .foregroundColor(grayColor)
-            Text( currentGoal > 0 ? String(goalPercent) + "% of the goal" : "No goal")
+            Text(currentGoal > 0 ? String(goalPercent) + "% of the goal" : "No goal")
                 .font(.system(size: 14))
                 .foregroundColor(grayColor)
                 .padding(.bottom, 4)
@@ -207,11 +267,11 @@ struct RunRide_WidgetEntryView : View {
     }
 }
 
-struct RunRide_WidgetEntryViewSnapshot : View {
+struct RunRideStudioWidgetEntryViewSnapshot : View {
 
     var entry: ProviderSnapshot.Entry
     @Environment(\.widgetFamily) var widgetFamily
-    let useMetric = !UserDefaults(suiteName: "group.runride_studio")!.bool(forKey: "useImperial")
+    let useMetric = !UserDefaultsConfig.useImperial
     
     var d: String {
         return getDistance(entry.d, useMetric: useMetric)
@@ -245,7 +305,6 @@ struct RunRide_WidgetEntryViewSnapshot : View {
     var activities: String {
         return entry.configuration.sport.rawValue.capitalized + "s";
     }
-
    
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 4 ) {
@@ -302,8 +361,6 @@ struct SnapshotItem: View {
     let value: String
     let diff: String
     let family: WidgetFamily
-    
-
 
     var body: some View {
         VStack(alignment: .leading, spacing: 1) {
@@ -318,12 +375,12 @@ struct SnapshotItem: View {
     }
 }
 
-struct RunRide_Widget: Widget {
+struct RunRideStudioWidget: Widget {
     let kind: String = "RunRide_Widget"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntentGoal.self, provider: ProviderGoal()) { entry in
-            RunRide_WidgetEntryView(entry: entry)
+            RunRideStudioWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }.supportedFamilies([.systemSmall, .systemMedium])
         
@@ -335,13 +392,12 @@ struct Snapshot: Widget {
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntentSnapshot.self, provider: ProviderSnapshot()) { entry in
-            RunRide_WidgetEntryViewSnapshot(entry: entry)
+            RunRideStudioWidgetEntryViewSnapshot(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }.supportedFamilies([.systemSmall, .systemMedium])
         
     }
 }
-
 
 extension ConfigurationAppIntentGoal {
     fileprivate static var runner: ConfigurationAppIntentGoal {
@@ -379,16 +435,12 @@ extension ConfigurationAppIntentSnapshot {
     }
 }
 
-
-
-//
 #Preview(as: .systemSmall) {
-    RunRide_Widget()
+    RunRideStudioWidget()
 } timeline: {
     GoalEntry(date: .now, value: 150, activities: 8, configuration: .runner)
     GoalEntry(date: .now, value: 120, activities: 8, configuration: .ridder)
 }
-
 
 #Preview(as: .systemMedium) {
     Snapshot()
