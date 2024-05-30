@@ -7,36 +7,37 @@
 
 import SwiftUI
 
-struct RunRideStudioWidgetEntryView: View {
+struct GoalWidgetView: View {
     let useMetric = !UserDefaultsConfig.useImperial
     var entry: GoalWidgetTimelineProvider.Entry
-    var value: Double {
-        return entry.value
-    }
 
-    var currentValue: Double {
-        switch entry.configuration.metric.rawValue {
-            case "distance": return getDistance(value, useMetric: useMetric)
-            case "time": return getTime(value)
-            case "elevation": return getElevation(value, useMetric: useMetric)
-            default: return 0
+    private var currentValue: Double {
+        switch entry.configuration.metric {
+        case .distance:
+            return entry.value.distanceInLocalSettings
+        case .time:
+            return entry.value.secondsToHour
+        case .elevation:
+            return entry.value.elevationInLocalSettings
         }
     }
     
-    var currentMetric: String {
-        switch entry.configuration.metric.rawValue {
-            case "distance": return useMetric ? "km" : "ml"
-            case "time": return "h"
-            case "elevation": return useMetric ? "m" : "ft"
-            default: return ""
+    private var currentMetric: String {
+        switch entry.configuration.metric {
+        case .distance:
+            return useMetric ? "km" : "mi"
+        case .time:
+            return "h"
+        case .elevation:
+            return useMetric ? "m" : "ft"
         }
     }
     
-    var currentWordPeriod: String {
+    private var currentWordPeriod: String {
         entry.configuration.period.rawValue.lowercased().replacingOccurrences(of: "ly", with: "")
     }
     
-    var currentGoal: Double {
+    private var currentGoal: Double {
         entry.configuration.goal
     }
     
@@ -103,17 +104,5 @@ struct RunRideStudioWidgetEntryView: View {
                 .tint(.accentColor)
                 .padding(.bottom, 2)
         }
-    }
-    
-    func getTime(_ value: Double) -> Double {
-        return value / 3600  // 60 seconds * 60 minutes = 3600 seconds per hour
-    }
-    
-    func getDistance(_ value: Double, useMetric: Bool) -> Double {
-        return useMetric ? value : value * 0.621371
-    }
-    
-    func getElevation(_ value: Double, useMetric: Bool) -> Double {
-        return useMetric ? value : value * 3.28084
     }
 }

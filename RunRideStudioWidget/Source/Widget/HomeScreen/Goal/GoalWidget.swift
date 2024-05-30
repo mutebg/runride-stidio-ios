@@ -17,7 +17,7 @@ struct GoalWidget: Widget {
             intent: GoalWidgetIntent.self,
             provider: GoalWidgetTimelineProvider()
         ) { entry in
-            RunRideStudioWidgetEntryView(entry: entry)
+            GoalWidgetView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
         .configurationDisplayName("Goal Widget")

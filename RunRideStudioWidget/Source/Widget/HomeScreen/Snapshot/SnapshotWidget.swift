@@ -17,7 +17,7 @@ struct SnapshotWidget: Widget {
             intent: SnapshotWidgetIntent.self,
             provider: SnapshotWidgetTimelineProvider()
         ) { entry in
-            RunRideStudioWidgetEntryViewSnapshot(entry: entry)
+            SnapshotWidgetView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
         .configurationDisplayName("Snapshot Widget")

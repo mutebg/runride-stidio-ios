@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RunRideStudioWidgetEntryViewSnapshot: View {
+struct SnapshotWidgetView: View {
     var entry: SnapshotWidgetTimelineProvider.Entry
 
     @Environment(\.widgetFamily) var widgetFamily
@@ -53,17 +53,17 @@ struct RunRideStudioWidgetEntryViewSnapshot: View {
             Divider()
             
             HStack  {
-                SnapshotItem(label: "Distance", value: d, diff: dd, family: widgetFamily)
+                SnapshotItemView(label: "Distance", value: d, diff: dd, family: widgetFamily)
                 Divider()
-                SnapshotItem(label: "Time", value: t, diff: td, family: widgetFamily)
+                SnapshotItemView(label: "Time", value: t, diff: td, family: widgetFamily)
             }
             
             Divider()
             
             HStack {
-                SnapshotItem(label: "Elevation", value: e, diff: ed, family: widgetFamily)
+                SnapshotItemView(label: "Elevation", value: e, diff: ed, family: widgetFamily)
                 Divider()
-                SnapshotItem(label: activities, value: a, diff: ad, family: widgetFamily)
+                SnapshotItemView(label: activities, value: a, diff: ad, family: widgetFamily)
             }
         }
     }

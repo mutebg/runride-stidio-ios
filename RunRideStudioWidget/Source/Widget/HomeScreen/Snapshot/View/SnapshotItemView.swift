@@ -8,7 +8,7 @@
 import SwiftUI
 import WidgetKit
 
-struct SnapshotItem: View {
+struct SnapshotItemView: View {
     let label: String
     let value: String
     let diff: String

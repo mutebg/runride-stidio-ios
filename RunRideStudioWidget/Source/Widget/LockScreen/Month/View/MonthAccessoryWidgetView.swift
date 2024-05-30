@@ -11,23 +11,9 @@ struct MonthAccessoryWidgetView: View {
     let entry: MonthAccessoryWidgetTimelineProvider.Entry
     let sportName: String
 
-    private var month: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM"
-        return formatter.string(from: entry.date).uppercased()
-    }
-
-    private var distance: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        return formatter.string(from: entry.value as NSNumber) ?? ""
-    }
-
     private var metric: String {
-        let useMetric = !UserDefaultsConfig.useImperial
-        let metric = (useMetric ? "km" : "mi")
-        return [metric, sportName].joined(separator: " | ").uppercased()
+        [DistanceMeasureType.current.title, sportName]
+            .joined(separator: " | ").uppercased()
     }
 
     var body: some View {
@@ -38,9 +24,9 @@ struct MonthAccessoryWidgetView: View {
                 .opacity(0.3)
 
             VStack(alignment: .center) {
-                Text(month)
+                Text(entry.date.shortMonth.uppercased())
                     .font(.system(size: 8))
-                Text(distance)
+                Text(entry.value.distanceInLocalSettings.formatted())
                     .font(.largeTitle)
                     .minimumScaleFactor(0.01)
                     .lineLimit(1)
@@ -55,10 +41,5 @@ struct MonthAccessoryWidgetView: View {
                 trailing: Spacing.space8
             ))
         }
-    }
-    
-    func getDistance(_ value: Double) -> Double {
-        let useMetric = !UserDefaultsConfig.useImperial
-        return useMetric ? value : value * 0.621371
     }
 }
