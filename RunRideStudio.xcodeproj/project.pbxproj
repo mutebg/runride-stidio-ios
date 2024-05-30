@@ -220,8 +220,8 @@
 		C22971A22C089F1400241D92 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				C22971B42C08A63700241D92 /* Goal */,
-				C22971A32C089F1900241D92 /* Snapshot */,
+				C22971CB2C08AD3300241D92 /* HomeScreen */,
+				C22971CA2C08AD2300241D92 /* LockScreen */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -323,6 +323,22 @@
 				C22971C72C08A99400241D92 /* MetricType.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		C22971CA2C08AD2300241D92 /* LockScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LockScreen;
+			sourceTree = "<group>";
+		};
+		C22971CB2C08AD3300241D92 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C22971B42C08A63700241D92 /* Goal */,
+				C22971A32C089F1900241D92 /* Snapshot */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		C284E9A72C04A6330064D086 /* Source */ = {
