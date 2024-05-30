@@ -36,7 +36,6 @@
 		C22971DC2C08C71900241D92 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971DA2C08C71900241D92 /* Spacing.swift */; };
 		C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */; };
 		C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AD2C04A7460064D086 /* StravaAuthView.swift */; };
-		C284E9B02C04A76B0064D086 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AF2C04A76B0064D086 /* LoginView.swift */; };
 		C284E9B22C04A77E0064D086 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9B12C04A77E0064D086 /* SettingsView.swift */; };
 		C284E9B72C04ABFA0064D086 /* RunRideStudioWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9B52C04AB4F0064D086 /* RunRideStudioWidgetBundle.swift */; };
 		C284E9BD2C04CC800064D086 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9BC2C04CC800064D086 /* UserDefaultsWrapper.swift */; };
@@ -51,6 +50,9 @@
 		C284E9CC2C04D78A0064D086 /* WidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9CA2C04D78A0064D086 /* WidgetService.swift */; };
 		C284E9D22C04DDC50064D086 /* SnapshotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9D12C04DDC50064D086 /* SnapshotData.swift */; };
 		C284E9D32C04DDC50064D086 /* SnapshotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9D12C04DDC50064D086 /* SnapshotData.swift */; };
+		C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73D2C09123600E1B378 /* AuthView.swift */; };
+		C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */; };
+		C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA7432C0915CC00E1B378 /* HomeView.swift */; };
 		C2E6941E2C08D05E00020F8F /* TotalMetricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */; };
 		C2E6941F2C08D06400020F8F /* TotalMetricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */; };
 		C2E694222C08D26400020F8F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E694212C08D26400020F8F /* Date+Extension.swift */; };
@@ -121,7 +123,6 @@
 		C22971DA2C08C71900241D92 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRideStudioApp.swift; sourceTree = "<group>"; };
 		C284E9AD2C04A7460064D086 /* StravaAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthView.swift; sourceTree = "<group>"; };
-		C284E9AF2C04A76B0064D086 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C284E9B12C04A77E0064D086 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C284E9B52C04AB4F0064D086 /* RunRideStudioWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRideStudioWidgetBundle.swift; sourceTree = "<group>"; };
 		C284E9BC2C04CC800064D086 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
@@ -130,6 +131,9 @@
 		C284E9C72C04D77F0064D086 /* WidgetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTarget.swift; sourceTree = "<group>"; };
 		C284E9CA2C04D78A0064D086 /* WidgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetService.swift; sourceTree = "<group>"; };
 		C284E9D12C04DDC50064D086 /* SnapshotData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotData.swift; sourceTree = "<group>"; };
+		C2CDA73D2C09123600E1B378 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		C2CDA7432C0915CC00E1B378 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalMetricData.swift; sourceTree = "<group>"; };
 		C2E694212C08D26400020F8F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C2E694242C08D2B400020F8F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -442,9 +446,10 @@
 		C284E9AA2C04A6600064D086 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2CDA7412C0915C100E1B378 /* Home */,
+				C2CDA73A2C09120A00E1B378 /* Auth */,
 				61789DA42B94CB5F000E8B0B /* ContentView.swift */,
 				C284E9AD2C04A7460064D086 /* StravaAuthView.swift */,
-				C284E9AF2C04A76B0064D086 /* LoginView.swift */,
 				C284E9B12C04A77E0064D086 /* SettingsView.swift */,
 			);
 			path = View;
@@ -486,6 +491,47 @@
 				C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		C2CDA73A2C09120A00E1B378 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C2CDA73C2C09122800E1B378 /* View */,
+				C2CDA73B2C09121B00E1B378 /* ViewModel */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C2CDA73B2C09121B00E1B378 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C2CDA73C2C09122800E1B378 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C2CDA73D2C09123600E1B378 /* AuthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C2CDA7412C0915C100E1B378 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C2CDA7422C0915C500E1B378 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C2CDA7422C0915C500E1B378 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C2CDA7432C0915CC00E1B378 /* HomeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C2E694202C08D25A00020F8F /* Extension */ = {
@@ -651,11 +697,13 @@
 				C2E694292C08D3D000020F8F /* DistanceMeasureType.swift in Sources */,
 				C284E9B22C04A77E0064D086 /* SettingsView.swift in Sources */,
 				C2E6941E2C08D05E00020F8F /* TotalMetricData.swift in Sources */,
+				C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */,
 				61789DA52B94CB5F000E8B0B /* ContentView.swift in Sources */,
-				C284E9B02C04A76B0064D086 /* LoginView.swift in Sources */,
+				C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */,
 				C284E9C82C04D77F0064D086 /* WidgetTarget.swift in Sources */,
 				C2E694252C08D2B400020F8F /* Double+Extension.swift in Sources */,
 				C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */,
+				C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */,
 				C2E6942C2C08DA8B00020F8F /* ElevationMeasureType.swift in Sources */,
 				C284E9CB2C04D78A0064D086 /* WidgetService.swift in Sources */,
 				C284E9D22C04DDC50064D086 /* SnapshotData.swift in Sources */,
