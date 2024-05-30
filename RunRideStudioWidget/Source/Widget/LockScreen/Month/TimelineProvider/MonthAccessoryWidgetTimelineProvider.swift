@@ -8,9 +8,14 @@
 import WidgetKit
 
 struct MonthAccessoryWidgetTimelineProvider: TimelineProvider {
+    private let sportType: SportType
     private let networkService: WidgetServiceProtocol
     
-    init(networkService: WidgetServiceProtocol = WidgetService()) {
+    init(
+        sportType: SportType,
+        networkService: WidgetServiceProtocol = WidgetService()
+    ) {
+        self.sportType = sportType
         self.networkService = networkService
     }
 
@@ -34,7 +39,7 @@ struct MonthAccessoryWidgetTimelineProvider: TimelineProvider {
         let nextUpdate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
         
         let result = await networkService.getGoalData(
-            sportType: SportType.run.rawValue,
+            sportType: sportType.rawValue,
             interval: IntervalType.monthly.rawValue,
             metric: MetricType.distance.rawValue
         )

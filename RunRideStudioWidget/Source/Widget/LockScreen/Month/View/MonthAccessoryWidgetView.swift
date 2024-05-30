@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MonthAccessoryWidgetView: View {
-    var entry: MonthAccessoryWidgetTimelineProvider.Entry
+    let entry: MonthAccessoryWidgetTimelineProvider.Entry
+    let sportName: String
     
     private enum Constants {
         static let spacer2: CGFloat = 2.0
@@ -34,8 +35,7 @@ struct MonthAccessoryWidgetView: View {
     private var metric: String {
         let useMetric = !UserDefaultsConfig.useImperial
         let metric = (useMetric ? "km" : "mi")
-        let sportType = "run"
-        return [metric, sportType].joined(separator: " | ").uppercased()
+        return [metric, sportName].joined(separator: " | ").uppercased()
     }
 
     var body: some View {
