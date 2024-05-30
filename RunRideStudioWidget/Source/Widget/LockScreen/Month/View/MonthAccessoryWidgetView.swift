@@ -40,7 +40,6 @@ struct MonthAccessoryWidgetView: View {
             VStack(alignment: .center) {
                 Text(month)
                     .font(.system(size: 8))
-                    .padding(.horizontal, Spacing.space8)
                 Text(distance)
                     .font(.largeTitle)
                     .minimumScaleFactor(0.1)
