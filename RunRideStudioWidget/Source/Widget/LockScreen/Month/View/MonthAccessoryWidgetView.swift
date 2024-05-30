@@ -10,15 +10,7 @@ import SwiftUI
 struct MonthAccessoryWidgetView: View {
     let entry: MonthAccessoryWidgetTimelineProvider.Entry
     let sportName: String
-    
-    private enum Constants {
-        static let spacer2: CGFloat = 2.0
-        static let spacer4: CGFloat = 4.0
-        static let spacer6: CGFloat = 6.0
-        static let spacer8: CGFloat = 8.0
-        static let spacer10: CGFloat = 10.0
-    }
-    
+
     private var month: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM"
@@ -48,7 +40,7 @@ struct MonthAccessoryWidgetView: View {
             VStack(alignment: .center) {
                 Text(month)
                     .font(.system(size: 8))
-                    .padding(.horizontal, Constants.spacer8)
+                    .padding(.horizontal, Spacing.space8)
                 Text(distance)
                     .font(.largeTitle)
                     .minimumScaleFactor(0.1)
@@ -57,10 +49,10 @@ struct MonthAccessoryWidgetView: View {
                     .font(.system(size: 8))
             }
             .padding(.init(
-                top: Constants.spacer8,
-                leading: Constants.spacer4,
-                bottom: Constants.spacer8,
-                trailing: Constants.spacer4
+                top: Spacing.space8,
+                leading: Spacing.space4,
+                bottom: Spacing.space8,
+                trailing: Spacing.space4
             ))
         }
     }
