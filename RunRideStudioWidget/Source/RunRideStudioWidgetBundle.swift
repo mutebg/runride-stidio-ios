@@ -13,6 +13,6 @@ struct RunRideStudioWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
         SnapshotWidget()
-        RunRideStudioWidget()
+        GoalWidget()
     }
 }

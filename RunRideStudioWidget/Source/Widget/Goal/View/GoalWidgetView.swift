@@ -1,71 +1,15 @@
 //
-//  RunRideStudioWidget.swift
-//  RunRideStudio
+//  GoalWidgetView.swift
+//  RunRideStudioWidgetExtension
 //
-//  Created by Stoyan Delev on 7.03.24.
+//  Created by Arman Turalin on 30.05.2024.
 //
 
 import SwiftUI
-import WidgetKit
-
-struct ProviderGoal: AppIntentTimelineProvider {
-    private let networkService: WidgetServiceProtocol
-    
-    init(networkService: WidgetServiceProtocol = WidgetService()) {
-        self.networkService = networkService
-    }
-
-    func timeline(
-        for configuration: Self.Intent,
-        in context: Self.Context
-    ) async -> Timeline<GoalEntry> {
-        await goalData(for: configuration)
-    }
-    
-    func placeholder(in context: Context) -> GoalEntry {
-        GoalEntry(date: Date(), value: 5100, activities: 8, configuration: ConfigurationAppIntentGoal())
-    }
-
-    func snapshot(for configuration: ConfigurationAppIntentGoal, in context: Context) async -> GoalEntry {
-        GoalEntry(date: Date(), value: 5100, activities: 8, configuration: configuration)
-    }
-    
-    private func goalData(for configuration: Self.Intent) async -> Timeline<GoalEntry> {
-        let currentDate = Date() // Get the current date and time
-        let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
-        
-        let result = await networkService.getGoalData(
-            sportType: configuration.sport.rawValue,
-            interval: configuration.period.rawValue,
-            metric: configuration.metric.rawValue
-        )
-        
-        switch result {
-        case let .success(data):
-            let entry = GoalEntry(
-                date: currentDate,
-                value: data.v,
-                activities: data.a,
-                configuration: configuration
-            )
-            return Timeline(entries: [entry], policy: .after(nextUpdate))
-        case .failure:
-            let entry = GoalEntry(date: currentDate, value: 0, activities: 0, configuration: configuration)
-            return Timeline(entries: [entry], policy: .after(nextUpdate))
-        }
-    }
-}
-
-struct GoalEntry: TimelineEntry {
-    let date: Date
-    let value: Double
-    let activities: Int
-    let configuration: ConfigurationAppIntentGoal
-}
 
 struct RunRideStudioWidgetEntryView: View {
     let useMetric = !UserDefaultsConfig.useImperial
-    var entry: ProviderGoal.Entry
+    var entry: GoalWidgetTimelineProvider.Entry
     var value: Double {
         return entry.value
     }
@@ -172,44 +116,4 @@ struct RunRideStudioWidgetEntryView: View {
     func getElevation(_ value: Double, useMetric: Bool) -> Double {
         return useMetric ? value : value * 3.28084
     }
-}
-
-struct RunRideStudioWidget: Widget {
-    let kind: String = "RunRide_Widget"
-
-    var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntentGoal.self, provider: ProviderGoal()) { entry in
-            RunRideStudioWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
-        }.supportedFamilies([.systemSmall, .systemMedium])
-        
-    }
-}
-
-extension ConfigurationAppIntentGoal {
-    fileprivate static var runner: ConfigurationAppIntentGoal {
-        let intent = ConfigurationAppIntentGoal()
-        intent.goal = 200.0
-        intent.sport = .run
-        intent.period = .monthly
-        intent.metric = .distance
-        return intent
-    }
-    
-    fileprivate static var ridder: ConfigurationAppIntentGoal {
-        let intent = ConfigurationAppIntentGoal()
-        intent.goal = 160.0
-        intent.sport = .ride
-        intent.period = .weekly
-        intent.metric = .distance
-        return intent
-    }
-}
-
-
-#Preview(as: .systemSmall) {
-    RunRideStudioWidget()
-} timeline: {
-    GoalEntry(date: .now, value: 150, activities: 8, configuration: .runner)
-    GoalEntry(date: .now, value: 120, activities: 8, configuration: .ridder)
 }

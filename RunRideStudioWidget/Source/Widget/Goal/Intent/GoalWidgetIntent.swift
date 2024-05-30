@@ -1,5 +1,5 @@
 //
-//  SnapshotWidgetIntent.swift
+//  GoalWidgetIntent.swift
 //  RunRideStudioWidgetExtension
 //
 //  Created by Arman Turalin on 30.05.2024.
@@ -7,7 +7,7 @@
 
 import AppIntents
 
-struct SnapshotWidgetIntent: WidgetConfigurationIntent {
+struct GoalWidgetIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Configuration"
 
     @Parameter(title: "Sport", default: .run)
@@ -15,4 +15,10 @@ struct SnapshotWidgetIntent: WidgetConfigurationIntent {
     
     @Parameter(title: "Time frame", default: .weekly)
     var period: IntervalType
+    
+    @Parameter(title: "Metric", default: .distance)
+    var metric: MetricType
+    
+    @Parameter(title: "Goal", default: 0.0)
+    var goal: Double
 }
