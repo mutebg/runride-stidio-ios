@@ -8,11 +8,11 @@
 import Foundation
 
 protocol WidgetServiceProtocol {
-    func getGoalData(
-        sportType: String,
+    func getTotalMetricData(
+        for sportType: String,
         interval: String,
         metric: String
-    ) async -> Result<StravaData, BaseNetworkError>
+    ) async -> Result<TotalMetricData, BaseNetworkError>
     func getSnapshotData(
         sportType: String,
         interval: String
@@ -29,11 +29,11 @@ final class WidgetService {
 
 // MARK: - WidgetServiceProtocol
 extension WidgetService: WidgetServiceProtocol {
-    func getGoalData(
-        sportType: String,
+    func getTotalMetricData(
+        for sportType: String,
         interval: String,
         metric: String
-    ) async -> Result<StravaData, BaseNetworkError> {
+    ) async -> Result<TotalMetricData, BaseNetworkError> {
         let result = await provider.request(
             with: WidgetTarget.goalData(
                 sportType: sportType,
@@ -45,8 +45,8 @@ extension WidgetService: WidgetServiceProtocol {
         switch result {
         case let .success(data):
             do {
-                let stravaData = try JSONDecoder().decode(StravaData.self, from: data)
-                return .success(stravaData)
+                let entity = try JSONDecoder().decode(TotalMetricData.self, from: data)
+                return .success(entity)
             } catch let error {
                 return .failure(.invalidData(error))
             }

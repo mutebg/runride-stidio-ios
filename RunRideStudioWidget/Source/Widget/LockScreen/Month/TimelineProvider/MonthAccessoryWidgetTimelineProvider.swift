@@ -38,8 +38,8 @@ struct MonthAccessoryWidgetTimelineProvider: TimelineProvider {
         let currentDate = Date() // Get the current date and time
         let nextUpdate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
         
-        let result = await networkService.getGoalData(
-            sportType: sportType.rawValue,
+        let result = await networkService.getTotalMetricData(
+            for: sportType.rawValue,
             interval: IntervalType.monthly.rawValue,
             metric: MetricType.distance.rawValue
         )
@@ -48,7 +48,7 @@ struct MonthAccessoryWidgetTimelineProvider: TimelineProvider {
         case let .success(data):
             let entry = MonthAccessoryWidgetEntry(
                 date: currentDate,
-                value: data.v
+                value: data.currentValue
             )
             return Timeline(entries: [entry], policy: .after(nextUpdate))
         case .failure:

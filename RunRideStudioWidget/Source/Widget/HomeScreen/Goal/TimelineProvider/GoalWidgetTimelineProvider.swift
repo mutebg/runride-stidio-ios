@@ -33,8 +33,8 @@ struct GoalWidgetTimelineProvider: AppIntentTimelineProvider {
         let currentDate = Date() // Get the current date and time
         let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
         
-        let result = await networkService.getGoalData(
-            sportType: configuration.sport.rawValue,
+        let result = await networkService.getTotalMetricData(
+            for: configuration.sport.rawValue,
             interval: configuration.period.rawValue,
             metric: configuration.metric.rawValue
         )
@@ -43,8 +43,8 @@ struct GoalWidgetTimelineProvider: AppIntentTimelineProvider {
         case let .success(data):
             let entry = GoalWidgetEntry(
                 date: currentDate,
-                value: data.v,
-                activities: data.a,
+                value: data.currentValue,
+                activities: data.activitiesCount,
                 configuration: configuration
             )
             return Timeline(entries: [entry], policy: .after(nextUpdate))
