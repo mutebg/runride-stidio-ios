@@ -32,10 +32,10 @@ struct MonthAccessoryWidgetView: View {
 
     var body: some View {
         ZStack {
-            Image(.halfFlower)
+            Image(.flower)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .opacity(0.55)
+                .opacity(0.3)
 
             VStack(alignment: .center) {
                 Text(month)
@@ -48,10 +48,10 @@ struct MonthAccessoryWidgetView: View {
                     .font(.system(size: 8))
             }
             .padding(.init(
-                top: Spacing.space8,
-                leading: Spacing.space4,
-                bottom: Spacing.space8,
-                trailing: Spacing.space4
+                top: Spacing.space10,
+                leading: Spacing.space8,
+                bottom: Spacing.space10,
+                trailing: Spacing.space8
             ))
         }
     }
