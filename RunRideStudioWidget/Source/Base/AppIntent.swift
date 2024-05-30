@@ -53,14 +53,3 @@ struct ConfigurationAppIntentGoal: WidgetConfigurationIntent {
     @Parameter(title: "Goal", default: 0.0)
     var goal: Double
 }
-
-struct ConfigurationAppIntentSnapshot: WidgetConfigurationIntent {
-    static var title: LocalizedStringResource = "Configuration"
-    // static var description = IntentDescription("...")
-
-    @Parameter(title: "Sport", default: .run)
-    var sport: WidgetSports
-    
-    @Parameter(title: "Time frame", default: .weekly)
-    var period: WidgetIntervals
-}

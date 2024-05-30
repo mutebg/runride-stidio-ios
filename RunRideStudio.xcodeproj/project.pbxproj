@@ -15,6 +15,12 @@
 		61789DA52B94CB5F000E8B0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61789DA42B94CB5F000E8B0B /* ContentView.swift */; };
 		61789DA92B94CB60000E8B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DA82B94CB60000E8B0B /* Assets.xcassets */; };
 		61789DAC2B94CB60000E8B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */; };
+		C22971A52C089F3000241D92 /* SnapshotWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971A42C089F3000241D92 /* SnapshotWidget.swift */; };
+		C22971A72C08A0F200241D92 /* SnapshotWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971A62C08A0F200241D92 /* SnapshotWidgetEntry.swift */; };
+		C22971A92C08A12900241D92 /* SnapshotWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971A82C08A12900241D92 /* SnapshotWidgetView.swift */; };
+		C22971AD2C08A17100241D92 /* SnapshotItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971AC2C08A17100241D92 /* SnapshotItemView.swift */; };
+		C22971B02C08A1CA00241D92 /* SnapshotWidgetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971AF2C08A1CA00241D92 /* SnapshotWidgetTimelineProvider.swift */; };
+		C22971B32C08A46900241D92 /* SnapshotWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971B22C08A46900241D92 /* SnapshotWidgetIntent.swift */; };
 		C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */; };
 		C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AD2C04A7460064D086 /* StravaAuthView.swift */; };
 		C284E9B02C04A76B0064D086 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AF2C04A76B0064D086 /* LoginView.swift */; };
@@ -75,6 +81,12 @@
 		61789DA82B94CB60000E8B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61789DB42B94E503000E8B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RunRideStudio/Resource/Info.plist; sourceTree = SOURCE_ROOT; };
+		C22971A42C089F3000241D92 /* SnapshotWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotWidget.swift; sourceTree = "<group>"; };
+		C22971A62C08A0F200241D92 /* SnapshotWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotWidgetEntry.swift; sourceTree = "<group>"; };
+		C22971A82C08A12900241D92 /* SnapshotWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotWidgetView.swift; sourceTree = "<group>"; };
+		C22971AC2C08A17100241D92 /* SnapshotItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotItemView.swift; sourceTree = "<group>"; };
+		C22971AF2C08A1CA00241D92 /* SnapshotWidgetTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotWidgetTimelineProvider.swift; sourceTree = "<group>"; };
+		C22971B22C08A46900241D92 /* SnapshotWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotWidgetIntent.swift; sourceTree = "<group>"; };
 		C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRideStudioApp.swift; sourceTree = "<group>"; };
 		C284E9AD2C04A7460064D086 /* StravaAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthView.swift; sourceTree = "<group>"; };
 		C284E9AF2C04A76B0064D086 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -122,12 +134,8 @@
 		614C38B02B99F58F001A1F32 /* RunRideStudioWidget */ = {
 			isa = PBXGroup;
 			children = (
-				6124F5EE2B9DB7760030C54C /* RunRideStudioWidgetExtension.entitlements */,
-				614C38B72B99F58F001A1F32 /* AppIntent.swift */,
-				614C38B92B99F594001A1F32 /* Assets.xcassets */,
-				614C38BB2B99F594001A1F32 /* Info.plist */,
-				C284E9B32C04AB270064D086 /* RunRideStudioWidget.swift */,
-				C284E9B52C04AB4F0064D086 /* RunRideStudioWidgetBundle.swift */,
+				C229719F2C089D6B00241D92 /* Resource */,
+				C229719E2C089D6400241D92 /* Source */,
 			);
 			path = RunRideStudioWidget;
 			sourceTree = "<group>";
@@ -167,6 +175,88 @@
 				61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C229719E2C089D6400241D92 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C22971A22C089F1400241D92 /* Widget */,
+				C22971A02C089DC800241D92 /* Base */,
+				C284E9B32C04AB270064D086 /* RunRideStudioWidget.swift */,
+				C284E9B52C04AB4F0064D086 /* RunRideStudioWidgetBundle.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		C229719F2C089D6B00241D92 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				614C38BB2B99F594001A1F32 /* Info.plist */,
+				6124F5EE2B9DB7760030C54C /* RunRideStudioWidgetExtension.entitlements */,
+				614C38B92B99F594001A1F32 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C22971A02C089DC800241D92 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				614C38B72B99F58F001A1F32 /* AppIntent.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C22971A22C089F1400241D92 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				C22971A32C089F1900241D92 /* Snapshot */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		C22971A32C089F1900241D92 /* Snapshot */ = {
+			isa = PBXGroup;
+			children = (
+				C22971B12C08A46200241D92 /* Intent */,
+				C22971AE2C08A1B600241D92 /* TimelineProvider */,
+				C22971AB2C08A15E00241D92 /* View */,
+				C22971AA2C08A15500241D92 /* Entry */,
+				C22971A42C089F3000241D92 /* SnapshotWidget.swift */,
+			);
+			path = Snapshot;
+			sourceTree = "<group>";
+		};
+		C22971AA2C08A15500241D92 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				C22971A62C08A0F200241D92 /* SnapshotWidgetEntry.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		C22971AB2C08A15E00241D92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C22971A82C08A12900241D92 /* SnapshotWidgetView.swift */,
+				C22971AC2C08A17100241D92 /* SnapshotItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C22971AE2C08A1B600241D92 /* TimelineProvider */ = {
+			isa = PBXGroup;
+			children = (
+				C22971AF2C08A1CA00241D92 /* SnapshotWidgetTimelineProvider.swift */,
+			);
+			path = TimelineProvider;
+			sourceTree = "<group>";
+		};
+		C22971B12C08A46200241D92 /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				C22971B22C08A46900241D92 /* SnapshotWidgetIntent.swift */,
+			);
+			path = Intent;
 			sourceTree = "<group>";
 		};
 		C284E9A72C04A6330064D086 /* Source */ = {
@@ -347,15 +437,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C22971A52C089F3000241D92 /* SnapshotWidget.swift in Sources */,
 				C284E9C92C04D77F0064D086 /* WidgetTarget.swift in Sources */,
+				C22971A72C08A0F200241D92 /* SnapshotWidgetEntry.swift in Sources */,
 				614C38B82B99F58F001A1F32 /* AppIntent.swift in Sources */,
 				C284E9D02C04DDC00064D086 /* StravaData.swift in Sources */,
 				C284E9C52C04D2B40064D086 /* BaseTarget.swift in Sources */,
 				C284E9BE2C04CE300064D086 /* UserDefaultsWrapper.swift in Sources */,
+				C22971AD2C08A17100241D92 /* SnapshotItemView.swift in Sources */,
 				C284E9B82C04ABFB0064D086 /* RunRideStudioWidget.swift in Sources */,
 				C284E9CC2C04D78A0064D086 /* WidgetService.swift in Sources */,
 				C284E9B72C04ABFA0064D086 /* RunRideStudioWidgetBundle.swift in Sources */,
+				C22971B32C08A46900241D92 /* SnapshotWidgetIntent.swift in Sources */,
+				C22971A92C08A12900241D92 /* SnapshotWidgetView.swift in Sources */,
 				C284E9D32C04DDC50064D086 /* SnapshotData.swift in Sources */,
+				C22971B02C08A1CA00241D92 /* SnapshotWidgetTimelineProvider.swift in Sources */,
 				C284E9C22C04D23C0064D086 /* BaseNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,12 +491,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = RunRideStudioWidget/RunRideStudioWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RunRideStudioWidget/Resource/RunRideStudioWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3668S4ATNC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RunRideStudioWidget/Info.plist;
+				INFOPLIST_FILE = RunRideStudioWidget/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RunRideStudioWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -426,12 +522,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = RunRideStudioWidget/RunRideStudioWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RunRideStudioWidget/Resource/RunRideStudioWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3668S4ATNC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RunRideStudioWidget/Info.plist;
+				INFOPLIST_FILE = RunRideStudioWidget/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RunRideStudioWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
