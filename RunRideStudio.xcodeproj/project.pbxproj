@@ -28,6 +28,10 @@
 		C22971C42C08A90C00241D92 /* SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971C32C08A90C00241D92 /* SportType.swift */; };
 		C22971C62C08A96300241D92 /* IntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971C52C08A96300241D92 /* IntervalType.swift */; };
 		C22971C82C08A99400241D92 /* MetricType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971C72C08A99400241D92 /* MetricType.swift */; };
+		C22971CF2C08ADAA00241D92 /* MonthAccessoryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971CE2C08ADAA00241D92 /* MonthAccessoryWidget.swift */; };
+		C22971D12C08C05800241D92 /* MonthAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971D02C08C05800241D92 /* MonthAccessoryWidgetView.swift */; };
+		C22971D42C08C07000241D92 /* MonthAccessoryWidgetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971D32C08C07000241D92 /* MonthAccessoryWidgetTimelineProvider.swift */; };
+		C22971D72C08C08900241D92 /* MonthAccessoryWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971D62C08C08900241D92 /* MonthAccessoryWidgetEntry.swift */; };
 		C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */; };
 		C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AD2C04A7460064D086 /* StravaAuthView.swift */; };
 		C284E9B02C04A76B0064D086 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AF2C04A76B0064D086 /* LoginView.swift */; };
@@ -100,6 +104,10 @@
 		C22971C32C08A90C00241D92 /* SportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportType.swift; sourceTree = "<group>"; };
 		C22971C52C08A96300241D92 /* IntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalType.swift; sourceTree = "<group>"; };
 		C22971C72C08A99400241D92 /* MetricType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricType.swift; sourceTree = "<group>"; };
+		C22971CE2C08ADAA00241D92 /* MonthAccessoryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAccessoryWidget.swift; sourceTree = "<group>"; };
+		C22971D02C08C05800241D92 /* MonthAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAccessoryWidgetView.swift; sourceTree = "<group>"; };
+		C22971D32C08C07000241D92 /* MonthAccessoryWidgetTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAccessoryWidgetTimelineProvider.swift; sourceTree = "<group>"; };
+		C22971D62C08C08900241D92 /* MonthAccessoryWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAccessoryWidgetEntry.swift; sourceTree = "<group>"; };
 		C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRideStudioApp.swift; sourceTree = "<group>"; };
 		C284E9AD2C04A7460064D086 /* StravaAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthView.swift; sourceTree = "<group>"; };
 		C284E9AF2C04A76B0064D086 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -328,6 +336,7 @@
 		C22971CA2C08AD2300241D92 /* LockScreen */ = {
 			isa = PBXGroup;
 			children = (
+				C22971CC2C08AD6D00241D92 /* Month */,
 			);
 			path = LockScreen;
 			sourceTree = "<group>";
@@ -339,6 +348,41 @@
 				C22971A32C089F1900241D92 /* Snapshot */,
 			);
 			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		C22971CC2C08AD6D00241D92 /* Month */ = {
+			isa = PBXGroup;
+			children = (
+				C22971D52C08C08200241D92 /* Entry */,
+				C22971D22C08C06A00241D92 /* TimelineProvider */,
+				C22971CD2C08AD8100241D92 /* View */,
+				C22971CE2C08ADAA00241D92 /* MonthAccessoryWidget.swift */,
+			);
+			path = Month;
+			sourceTree = "<group>";
+		};
+		C22971CD2C08AD8100241D92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C22971D02C08C05800241D92 /* MonthAccessoryWidgetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C22971D22C08C06A00241D92 /* TimelineProvider */ = {
+			isa = PBXGroup;
+			children = (
+				C22971D32C08C07000241D92 /* MonthAccessoryWidgetTimelineProvider.swift */,
+			);
+			path = TimelineProvider;
+			sourceTree = "<group>";
+		};
+		C22971D52C08C08200241D92 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				C22971D62C08C08900241D92 /* MonthAccessoryWidgetEntry.swift */,
+			);
+			path = Entry;
 			sourceTree = "<group>";
 		};
 		C284E9A72C04A6330064D086 /* Source */ = {
@@ -523,18 +567,22 @@
 				C22971A52C089F3000241D92 /* SnapshotWidget.swift in Sources */,
 				C284E9C92C04D77F0064D086 /* WidgetTarget.swift in Sources */,
 				C22971B62C08A65400241D92 /* GoalWidget.swift in Sources */,
+				C22971D42C08C07000241D92 /* MonthAccessoryWidgetTimelineProvider.swift in Sources */,
 				C22971BE2C08A79600241D92 /* GoalWidgetTimelineProvider.swift in Sources */,
 				C22971A72C08A0F200241D92 /* SnapshotWidgetEntry.swift in Sources */,
 				C22971BC2C08A77500241D92 /* GoalWidgetEntry.swift in Sources */,
 				C22971C82C08A99400241D92 /* MetricType.swift in Sources */,
 				C284E9D02C04DDC00064D086 /* StravaData.swift in Sources */,
 				C284E9C52C04D2B40064D086 /* BaseTarget.swift in Sources */,
+				C22971D12C08C05800241D92 /* MonthAccessoryWidgetView.swift in Sources */,
 				C284E9BE2C04CE300064D086 /* UserDefaultsWrapper.swift in Sources */,
 				C22971C22C08A83000241D92 /* GoalWidgetIntent.swift in Sources */,
+				C22971D72C08C08900241D92 /* MonthAccessoryWidgetEntry.swift in Sources */,
 				C22971AD2C08A17100241D92 /* SnapshotItemView.swift in Sources */,
 				C284E9CC2C04D78A0064D086 /* WidgetService.swift in Sources */,
 				C284E9B72C04ABFA0064D086 /* RunRideStudioWidgetBundle.swift in Sources */,
 				C22971B32C08A46900241D92 /* SnapshotWidgetIntent.swift in Sources */,
+				C22971CF2C08ADAA00241D92 /* MonthAccessoryWidget.swift in Sources */,
 				C22971C42C08A90C00241D92 /* SportType.swift in Sources */,
 				C22971A92C08A12900241D92 /* SnapshotWidgetView.swift in Sources */,
 				C284E9D32C04DDC50064D086 /* SnapshotData.swift in Sources */,
