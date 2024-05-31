@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GoalSmallCardView: View {
+    let sportType: SportType
     let metricType: MetricType
     let intervalType: IntervalType
 
@@ -62,7 +63,7 @@ struct GoalSmallCardView: View {
 // MARK: - Private methods
 extension GoalSmallCardView {
     private var headerText: String {
-        "this \(intervalType.title)".lowercased()
+        "this \(intervalType.title) | \(sportType.title)".lowercased()
     }
     
     private var valueText: String {
@@ -101,6 +102,7 @@ extension GoalSmallCardView {
 
 #Preview {
     GoalSmallCardView(
+        sportType: .run,
         metricType: .distance,
         intervalType: .monthly,
         currentValue: 150.654,

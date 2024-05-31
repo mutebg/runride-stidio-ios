@@ -24,6 +24,7 @@ struct HomeView: View {
                         GridRow {
                             HomeWidgetView(color: .cardBackground) {
                                 GoalSmallCardView(
+                                    sportType: .run,
                                     metricType: .distance,
                                     intervalType: .monthly,
                                     currentValue: 150.767,
@@ -40,6 +41,7 @@ struct HomeView: View {
 
                             HomeWidgetView(color: .cardBackground) {
                                 GoalSmallCardView(
+                                    sportType: .ride,
                                     metricType: .distance,
                                     intervalType: .monthly,
                                     currentValue: 150.779,

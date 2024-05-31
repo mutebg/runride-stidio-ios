@@ -18,6 +18,7 @@ struct GoalWidget: Widget {
             provider: GoalWidgetTimelineProvider()
         ) { entry in
             GoalSmallCardView(
+                sportType: entry.configuration.sport.defaultType,
                 metricType: entry.configuration.metric.defaultType,
                 intervalType: entry.configuration.period.defaultType,
                 currentValue: entry.value,

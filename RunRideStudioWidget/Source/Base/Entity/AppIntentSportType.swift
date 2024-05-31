@@ -19,4 +19,21 @@ enum AppIntentSportType: String, AppEnum {
         .hike: "Hike",
         .rowing: "Rowing",
     ]
+    
+    var defaultType: SportType {
+        switch self {
+        case .run:
+            return .run
+        case .ride:
+            return .ride
+        case .swim:
+            return .swim
+        case .walk:
+            return .walk
+        case .hike:
+            return .hike
+        case .rowing:
+            return .rowing
+        }
+    }
 }
