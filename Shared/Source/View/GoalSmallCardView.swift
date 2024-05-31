@@ -21,30 +21,30 @@ struct GoalSmallCardView: View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 5 ) {
             Text("This " + intervalType.title.lowercased())
                 .font(.system(size: 14))
-                .foregroundStyle(.black)
+                .foregroundStyle(.textBrand1)
             Divider()
             Spacer()
             HStack(alignment: VerticalAlignment.bottom, spacing: 1){
                 Text(value.formatted())
                     .font(.system(size: 28) .bold())
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(.brand2)
                 Text(metricType.shortTitle)
                     .font(.system(size: 16))
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(.brand2)
                     .padding(.bottom, 4)
                 Spacer()
             }
             Text(String(activitiesCount) + " " + acitivitiesLabel)
                 .font(.system(size: 14))
-                .foregroundStyle(.black)
+                .foregroundStyle(.textBrand1)
             Text(goalValue > 0 ? String(goalPercent) + "% of the goal" : "No goal")
                 .font(.system(size: 14))
-                .foregroundStyle(.black)
+                .foregroundStyle(.textBrand1)
                 .padding(.bottom, 4)
             
             ProgressView(value: progressPercent)
                 .scaleEffect(x: 1.0, y: 3.0, anchor: .center)
-                .tint(.accentColor)
+                .tint(.brand2)
                 .padding(.bottom, 2)
         }
     }

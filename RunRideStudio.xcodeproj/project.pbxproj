@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		614C38AD2B99F58E001A1F32 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AC2B99F58E001A1F32 /* WidgetKit.framework */; };
 		614C38AF2B99F58E001A1F32 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AE2B99F58E001A1F32 /* SwiftUI.framework */; };
-		614C38BA2B99F594001A1F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 614C38B92B99F594001A1F32 /* Assets.xcassets */; };
 		614C38BE2B99F594001A1F32 /* RunRideStudioWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		61789DA52B94CB5F000E8B0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61789DA42B94CB5F000E8B0B /* ContentView.swift */; };
 		61789DA92B94CB60000E8B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DA82B94CB60000E8B0B /* Assets.xcassets */; };
@@ -60,6 +59,7 @@
 		C2D0F41E2C0A1ACF00B11805 /* AppIntentSportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D0F41D2C0A1ACF00B11805 /* AppIntentSportType.swift */; };
 		C2D0F4202C0A1ADE00B11805 /* AppIntentIntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D0F41F2C0A1ADE00B11805 /* AppIntentIntervalType.swift */; };
 		C2D0F4222C0A1AEE00B11805 /* AppIntentMetricType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D0F4212C0A1AEE00B11805 /* AppIntentMetricType.swift */; };
+		C2D0F4232C0A1CE500B11805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DA82B94CB60000E8B0B /* Assets.xcassets */; };
 		C2E6941E2C08D05E00020F8F /* TotalMetricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */; };
 		C2E6941F2C08D06400020F8F /* TotalMetricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */; };
 		C2E694222C08D26400020F8F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E694212C08D26400020F8F /* Date+Extension.swift */; };
@@ -102,7 +102,6 @@
 		614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RunRideStudioWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		614C38AC2B99F58E001A1F32 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		614C38AE2B99F58E001A1F32 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		614C38B92B99F594001A1F32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		614C38BB2B99F594001A1F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61789D9F2B94CB5F000E8B0B /* RunRideStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunRideStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61789DA42B94CB5F000E8B0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -243,7 +242,6 @@
 			children = (
 				614C38BB2B99F594001A1F32 /* Info.plist */,
 				6124F5EE2B9DB7760030C54C /* RunRideStudioWidgetExtension.entitlements */,
-				614C38B92B99F594001A1F32 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -437,7 +435,6 @@
 		C284E9A82C04A6390064D086 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				61789DA82B94CB60000E8B0B /* Assets.xcassets */,
 				61789DB42B94E503000E8B0B /* Info.plist */,
 				6124F5ED2B9DB6E40030C54C /* RunRideStudio.entitlements */,
 			);
@@ -549,6 +546,7 @@
 		C2D0F4102C0A119100B11805 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				C2D0F4242C0A1CFE00B11805 /* Resource */,
 				C2D0F4112C0A119B00B11805 /* Source */,
 			);
 			path = Shared;
@@ -569,6 +567,14 @@
 				C2D0F4142C0A11DD00B11805 /* GoalSmallCardView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C2D0F4242C0A1CFE00B11805 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				61789DA82B94CB60000E8B0B /* Assets.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		C2E694202C08D25A00020F8F /* Extension */ = {
@@ -672,7 +678,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				614C38BA2B99F594001A1F32 /* Assets.xcassets in Resources */,
+				C2D0F4232C0A1CE500B11805 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
