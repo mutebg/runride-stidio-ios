@@ -10,10 +10,19 @@ import SwiftUI
 struct HomeWidgetView<Content: View, Background: View>: View {
     let content: Content
     let background: Background
+    let onEdit: () -> Void
+    let onDestroy: () -> Void
     
-    init(background: Background, @ViewBuilder content: () -> Content) {
+    init(
+        background: Background,
+        @ViewBuilder content: () -> Content,
+        onEdit: @escaping () -> Void,
+        onDestroy: @escaping () -> Void
+    ) {
         self.background = background
         self.content = content()
+        self.onEdit = onEdit
+        self.onDestroy = onDestroy
     }
     
     var body: some View {
@@ -30,11 +39,34 @@ struct HomeWidgetView<Content: View, Background: View>: View {
             .clipShape(.rect(cornerRadius: 22))
             .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 22))
             .foregroundColor(.white)
+            .contextMenu {
+                Button() {
+                    onEdit()
+                } label: {
+                    Label("Customize", systemImage: "pencil")
+                }
+
+                Button(role: .destructive) {
+                    onDestroy()
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+            }
     }
 }
 
 extension HomeWidgetView where Background == Color {
-    init(color: Color, @ViewBuilder content: () -> Content) {
-        self.init(background: color, content: content)
+    init(
+        color: Color,
+        @ViewBuilder content: () -> Content,
+        onEdit: @escaping () -> Void,
+        onDestroy: @escaping () -> Void
+    ) {
+        self.init(
+            background: color,
+            content: content,
+            onEdit: onEdit,
+            onDestroy: onDestroy
+        )
     }
 }
