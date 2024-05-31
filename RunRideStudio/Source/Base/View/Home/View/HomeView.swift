@@ -90,6 +90,9 @@ extension HomeView {
                     image: .website
                 )
             }
+            
+            // Strava club card
+            // FAQ cards: How to add widgets
         } header: {
             Text("More")
                 .font(.subheadline)
