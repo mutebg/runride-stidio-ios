@@ -1,0 +1,23 @@
+//
+//  IntervalType.swift
+//  RunRideStudio
+//
+//  Created by Arman Turalin on 31.05.2024.
+//
+
+import Foundation
+
+enum IntervalType: String, CaseIterable {
+    case weekly, monthly, yearly
+    
+    var title: String {
+        switch self {
+        case .weekly:
+            return "Week"
+        case .monthly:
+            return "Month"
+        case .yearly:
+            return "Year"
+        }
+    }
+}

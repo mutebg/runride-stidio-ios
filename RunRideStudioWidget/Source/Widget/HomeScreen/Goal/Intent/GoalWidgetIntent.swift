@@ -11,13 +11,13 @@ struct GoalWidgetIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Configuration"
 
     @Parameter(title: "Sport", default: .run)
-    var sport: SportType
+    var sport: AppIntentSportType
     
     @Parameter(title: "Time frame", default: .weekly)
-    var period: IntervalType
+    var period: AppIntentIntervalType
     
     @Parameter(title: "Metric", default: .distance)
-    var metric: MetricType
+    var metric: AppIntentMetricType
     
     @Parameter(title: "Goal", default: 0.0)
     var goal: Double

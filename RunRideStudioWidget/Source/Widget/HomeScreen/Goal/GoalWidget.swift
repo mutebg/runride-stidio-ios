@@ -17,8 +17,14 @@ struct GoalWidget: Widget {
             intent: GoalWidgetIntent.self,
             provider: GoalWidgetTimelineProvider()
         ) { entry in
-            GoalWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+            GoalSmallCardView(
+                metricType: entry.configuration.metric.defaultType,
+                intervalType: entry.configuration.period.defaultType,
+                currentValue: entry.value,
+                goalValue: entry.configuration.goal,
+                activitiesCount: entry.activities
+            )
+            .containerBackground(.fill.tertiary, for: .widget)
         }
         .configurationDisplayName("Goal Widget")
         .supportedFamilies([.systemSmall, .systemMedium])

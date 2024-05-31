@@ -8,11 +8,11 @@
 import WidgetKit
 
 struct MonthAccessoryWidgetTimelineProvider: TimelineProvider {
-    private let sportType: SportType
+    private let sportType: AppIntentSportType
     private let networkService: WidgetServiceProtocol
     
     init(
-        sportType: SportType,
+        sportType: AppIntentSportType,
         networkService: WidgetServiceProtocol = WidgetService()
     ) {
         self.sportType = sportType

@@ -1,17 +1,17 @@
 //
-//  SportType.swift
+//  AppIntentSportType.swift
 //  RunRideStudioWidgetExtension
 //
-//  Created by Arman Turalin on 30.05.2024.
+//  Created by Arman Turalin on 31.05.2024.
 //
 
 import AppIntents
 
-enum SportType: String, AppEnum {
+enum AppIntentSportType: String, AppEnum {
     case run, ride, swim, walk, hike, rowing
 
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Sports"
-    static var caseDisplayRepresentations: [SportType : DisplayRepresentation] = [
+    static var caseDisplayRepresentations: [AppIntentSportType : DisplayRepresentation] = [
         .run: "Run",
         .ride: "Ride",
         .swim: "Swim",
