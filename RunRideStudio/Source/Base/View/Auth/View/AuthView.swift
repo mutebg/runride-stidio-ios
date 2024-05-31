@@ -35,16 +35,16 @@ struct AuthView: View {
                         }
                     }
                     VStack(spacing: 32) {
-                        Text("Welcome to RunRide Studio")
+                        Text("Welcome to RunRideStudio")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundStyle(.textBrand1)
                             .multilineTextAlignment(.center)
                         VStack(spacing: 16) {
-                            Button{
+                            Button {
                                 toLogin.toggle()
                             } label: {
-                                HStack{
+                                HStack {
                                     Text("Login with Strava")
                                         .fontWeight(.bold)
                                         .foregroundStyle(.white)
