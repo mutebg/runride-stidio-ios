@@ -60,6 +60,8 @@
 		C2D0F4202C0A1ADE00B11805 /* AppIntentIntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D0F41F2C0A1ADE00B11805 /* AppIntentIntervalType.swift */; };
 		C2D0F4222C0A1AEE00B11805 /* AppIntentMetricType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D0F4212C0A1AEE00B11805 /* AppIntentMetricType.swift */; };
 		C2D0F4232C0A1CE500B11805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DA82B94CB60000E8B0B /* Assets.xcassets */; };
+		C2D0F4262C0A2A3800B11805 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D0F4252C0A2A3800B11805 /* CircularProgressView.swift */; };
+		C2D0F4272C0A2A3800B11805 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D0F4252C0A2A3800B11805 /* CircularProgressView.swift */; };
 		C2E6941E2C08D05E00020F8F /* TotalMetricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */; };
 		C2E6941F2C08D06400020F8F /* TotalMetricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */; };
 		C2E694222C08D26400020F8F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E694212C08D26400020F8F /* Date+Extension.swift */; };
@@ -144,6 +146,7 @@
 		C2D0F41D2C0A1ACF00B11805 /* AppIntentSportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntentSportType.swift; sourceTree = "<group>"; };
 		C2D0F41F2C0A1ADE00B11805 /* AppIntentIntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntentIntervalType.swift; sourceTree = "<group>"; };
 		C2D0F4212C0A1AEE00B11805 /* AppIntentMetricType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntentMetricType.swift; sourceTree = "<group>"; };
+		C2D0F4252C0A2A3800B11805 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalMetricData.swift; sourceTree = "<group>"; };
 		C2E694212C08D26400020F8F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C2E694242C08D2B400020F8F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -565,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D0F4142C0A11DD00B11805 /* GoalSmallCardView.swift */,
+				C2D0F4252C0A2A3800B11805 /* CircularProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -722,6 +726,7 @@
 				C284E9B72C04ABFA0064D086 /* RunRideStudioWidgetBundle.swift in Sources */,
 				C2E6941F2C08D06400020F8F /* TotalMetricData.swift in Sources */,
 				C22971B32C08A46900241D92 /* SnapshotWidgetIntent.swift in Sources */,
+				C2D0F4272C0A2A3800B11805 /* CircularProgressView.swift in Sources */,
 				C22971CF2C08ADAA00241D92 /* MonthAccessoryWidget.swift in Sources */,
 				C22971DC2C08C71900241D92 /* Spacing.swift in Sources */,
 				C2D0F4222C0A1AEE00B11805 /* AppIntentMetricType.swift in Sources */,
@@ -761,6 +766,7 @@
 				C2E694222C08D26400020F8F /* Date+Extension.swift in Sources */,
 				C22971DB2C08C71900241D92 /* Spacing.swift in Sources */,
 				C256E4592C09FD5D00FA9C75 /* HomeBigCardView.swift in Sources */,
+				C2D0F4262C0A2A3800B11805 /* CircularProgressView.swift in Sources */,
 				C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

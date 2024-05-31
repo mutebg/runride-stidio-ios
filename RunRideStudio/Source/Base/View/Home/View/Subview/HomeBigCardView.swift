@@ -16,7 +16,6 @@ struct HomeBigCardView: View {
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(title)
                     .font(.title3)
-                    .fontWeight(.light)
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(.textBrand1)
 

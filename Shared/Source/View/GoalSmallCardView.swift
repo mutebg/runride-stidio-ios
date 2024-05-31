@@ -14,75 +14,98 @@ struct GoalSmallCardView: View {
     let currentValue: Double
     let goalValue: Double
     let activitiesCount: Int
-    
-    let useMetric = !UserDefaultsConfig.useImperial
-       
+
     var body: some View {
-        VStack(alignment: HorizontalAlignment.leading, spacing: 5 ) {
-            Text("This " + intervalType.title.lowercased())
-                .font(.system(size: 14))
+        VStack(alignment: .leading) {
+            Text(headerText)
+                .font(.footnote)
                 .foregroundStyle(.textBrand1)
-            Divider()
-            Spacer()
-            HStack(alignment: VerticalAlignment.bottom, spacing: 1){
-                Text(value.formatted())
-                    .font(.system(size: 28) .bold())
-                    .foregroundColor(.brand2)
+            
+            HStack(alignment: .bottom, spacing: Spacing.space2) {
+                Text(valueText)
+                    .font(.largeTitle)
+                    .fontWeight(.black)
+                    .minimumScaleFactor(0.5)
+                    .foregroundColor(.textBrand1)
                 Text(metricType.shortTitle)
-                    .font(.system(size: 16))
-                    .foregroundColor(.brand2)
-                    .padding(.bottom, 4)
-                Spacer()
+                    .font(.caption)
+                    .foregroundStyle(.textBrand1)
+                    .padding(.bottom, Spacing.space6)
             }
+
+            Spacer()
+
             Text(String(activitiesCount) + " " + acitivitiesLabel)
                 .font(.system(size: 14))
                 .foregroundStyle(.textBrand1)
-            Text(goalValue > 0 ? String(goalPercent) + "% of the goal" : "No goal")
-                .font(.system(size: 14))
-                .foregroundStyle(.textBrand1)
-                .padding(.bottom, 4)
             
-            ProgressView(value: progressPercent)
-                .scaleEffect(x: 1.0, y: 3.0, anchor: .center)
-                .tint(.brand2)
-                .padding(.bottom, 2)
+            if goalValue > .zero {
+                ProgressView(value: progressPercent)
+                    .scaleEffect(x: 1.0, y: 1.0, anchor: .center)
+                    .tint(.textBrand1)
+        
+                Text(progressFooterText)
+                    .font(.footnote)
+                    .foregroundColor(.textBrand1)
+            }
         }
+        .frame(
+          minWidth: 0,
+          maxWidth: .infinity,
+          minHeight: 0,
+          maxHeight: .infinity,
+          alignment: .topLeading
+        )
     }
 }
 
 // MARK: - Private methods
 extension GoalSmallCardView {
-    private var value: Double {
-        switch metricType {
-        case .distance:
-            return currentValue.distanceInLocalSettings
-        case .time:
-            return currentValue.secondsToHour
-        case .elevation:
-            return currentValue.elevationInLocalSettings
-        }
+    private var headerText: String {
+        "this \(intervalType.title)".lowercased()
     }
     
-    private var goalPercent: Int {
-        let v = currentValue / ( goalValue / 100 )
-        if  v.isNaN || v.isInfinite {
-            return 0
-        }
-        return Int(v)
+    private var valueText: String {
+        value(currentValue, for: metricType).formatted()
     }
-    
+
     private var progressPercent: Double {
-        let v = currentValue / goalValue;
-        if v > 1 {
-            return 1
-        }
-        if v == 0 {
-            return 0.08
-        }
-        return v
+        min(currentValue / goalValue, 1)
     }
     
     private var acitivitiesLabel: String {
         activitiesCount > 1 ? "activities" : "activity"
     }
+    
+    private var progressFooterText: String {
+        let diff = max(goalValue - currentValue, 0)
+        guard diff > 0 else {
+            return "100%"
+        }
+        
+        let diffText = value(diff, for: metricType).formatted()
+        return "\(diffText) \(metricType.shortTitle) to goal"
+    }
+    
+    private func value(_ value: Double, for type: MetricType) -> Double {
+        switch type {
+        case .distance:
+            return value.distanceInLocalSettings
+        case .time:
+            return value.secondsToHour
+        case .elevation:
+            return value.elevationInLocalSettings
+        }
+    }
+}
+
+#Preview {
+    GoalSmallCardView(
+        metricType: .distance,
+        intervalType: .monthly,
+        currentValue: 150.654,
+        goalValue: 0,
+        activitiesCount: 12
+    )
+    .frame(width: 160, height: 160)
 }

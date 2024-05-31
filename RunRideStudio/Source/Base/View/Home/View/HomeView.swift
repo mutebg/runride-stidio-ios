@@ -26,8 +26,8 @@ struct HomeView: View {
                                 GoalSmallCardView(
                                     metricType: .distance,
                                     intervalType: .monthly,
-                                    currentValue: 150,
-                                    goalValue: 200,
+                                    currentValue: 150.767,
+                                    goalValue: 10,
                                     activitiesCount: 12
                                 )
                             }
@@ -38,14 +38,20 @@ struct HomeView: View {
                                 }
                             }
 
-                            HomeWidgetView(color: .red) {
-                                Text("Wednesday")
-                                Text("5").font(.system(size: 33))
-                                
-                                Spacer()
-                                
-                                Text("No more events today")
-                                    .multilineTextAlignment(.leading)
+                            HomeWidgetView(color: .cardBackground) {
+                                GoalSmallCardView(
+                                    metricType: .distance,
+                                    intervalType: .monthly,
+                                    currentValue: 150.779,
+                                    goalValue: 0,
+                                    activitiesCount: 12
+                                )
+                            }
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
                             }
                         }
                         .aspectRatio(1.0, contentMode: .fill)
