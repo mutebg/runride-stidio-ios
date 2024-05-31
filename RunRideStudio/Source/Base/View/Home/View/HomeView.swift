@@ -55,22 +55,9 @@ extension HomeView {
                 }
                 .aspectRatio(1.0, contentMode: .fill)
             }
-            .padding(.zero)
         } header: {
-            HStack {
-                Text("Goals")
-                    .font(.subheadline)
-                    .foregroundStyle(.textBrand1)
-                    .opacity(0.7)
-                
-                Spacer()
-                
-                Button {
-                    
-                } label: {
-                    Text("Edit")
-                        .font(.subheadline)
-                }
+            HomeSectionHeaderView(title: "Goals") {
+                print("edit")
             }
             .padding(.horizontal, Spacing.space8)
         } footer: {
@@ -94,10 +81,7 @@ extension HomeView {
             // Strava club card
             // FAQ cards: How to add widgets
         } header: {
-            Text("More")
-                .font(.subheadline)
-                .foregroundStyle(.textBrand1)
-                .opacity(0.7)
+            HomeSectionHeaderView(title: "Goals")
                 .padding(.horizontal, 8.0)
         } footer: {
             Spacer()

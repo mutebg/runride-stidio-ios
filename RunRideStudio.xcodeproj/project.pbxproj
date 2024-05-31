@@ -34,6 +34,7 @@
 		C264C97A2C0A630F004BE4B2 /* SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264C9792C0A630F004BE4B2 /* SportType.swift */; };
 		C264C97B2C0A630F004BE4B2 /* SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264C9792C0A630F004BE4B2 /* SportType.swift */; };
 		C264C97E2C0A6ABF004BE4B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264C97D2C0A6ABF004BE4B2 /* HomeViewModel.swift */; };
+		C281F0842C0A7ECF0042D471 /* HomeSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C281F0832C0A7ECF0042D471 /* HomeSectionHeaderView.swift */; };
 		C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */; };
 		C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9AD2C04A7460064D086 /* StravaAuthView.swift */; };
 		C284E9B22C04A77E0064D086 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9B12C04A77E0064D086 /* SettingsView.swift */; };
@@ -132,6 +133,7 @@
 		C256E4582C09FD5D00FA9C75 /* HomeBigCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBigCardView.swift; sourceTree = "<group>"; };
 		C264C9792C0A630F004BE4B2 /* SportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportType.swift; sourceTree = "<group>"; };
 		C264C97D2C0A6ABF004BE4B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C281F0832C0A7ECF0042D471 /* HomeSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionHeaderView.swift; sourceTree = "<group>"; };
 		C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRideStudioApp.swift; sourceTree = "<group>"; };
 		C284E9AD2C04A7460064D086 /* StravaAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthView.swift; sourceTree = "<group>"; };
 		C284E9B12C04A77E0064D086 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 			children = (
 				C256E4562C09F95C00FA9C75 /* HomeWidgetView.swift */,
 				C256E4582C09FD5D00FA9C75 /* HomeBigCardView.swift */,
+				C281F0832C0A7ECF0042D471 /* HomeSectionHeaderView.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				C2D0F4152C0A11DD00B11805 /* GoalSmallCardView.swift in Sources */,
 				C2E694222C08D26400020F8F /* Date+Extension.swift in Sources */,
 				C22971DB2C08C71900241D92 /* Spacing.swift in Sources */,
+				C281F0842C0A7ECF0042D471 /* HomeSectionHeaderView.swift in Sources */,
 				C256E4592C09FD5D00FA9C75 /* HomeBigCardView.swift in Sources */,
 				C2D0F4262C0A2A3800B11805 /* CircularProgressView.swift in Sources */,
 				C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */,
