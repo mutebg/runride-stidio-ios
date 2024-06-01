@@ -13,7 +13,7 @@ struct AuthView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(.brand1)
+                Color(uiColor: .secondarySystemGroupedBackground)
                     .ignoresSafeArea()
 
                 VStack {
@@ -26,8 +26,8 @@ struct AuthView: View {
 
                             LinearGradient(
                                 stops: [
-                                    Gradient.Stop(color: .brand1.opacity(0), location: 0.65),
-                                    Gradient.Stop(color: .brand1, location: 1.0),
+                                    Gradient.Stop(color: Color(uiColor: .secondarySystemGroupedBackground).opacity(0), location: 0.65),
+                                    Gradient.Stop(color: Color(uiColor: .secondarySystemGroupedBackground), location: 1.0),
                                 ],
                                 startPoint: UnitPoint(x: 0.5, y: 0),
                                 endPoint: UnitPoint(x: 0.5, y: 1)
@@ -70,7 +70,7 @@ struct AuthView: View {
                         maxWidth: .infinity,
                         alignment: .leading
                     )
-                    .background(.brand1)
+                    .background(Color(uiColor: .secondarySystemGroupedBackground))
                     .sheet(isPresented: $toLogin) {
                         StravaAuthView()
                     }
