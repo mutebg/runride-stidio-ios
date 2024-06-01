@@ -23,8 +23,9 @@ struct HomeView: View {
                 goalsSectionView
                 moreSectionView
             }
-            .padding(16.0)
+            .padding(Spacing.space20)
         }
+        .background(Color(uiColor: .systemGroupedBackground))
         .onAppear {
             viewModel.updateSnapshot()
         }
@@ -86,7 +87,6 @@ extension HomeView {
             HomeSectionHeaderView(title: "Goals") {
                 onEditGoalSectionMode.toggle()
             }
-            .padding(.horizontal, Spacing.space8)
         } footer: {
             Spacer()
                 .frame(height: Spacing.space24)
@@ -109,7 +109,6 @@ extension HomeView {
             // FAQ cards: How to add widgets
         } header: {
             HomeSectionHeaderView(title: "More")
-                .padding(.horizontal, Spacing.space8)
         } footer: {
             Spacer()
                 .frame(height: Spacing.space24)

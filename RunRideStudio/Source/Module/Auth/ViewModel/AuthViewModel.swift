@@ -36,4 +36,12 @@ extension AuthViewModel {
         stravaToken = token
         isLoggedIn = true
     }
+    
+    func logout() {
+        UserDefaultsConfig.stravaId = nil
+        UserDefaultsConfig.stravaToken = nil
+        stravaId = nil
+        stravaToken = nil
+        isLoggedIn = false
+    }
 }

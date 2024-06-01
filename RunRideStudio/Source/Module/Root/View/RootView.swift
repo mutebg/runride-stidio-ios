@@ -22,7 +22,7 @@ struct RootView: View {
                 }
                 .tag(RootViewModel.Tab.overview)
 
-            settingsView
+            SettingsView()
                 .tabItem {
                     Label(
                         RootViewModel.Tab.settings.title,
@@ -46,22 +46,6 @@ extension RootView {
                             NavigationBarView(
                                 title: "Hello, athlete",
                                 subtitle: "Today, \(viewModel.formattedCurrentDate)")
-                        }
-                    }
-                }
-        }
-    }
-    
-    private var settingsView: some View {
-        NavigationStack {
-            Text("Tab Content 2")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        VStack {
-                            NavigationBarView(
-                                title: RootViewModel.Tab.settings.title
-                            )
                         }
                     }
                 }

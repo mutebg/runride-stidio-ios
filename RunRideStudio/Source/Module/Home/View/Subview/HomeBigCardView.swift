@@ -13,7 +13,7 @@ struct HomeBigCardView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 8.0) {
+            VStack(alignment: .leading, spacing: Spacing.space8) {
                 Text(title)
                     .font(.title3)
                     .multilineTextAlignment(.leading)
@@ -22,14 +22,14 @@ struct HomeBigCardView: View {
                 Image(systemName: "arrow.up.right.circle")
                     .foregroundStyle(.textBrand1)
             }
-            .padding(16.0)
+            .padding(Spacing.space20)
             
             Spacer()
             
             Image(image)
-                .padding([.top, .trailing], 24.0)
+                .padding([.top, .trailing], Spacing.space24)
         }
-        .background(.cardBackground)
+        .background(Color(uiColor: .secondarySystemGroupedBackground))
         .clipShape(.rect(cornerRadius: 16.0))
     }
 }

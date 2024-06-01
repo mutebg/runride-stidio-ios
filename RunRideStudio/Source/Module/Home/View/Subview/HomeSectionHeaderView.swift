@@ -21,11 +21,10 @@ struct HomeSectionHeaderView: View {
     
     var body: some View {
         HStack {
-            Text(title)
-                .font(.subheadline)
-                .foregroundStyle(.textBrand1)
-                .opacity(0.7)
-            
+            Text(title.uppercased())
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+
             Spacer()
             
             if let onEdit {
@@ -37,5 +36,11 @@ struct HomeSectionHeaderView: View {
                 }
             }
         }
+        .padding(EdgeInsets(
+            top: Spacing.space6,
+            leading: Spacing.space20,
+            bottom: -Spacing.space2,
+            trailing: Spacing.space20
+        ))
     }
 }
