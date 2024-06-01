@@ -27,7 +27,7 @@ struct GoalSmallCardView: View {
                     .font(.largeTitle)
                     .fontWeight(.black)
                     .minimumScaleFactor(0.5)
-                    .foregroundColor(.textBrand1)
+                    .foregroundColor(.brand2)
                 Text(metricType.shortTitle)
                     .font(.caption)
                     .foregroundStyle(.textBrand1)
@@ -43,7 +43,7 @@ struct GoalSmallCardView: View {
             if goalValue > .zero {
                 ProgressView(value: progressPercent)
                     .scaleEffect(x: 1.0, y: 1.0, anchor: .center)
-                    .tint(.textBrand1)
+                    .tint(.brand2)
         
                 Text(progressFooterText)
                     .font(.footnote)

@@ -15,7 +15,7 @@ struct RunRide_Studio_WidgetsApp: App {
         WindowGroup {
             Group {
                 if authViewModel.isLoggedIn {
-                    ContentView()
+                    RootView()
                 } else {
                     AuthView()
                 }

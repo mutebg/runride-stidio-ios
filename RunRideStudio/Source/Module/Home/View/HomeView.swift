@@ -91,5 +91,5 @@ extension HomeView {
 }
 
 #Preview {
-    ContentView()
+    RootView()
 }

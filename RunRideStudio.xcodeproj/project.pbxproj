@@ -10,7 +10,6 @@
 		614C38AD2B99F58E001A1F32 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AC2B99F58E001A1F32 /* WidgetKit.framework */; };
 		614C38AF2B99F58E001A1F32 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AE2B99F58E001A1F32 /* SwiftUI.framework */; };
 		614C38BE2B99F594001A1F32 /* RunRideStudioWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		61789DA52B94CB5F000E8B0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61789DA42B94CB5F000E8B0B /* ContentView.swift */; };
 		61789DA92B94CB60000E8B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DA82B94CB60000E8B0B /* Assets.xcassets */; };
 		61789DAC2B94CB60000E8B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */; };
 		C22971A52C089F3000241D92 /* SnapshotWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22971A42C089F3000241D92 /* SnapshotWidget.swift */; };
@@ -52,6 +51,9 @@
 		C284E9D22C04DDC50064D086 /* SnapshotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9D12C04DDC50064D086 /* SnapshotData.swift */; };
 		C284E9D32C04DDC50064D086 /* SnapshotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9D12C04DDC50064D086 /* SnapshotData.swift */; };
 		C297CF4E2C0B5C86003612FE /* HomeAddGoalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF4D2C0B5C86003612FE /* HomeAddGoalWidgetView.swift */; };
+		C297CF532C0B605D003612FE /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF522C0B605D003612FE /* RootViewModel.swift */; };
+		C297CF562C0B606E003612FE /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF552C0B606E003612FE /* RootView.swift */; };
+		C297CF592C0B6465003612FE /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF582C0B6465003612FE /* NavigationBarView.swift */; };
 		C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73D2C09123600E1B378 /* AuthView.swift */; };
 		C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */; };
 		C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA7432C0915CC00E1B378 /* HomeView.swift */; };
@@ -111,7 +113,6 @@
 		614C38AE2B99F58E001A1F32 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		614C38BB2B99F594001A1F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61789D9F2B94CB5F000E8B0B /* RunRideStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunRideStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		61789DA42B94CB5F000E8B0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61789DA82B94CB60000E8B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61789DB42B94E503000E8B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RunRideStudio/Resource/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -146,6 +147,9 @@
 		C284E9CA2C04D78A0064D086 /* WidgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetService.swift; sourceTree = "<group>"; };
 		C284E9D12C04DDC50064D086 /* SnapshotData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotData.swift; sourceTree = "<group>"; };
 		C297CF4D2C0B5C86003612FE /* HomeAddGoalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddGoalWidgetView.swift; sourceTree = "<group>"; };
+		C297CF522C0B605D003612FE /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		C297CF552C0B606E003612FE /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		C297CF582C0B6465003612FE /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		C2CDA73D2C09123600E1B378 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C2CDA7432C0915CC00E1B378 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -447,7 +451,7 @@
 		C284E9A72C04A6330064D086 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C22971D92C08C70800241D92 /* Constant */,
+				C297CF4F2C0B6030003612FE /* Module */,
 				C284E9A92C04A64E0064D086 /* Base */,
 				C284E9A52C049CCB0064D086 /* RunRideStudioApp.swift */,
 			);
@@ -466,6 +470,7 @@
 		C284E9A92C04A64E0064D086 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C22971D92C08C70800241D92 /* Constant */,
 				C2E694202C08D25A00020F8F /* Extension */,
 				C284E9BB2C04CC790064D086 /* Service */,
 				C284E9AA2C04A6600064D086 /* View */,
@@ -476,9 +481,6 @@
 		C284E9AA2C04A6600064D086 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C2CDA7412C0915C100E1B378 /* Home */,
-				C2CDA73A2C09120A00E1B378 /* Auth */,
-				61789DA42B94CB5F000E8B0B /* ContentView.swift */,
 				C284E9AD2C04A7460064D086 /* StravaAuthView.swift */,
 				C284E9B12C04A77E0064D086 /* SettingsView.swift */,
 			);
@@ -521,6 +523,50 @@
 				C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		C297CF4F2C0B6030003612FE /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				C297CF502C0B6044003612FE /* Root */,
+				C2CDA7412C0915C100E1B378 /* Home */,
+				C2CDA73A2C09120A00E1B378 /* Auth */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		C297CF502C0B6044003612FE /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				C297CF542C0B6064003612FE /* View */,
+				C297CF512C0B6052003612FE /* ViewModel */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		C297CF512C0B6052003612FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C297CF522C0B605D003612FE /* RootViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C297CF542C0B6064003612FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C297CF572C0B6452003612FE /* Subview */,
+				C297CF552C0B606E003612FE /* RootView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C297CF572C0B6452003612FE /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				C297CF582C0B6465003612FE /* NavigationBarView.swift */,
+			);
+			path = Subview;
 			sourceTree = "<group>";
 		};
 		C2CDA73A2C09120A00E1B378 /* Auth */ = {
@@ -774,13 +820,14 @@
 				C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */,
 				C256E4572C09F95C00FA9C75 /* HomeWidgetView.swift in Sources */,
 				C2D0F4182C0A1A6200B11805 /* MetricType.swift in Sources */,
-				61789DA52B94CB5F000E8B0B /* ContentView.swift in Sources */,
+				C297CF532C0B605D003612FE /* RootViewModel.swift in Sources */,
 				C264C97E2C0A6ABF004BE4B2 /* HomeViewModel.swift in Sources */,
 				C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */,
 				C284E9C82C04D77F0064D086 /* WidgetTarget.swift in Sources */,
 				C264C97A2C0A630F004BE4B2 /* SportType.swift in Sources */,
 				C297CF4E2C0B5C86003612FE /* HomeAddGoalWidgetView.swift in Sources */,
 				C2D0F41B2C0A1A6C00B11805 /* IntervalType.swift in Sources */,
+				C297CF592C0B6465003612FE /* NavigationBarView.swift in Sources */,
 				C2E694252C08D2B400020F8F /* Double+Extension.swift in Sources */,
 				C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */,
 				C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */,
@@ -788,6 +835,7 @@
 				C284E9CB2C04D78A0064D086 /* WidgetService.swift in Sources */,
 				C284E9D22C04DDC50064D086 /* SnapshotData.swift in Sources */,
 				C2D0F4152C0A11DD00B11805 /* GoalSmallCardView.swift in Sources */,
+				C297CF562C0B606E003612FE /* RootView.swift in Sources */,
 				C2E694222C08D26400020F8F /* Date+Extension.swift in Sources */,
 				C22971DB2C08C71900241D92 /* Spacing.swift in Sources */,
 				C281F0842C0A7ECF0042D471 /* HomeSectionHeaderView.swift in Sources */,
