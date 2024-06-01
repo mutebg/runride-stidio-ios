@@ -40,6 +40,7 @@ struct UserDefaultsConfig {
         case stravaId = "strava_id"
         case stravaToken = "token"
         case useImperial
+        case theme
     }
 
     // TODO: - Add to keychain
@@ -52,4 +53,7 @@ struct UserDefaultsConfig {
 
     @UserDefaultsWrapper(Keys.useImperial.rawValue, defaultValue: false)
     static var useImperial: Bool
+    
+    @UserDefaultsWrapper(Keys.theme.rawValue, defaultValue: nil)
+    static var theme: String?
 }

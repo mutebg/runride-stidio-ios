@@ -7,14 +7,6 @@
 
 import UIKit
 
-enum Theme: String, CaseIterable, Identifiable {
-    case auto = "automatic"
-    case light
-    case dark
-    
-    var id: String { self.rawValue }
-}
-
 final class SettingsViewModel: ObservableObject {
     @Published var selectedTheme: Theme {
         didSet {
@@ -29,24 +21,26 @@ final class SettingsViewModel: ObservableObject {
     }
     
     init() {
-        self.selectedTheme = .auto
+        self.selectedTheme = Theme.current
         self.useImperialSystem = UserDefaultsConfig.useImperial
+    }
+}
+
+// MARK: - Public methods
+extension SettingsViewModel {
+    func applyTheme(_ theme: Theme) {
+        UserDefaultsConfig.theme = theme.rawValue
+
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+
+        scene.windows.forEach { window in
+            window.overrideUserInterfaceStyle = selectedTheme.uiUserInterfaceStyle
+        }
     }
 }
 
 // MARK: - Private methods
 extension SettingsViewModel {
-    private func applyTheme(_ theme: Theme) {
-        switch theme {
-        case .auto:
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .unspecified
-        case .light:
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
-        case .dark:
-            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
-        }
-    }
-    
     private func applyImperialSystem(_ useImperialSystem: Bool) {
         UserDefaultsConfig.useImperial = useImperialSystem
     }

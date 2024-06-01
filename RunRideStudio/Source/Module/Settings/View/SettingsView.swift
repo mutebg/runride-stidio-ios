@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var authViewModel: AuthViewModel
-    @StateObject private var viewModel = SettingsViewModel()
+    @EnvironmentObject private var viewModel: SettingsViewModel
     @State private var showingThemeMenu = false
 
     var body: some View {
@@ -85,4 +85,5 @@ extension SettingsView {
 
 #Preview {
     SettingsView()
+        .environmentObject(SettingsViewModel())
 }

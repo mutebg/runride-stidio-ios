@@ -57,6 +57,7 @@
 		C297CF5E2C0B737C003612FE /* SnapshotItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF5D2C0B737C003612FE /* SnapshotItemView.swift */; };
 		C297CF632C0BA25B003612FE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF622C0BA25B003612FE /* SettingsView.swift */; };
 		C297CF652C0BA263003612FE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF642C0BA263003612FE /* SettingsViewModel.swift */; };
+		C297CF6A2C0BD072003612FE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF692C0BD072003612FE /* Theme.swift */; };
 		C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73D2C09123600E1B378 /* AuthView.swift */; };
 		C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */; };
 		C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA7432C0915CC00E1B378 /* HomeView.swift */; };
@@ -156,6 +157,7 @@
 		C297CF5D2C0B737C003612FE /* SnapshotItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotItemView.swift; sourceTree = "<group>"; };
 		C297CF622C0BA25B003612FE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C297CF642C0BA263003612FE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		C297CF692C0BD072003612FE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C2CDA73D2C09123600E1B378 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C2CDA7432C0915CC00E1B378 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 		C284E9A92C04A64E0064D086 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C297CF682C0BCF31003612FE /* Entity */,
 				C22971D92C08C70800241D92 /* Constant */,
 				C2E694202C08D25A00020F8F /* Extension */,
 				C284E9BB2C04CC790064D086 /* Service */,
@@ -607,6 +610,14 @@
 				C297CF622C0BA25B003612FE /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C297CF682C0BCF31003612FE /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				C297CF692C0BD072003612FE /* Theme.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		C2CDA73A2C09120A00E1B378 /* Auth */ = {
@@ -860,6 +871,7 @@
 				C2E6941E2C08D05E00020F8F /* TotalMetricData.swift in Sources */,
 				C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */,
 				C256E4572C09F95C00FA9C75 /* HomeWidgetView.swift in Sources */,
+				C297CF6A2C0BD072003612FE /* Theme.swift in Sources */,
 				C2D0F4182C0A1A6200B11805 /* MetricType.swift in Sources */,
 				C297CF532C0B605D003612FE /* RootViewModel.swift in Sources */,
 				C264C97E2C0A6ABF004BE4B2 /* HomeViewModel.swift in Sources */,

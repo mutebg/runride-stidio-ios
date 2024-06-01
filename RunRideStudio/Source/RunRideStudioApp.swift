@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct RunRide_Studio_WidgetsApp: App {
-    @StateObject var authViewModel = AuthViewModel()
+    @StateObject private var authViewModel = AuthViewModel()
+    @StateObject private var settingsViewModel = SettingsViewModel()
 
     var body: some Scene {
         WindowGroup {
@@ -22,6 +23,10 @@ struct RunRide_Studio_WidgetsApp: App {
             }
             .onOpenURL(perform: authViewModel.handleURL(_:))
             .environmentObject(authViewModel)
+            .environmentObject(settingsViewModel)
+            .onAppear {
+                settingsViewModel.applyTheme(settingsViewModel.selectedTheme)
+            }
         }
     }
 }
