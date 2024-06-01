@@ -14,28 +14,28 @@ struct SnapshotWidgetView: View {
     let useMetric = !UserDefaultsConfig.useImperial
     
     var d: String {
-        return getDistance(entry.d, useMetric: useMetric)
+        return getDistance(entry.entity?.distance ?? .zero, useMetric: useMetric)
     }
     var dd: String {
-        return ( entry.dd > 0 ? "+" : "" ) + getDistance(entry.dd, useMetric: useMetric)
+        return ((entry.entity?.distanceDifference ?? .zero) > 0 ? "+" : "" ) + getDistance(entry.entity?.distanceDifference ?? .zero, useMetric: useMetric)
     }
     var t: String {
-        return getTime(entry.t)
+        return getTime(entry.entity?.time ?? .zero)
     }
     var td: String {
-        return ( entry.td > 0 ? "+" : "" ) + getTime(entry.td)
+        return ((entry.entity?.timeDifference ?? .zero) > 0 ? "+" : "" ) + getTime(entry.entity?.timeDifference ?? .zero)
     }
     var e: String {
-        return getElevation(entry.e, useMetric: useMetric)
+        return getElevation(entry.entity?.elevation ?? .zero, useMetric: useMetric)
     }
     var ed: String {
-        return ( entry.dd > 0 ? "+" : "" ) + getElevation(entry.ed, useMetric: useMetric)
+        return ((entry.entity?.elevationDifference ?? .zero) > 0 ? "+" : "" ) + getElevation(entry.entity?.elevationDifference ?? .zero, useMetric: useMetric)
     }
     var a: String {
-        return String(entry.a)
+        return String(entry.entity?.activities ?? .zero)
     }
     var ad: String {
-        return (entry.ad > 0 ? "+" : "" ) +  String(entry.ad)
+        return ((entry.entity?.activitiesDifference ?? .zero) > 0 ? "+" : "" ) +  String(entry.entity?.activitiesDifference ?? .zero)
     }
     
     var title: String {

@@ -8,12 +8,23 @@
 import Foundation
 
 struct SnapshotData: Decodable {
-    let d: Double
-    let dd: Double
-    let t: Int
-    let td: Int
-    let e: Int
-    let ed: Int
-    let a: Int
-    let ad: Int
+    private enum CodingKeys: String, CodingKey {
+        case distance = "d"
+        case distanceDifference = "dd"
+        case time = "t"
+        case timeDifference = "td"
+        case elevation = "e"
+        case elevationDifference = "ed"
+        case activities = "a"
+        case activitiesDifference = "ad"
+    }
+
+    let distance: Double
+    let distanceDifference: Double
+    let time: Int
+    let timeDifference: Int
+    let elevation: Int
+    let elevationDifference: Int
+    let activities: Int
+    let activitiesDifference: Int
 }
