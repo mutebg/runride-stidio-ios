@@ -54,6 +54,7 @@
 		C297CF532C0B605D003612FE /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF522C0B605D003612FE /* RootViewModel.swift */; };
 		C297CF562C0B606E003612FE /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF552C0B606E003612FE /* RootView.swift */; };
 		C297CF592C0B6465003612FE /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF582C0B6465003612FE /* NavigationBarView.swift */; };
+		C297CF5B2C0B6803003612FE /* SnapshotMediumCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF5A2C0B6803003612FE /* SnapshotMediumCardView.swift */; };
 		C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73D2C09123600E1B378 /* AuthView.swift */; };
 		C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */; };
 		C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA7432C0915CC00E1B378 /* HomeView.swift */; };
@@ -150,6 +151,7 @@
 		C297CF522C0B605D003612FE /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		C297CF552C0B606E003612FE /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C297CF582C0B6465003612FE /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		C297CF5A2C0B6803003612FE /* SnapshotMediumCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotMediumCardView.swift; sourceTree = "<group>"; };
 		C2CDA73D2C09123600E1B378 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C2CDA7432C0915CC00E1B378 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 			children = (
 				C2D0F4142C0A11DD00B11805 /* GoalSmallCardView.swift */,
 				C2D0F4252C0A2A3800B11805 /* CircularProgressView.swift */,
+				C297CF5A2C0B6803003612FE /* SnapshotMediumCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				C22971DB2C08C71900241D92 /* Spacing.swift in Sources */,
 				C281F0842C0A7ECF0042D471 /* HomeSectionHeaderView.swift in Sources */,
 				C256E4592C09FD5D00FA9C75 /* HomeBigCardView.swift in Sources */,
+				C297CF5B2C0B6803003612FE /* SnapshotMediumCardView.swift in Sources */,
 				C2D0F4262C0A2A3800B11805 /* CircularProgressView.swift in Sources */,
 				C284E9AE2C04A7460064D086 /* StravaAuthView.swift in Sources */,
 			);

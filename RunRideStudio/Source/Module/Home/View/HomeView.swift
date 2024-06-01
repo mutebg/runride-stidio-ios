@@ -11,7 +11,7 @@ struct HomeView: View {
     @ObservedObject private var viewModel = HomeViewModel()
     @State private var onEditGoalSectionMode: Bool = false
 
-    let columns: [GridItem] = [
+    private let columns: [GridItem] = [
         GridItem(.flexible(), spacing: Spacing.space16),
         GridItem(.flexible(), spacing: Spacing.space16)
     ]
@@ -19,6 +19,7 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
+                snapshotSectionView
                 goalsSectionView
                 moreSectionView
             }
@@ -29,11 +30,24 @@ struct HomeView: View {
 
 // MARK: - Private methods
 extension HomeView {
+    private var snapshotSectionView: some View {
+        Section {
+            HomeWidgetView {
+                SnapshotMediumCardView()
+            } onEdit: {
+            } onDestroy: {
+            }
+        } footer: {
+            Spacer()
+                .frame(height: Spacing.space24)
+        }
+    }
+
     private var goalsSectionView: some View {
         Section {
             LazyVGrid(columns: columns, spacing: Spacing.space16) {
                 ForEach(viewModel.goalWidgetEntities) { entity in
-                    HomeWidgetView() {
+                    HomeWidgetView {
                         GoalSmallCardView(
                             sportType: entity.sportType,
                             metricType: entity.metricType,

@@ -9,7 +9,7 @@ import Foundation
 
 enum MetricType: String, CaseIterable {
     case distance, time, elevation
-    
+
     var shortTitle: String {
         switch self {
         case .distance:
