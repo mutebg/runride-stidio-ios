@@ -7,7 +7,40 @@
 
 import Foundation
 
+enum HomeWidgetType: String {
+    case goal, snapshot
+}
+
+struct HomeGoalWidgetEntity: Identifiable {
+    let id: UUID
+    let order: Int
+    
+    let sportType: SportType
+    let intervalType: IntervalType
+    let metricType: MetricType
+    let goal: Double
+}
+
 final class HomeViewModel: ObservableObject {
+    @Published var goalWidgetEntities: [HomeGoalWidgetEntity] = [
+        HomeGoalWidgetEntity(
+            id: UUID(),
+            order: 0,
+            sportType: .run,
+            intervalType: .monthly,
+            metricType: .distance,
+            goal: 200
+        ),
+        HomeGoalWidgetEntity(
+            id: UUID(),
+            order: 1,
+            sportType: .ride,
+            intervalType: .weekly,
+            metricType: .distance,
+            goal: 14
+        )
+    ]
+
     private var stravaId: String?
     private var stravaToken: String?
     

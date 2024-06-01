@@ -9,6 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject private var viewModel = HomeViewModel()
+    @State private var onEditGoalSectionMode: Bool = false
+
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: Spacing.space16),
+        GridItem(.flexible(), spacing: Spacing.space16)
+    ]
 
     var body: some View {
         ScrollView {
@@ -25,39 +31,33 @@ struct HomeView: View {
 extension HomeView {
     private var goalsSectionView: some View {
         Section {
-            Grid(horizontalSpacing: Spacing.space16, verticalSpacing: .zero) {
-                GridRow {
-                    HomeWidgetView(color: .cardBackground) {
+            LazyVGrid(columns: columns, spacing: Spacing.space16) {
+                ForEach(viewModel.goalWidgetEntities) { entity in
+                    HomeWidgetView() {
                         GoalSmallCardView(
-                            sportType: .run,
-                            metricType: .distance,
-                            intervalType: .monthly,
-                            currentValue: 150.767,
-                            goalValue: 10,
+                            sportType: entity.sportType,
+                            metricType: entity.metricType,
+                            intervalType: entity.intervalType,
+                            currentValue: 143.232,
+                            goalValue: entity.goal,
                             activitiesCount: 12
                         )
                     } onEdit: {
                     } onDestroy: {
                     }
-
-                    HomeWidgetView(color: .cardBackground) {
-                        GoalSmallCardView(
-                            sportType: .ride,
-                            metricType: .distance,
-                            intervalType: .monthly,
-                            currentValue: 150.779,
-                            goalValue: 0,
-                            activitiesCount: 12
-                        )
-                    } onEdit: {
-                    } onDestroy: {
-                    }
+                    .aspectRatio(1.0, contentMode: .fill)
                 }
-                .aspectRatio(1.0, contentMode: .fill)
+                
+                if onEditGoalSectionMode {
+                    HomeAddGoalWidgetView() {
+                        print("add new")
+                    }
+                    .aspectRatio(1.0, contentMode: .fill)
+                }
             }
         } header: {
             HomeSectionHeaderView(title: "Goals") {
-                print("edit")
+                onEditGoalSectionMode.toggle()
             }
             .padding(.horizontal, Spacing.space8)
         } footer: {
@@ -65,7 +65,7 @@ extension HomeView {
                 .frame(height: Spacing.space24)
         }
     }
-    
+
     private var moreSectionView: some View {
         Section {
             Button {
@@ -81,8 +81,8 @@ extension HomeView {
             // Strava club card
             // FAQ cards: How to add widgets
         } header: {
-            HomeSectionHeaderView(title: "Goals")
-                .padding(.horizontal, 8.0)
+            HomeSectionHeaderView(title: "More")
+                .padding(.horizontal, Spacing.space8)
         } footer: {
             Spacer()
                 .frame(height: Spacing.space24)

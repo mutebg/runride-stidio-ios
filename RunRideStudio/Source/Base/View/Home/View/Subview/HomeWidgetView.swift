@@ -57,7 +57,7 @@ struct HomeWidgetView<Content: View, Background: View>: View {
 
 extension HomeWidgetView where Background == Color {
     init(
-        color: Color,
+        color: Color = .cardBackground,
         @ViewBuilder content: () -> Content,
         onEdit: @escaping () -> Void,
         onDestroy: @escaping () -> Void

@@ -51,6 +51,7 @@
 		C284E9CC2C04D78A0064D086 /* WidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9CA2C04D78A0064D086 /* WidgetService.swift */; };
 		C284E9D22C04DDC50064D086 /* SnapshotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9D12C04DDC50064D086 /* SnapshotData.swift */; };
 		C284E9D32C04DDC50064D086 /* SnapshotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C284E9D12C04DDC50064D086 /* SnapshotData.swift */; };
+		C297CF4E2C0B5C86003612FE /* HomeAddGoalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF4D2C0B5C86003612FE /* HomeAddGoalWidgetView.swift */; };
 		C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73D2C09123600E1B378 /* AuthView.swift */; };
 		C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */; };
 		C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA7432C0915CC00E1B378 /* HomeView.swift */; };
@@ -144,6 +145,7 @@
 		C284E9C72C04D77F0064D086 /* WidgetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTarget.swift; sourceTree = "<group>"; };
 		C284E9CA2C04D78A0064D086 /* WidgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetService.swift; sourceTree = "<group>"; };
 		C284E9D12C04DDC50064D086 /* SnapshotData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotData.swift; sourceTree = "<group>"; };
+		C297CF4D2C0B5C86003612FE /* HomeAddGoalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddGoalWidgetView.swift; sourceTree = "<group>"; };
 		C2CDA73D2C09123600E1B378 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C2CDA7432C0915CC00E1B378 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				C256E4562C09F95C00FA9C75 /* HomeWidgetView.swift */,
 				C256E4582C09FD5D00FA9C75 /* HomeBigCardView.swift */,
 				C281F0832C0A7ECF0042D471 /* HomeSectionHeaderView.swift */,
+				C297CF4D2C0B5C86003612FE /* HomeAddGoalWidgetView.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -776,6 +779,7 @@
 				C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */,
 				C284E9C82C04D77F0064D086 /* WidgetTarget.swift in Sources */,
 				C264C97A2C0A630F004BE4B2 /* SportType.swift in Sources */,
+				C297CF4E2C0B5C86003612FE /* HomeAddGoalWidgetView.swift in Sources */,
 				C2D0F41B2C0A1A6C00B11805 /* IntervalType.swift in Sources */,
 				C2E694252C08D2B400020F8F /* Double+Extension.swift in Sources */,
 				C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */,
