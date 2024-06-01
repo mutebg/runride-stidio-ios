@@ -33,9 +33,10 @@ struct HomeView: View {
 
 // MARK: - Private methods
 extension HomeView {
+    @ViewBuilder
     private var snapshotSectionView: some View {
-        Section {
-            if let entity = viewModel.snapshotWidgetEntity {
+        if let entity = viewModel.snapshotWidgetEntity {
+            Section {
                 HomeWidgetView {
                     SnapshotMediumCardView(
                         types: entity.snapshotTypes,
@@ -46,10 +47,12 @@ extension HomeView {
                 } onEdit: {
                 } onDestroy: {
                 }
+            } footer: {
+                Spacer()
+                    .frame(height: Spacing.space24)
             }
-        } footer: {
-            Spacer()
-                .frame(height: Spacing.space24)
+        } else {
+            EmptyView()
         }
     }
 
