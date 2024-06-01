@@ -85,7 +85,7 @@ struct SnapshotWidgetView: View {
         return String(format: "%.2f", convertedValue) + (useMetric ? "km" : "mi")
     }
     
-    func getElevation(_ value: Int, useMetric: Bool) -> String {
+    func getElevation(_ value: Double, useMetric: Bool) -> String {
        let convertedValue: Double = useMetric ? Double(value) : Double(value) * 3.28084
        return String(format: "%.2f", convertedValue) + (useMetric ? " m" : " ft")
     }

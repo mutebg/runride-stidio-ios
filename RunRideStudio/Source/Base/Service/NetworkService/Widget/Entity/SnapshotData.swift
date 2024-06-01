@@ -23,8 +23,8 @@ struct SnapshotData: Decodable {
     let distanceDifference: Double
     let time: Int
     let timeDifference: Int
-    let elevation: Int
-    let elevationDifference: Int
+    let elevation: Double
+    let elevationDifference: Double
     let activities: Int
     let activitiesDifference: Int
 }

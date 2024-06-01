@@ -32,11 +32,11 @@ struct HomeView: View {
 extension HomeView {
     private var snapshotSectionView: some View {
         Section {
-            HomeWidgetView {
-                SnapshotMediumCardView()
-            } onEdit: {
-            } onDestroy: {
-            }
+//            HomeWidgetView {
+//                SnapshotMediumCardView()
+//            } onEdit: {
+//            } onDestroy: {
+//            }
         } footer: {
             Spacer()
                 .frame(height: Spacing.space24)
