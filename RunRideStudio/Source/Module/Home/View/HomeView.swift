@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject private var viewModel = HomeViewModel()
+    @StateObject private var viewModel = HomeViewModel()
     @State private var onEditGoalSectionMode: Bool = false
 
     private let columns: [GridItem] = [
