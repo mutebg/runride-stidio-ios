@@ -41,7 +41,6 @@ struct SnapshotMediumCardView: View {
         VStack(alignment: .leading) {
             Text("your \(intervalType.rawValue) snapshot | \(sportType.title)".lowercased())
                 .font(.footnote)
-                .fontWeight(.medium)
                 .foregroundStyle(.textBrand1)
                 .padding(.bottom, Spacing.space8)
             
@@ -54,7 +53,7 @@ struct SnapshotMediumCardView: View {
                         isNegative: isDifferenceNegative(from: entity, for: type)
                     )
                     
-                    if type != types.first, type != types.last {
+                    if type != types.last {
                         Spacer()
                     }
                 }
@@ -78,10 +77,10 @@ extension SnapshotMediumCardView {
             let minutes = remainingSeconds / 60
             return String(format: "%dh %02dm", hours, minutes)
         case .distance:
-            let value = entity.distance.distanceInLocalSettings
+            let value = entity.distance.distanceInLocalSettings.formatted()
             return "\(value) \(DistanceMeasureType.current.title)"
         case .elevation:
-            let value = entity.elevation.elevationInLocalSettings
+            let value = entity.elevation.elevationInLocalSettings.formatted()
             return "\(value) \(ElevationMeasureType.current.title)"
         }
     }
@@ -104,11 +103,11 @@ extension SnapshotMediumCardView {
         case .distance:
             let value = abs(entity.distanceDifference.distanceInLocalSettings)
             guard value != .zero else { return "-" }
-            return "\(value) \(DistanceMeasureType.current.title)"
+            return "\(value.formatted()) \(DistanceMeasureType.current.title)"
         case .elevation:
             let value = abs(entity.elevationDifference.elevationInLocalSettings)
             guard value != .zero else { return "-" }
-            return "\(value) \(ElevationMeasureType.current.title)"
+            return "\(value.formatted()) \(ElevationMeasureType.current.title)"
         }
     }
 
@@ -134,15 +133,6 @@ extension SnapshotMediumCardView {
         }
 
         return difference < 0
-    }
-
-    private func getTime(_ seconds: Int) -> String {
-        let sign = seconds < 0 ? "-" : ""
-        let absoluteSeconds = abs(seconds)
-        let (hours, remainingSeconds) = absoluteSeconds.quotientAndRemainder(dividingBy: 3600)
-        let minutes = remainingSeconds / 60
-
-        return String(format: "%@%dh %02dm", sign, hours, minutes)
     }
 }
 

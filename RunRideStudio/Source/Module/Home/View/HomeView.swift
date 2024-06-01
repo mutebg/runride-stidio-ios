@@ -25,6 +25,9 @@ struct HomeView: View {
             }
             .padding(16.0)
         }
+        .onAppear {
+            viewModel.updateSnapshot()
+        }
     }
 }
 
@@ -32,11 +35,18 @@ struct HomeView: View {
 extension HomeView {
     private var snapshotSectionView: some View {
         Section {
-//            HomeWidgetView {
-//                SnapshotMediumCardView()
-//            } onEdit: {
-//            } onDestroy: {
-//            }
+            if let entity = viewModel.snapshotWidgetEntity {
+                HomeWidgetView {
+                    SnapshotMediumCardView(
+                        types: entity.snapshotTypes,
+                        sportType: entity.sportType,
+                        intervalType: entity.intervalType,
+                        entity: entity.data
+                    )
+                } onEdit: {
+                } onDestroy: {
+                }
+            }
         } footer: {
             Spacer()
                 .frame(height: Spacing.space24)

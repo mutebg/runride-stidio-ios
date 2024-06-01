@@ -56,7 +56,7 @@ struct SnapshotItemView: View {
 extension SnapshotItemView {
     private var currentImageName: String {
         guard let isNegative else { return "" }
-        return isNegative ? "arrowtriangle.down.fill" : "arrowtriangle.up.fill"
+        return isNegative ? "arrow.down" : "arrow.up"
     }
 
     private var currentAccentColor: Color {

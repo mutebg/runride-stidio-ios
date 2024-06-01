@@ -21,7 +21,16 @@ struct HomeGoalWidgetEntity: Identifiable {
     let goal: Double
 }
 
+struct HomeSnapshotWidgetEntity {
+    let sportType: SportType
+    let intervalType: IntervalType
+    let snapshotTypes: [SnapshotDataType]
+    let data: SnapshotData
+}
+
+@MainActor
 final class HomeViewModel: ObservableObject {
+    @Published var snapshotWidgetEntity: HomeSnapshotWidgetEntity?
     @Published var goalWidgetEntities: [HomeGoalWidgetEntity] = [
         HomeGoalWidgetEntity(
             id: UUID(),
@@ -41,12 +50,14 @@ final class HomeViewModel: ObservableObject {
         )
     ]
 
-    private var stravaId: String?
-    private var stravaToken: String?
-    
-    init() {
+    private let stravaId: String?
+    private let stravaToken: String?
+    private let widgetDataService: WidgetServiceProtocol
+
+    init(widgetDataService: WidgetServiceProtocol = WidgetService()) {
         self.stravaId = UserDefaultsConfig.stravaId
         self.stravaToken = UserDefaultsConfig.stravaToken
+        self.widgetDataService = widgetDataService
     }
 }
 
@@ -56,5 +67,43 @@ extension HomeViewModel {
         let token = stravaToken ?? ""
         let id = stravaId ?? ""
         return URL(string: "https://runride.studio/ok?token=\(token)&id=\(id)")
+    }
+    
+    func updateSnapshot() {
+        Task {
+            let data = await fetchSnapshotData(
+                sportType: .run,
+                intervalType: .monthly
+            )
+            
+            guard let data else { return }
+
+            self.snapshotWidgetEntity = .init(
+                sportType: .run,
+                intervalType: .monthly,
+                snapshotTypes: [.activity, .time, .distance],
+                data: data
+            )
+        }
+    }
+}
+
+// MARK: - Private methods
+extension HomeViewModel {
+    private func fetchSnapshotData(
+        sportType: SportType,
+        intervalType: IntervalType
+    ) async -> SnapshotData? {
+        let result = await widgetDataService.getSnapshotData(
+            sportType: sportType.rawValue,
+            interval: intervalType.rawValue
+        )
+        
+        switch result {
+        case let .success(entity):
+            return entity
+        case .failure:
+            return nil
+        }
     }
 }
