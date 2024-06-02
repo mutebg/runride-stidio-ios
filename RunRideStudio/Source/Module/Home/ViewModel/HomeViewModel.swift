@@ -19,36 +19,22 @@ struct HomeGoalWidgetEntity: Identifiable {
     let intervalType: IntervalType
     let metricType: MetricType
     let goal: Double
+    
+    let data: TotalMetricData
 }
 
 struct HomeSnapshotWidgetEntity {
     let sportType: SportType
     let intervalType: IntervalType
     let snapshotTypes: [SnapshotDataType]
+
     let data: SnapshotData
 }
 
 @MainActor
 final class HomeViewModel: ObservableObject {
     @Published var snapshotWidgetEntity: HomeSnapshotWidgetEntity?
-    @Published var goalWidgetEntities: [HomeGoalWidgetEntity] = [
-        HomeGoalWidgetEntity(
-            id: UUID(),
-            order: 0,
-            sportType: .run,
-            intervalType: .monthly,
-            metricType: .distance,
-            goal: 200
-        ),
-        HomeGoalWidgetEntity(
-            id: UUID(),
-            order: 1,
-            sportType: .ride,
-            intervalType: .weekly,
-            metricType: .distance,
-            goal: 14
-        )
-    ]
+    @Published var goalWidgetEntities: [HomeGoalWidgetEntity] = []
 
     private let stravaId: String?
     private let stravaToken: String?
@@ -68,22 +54,57 @@ extension HomeViewModel {
         let id = stravaId ?? ""
         return URL(string: "https://runride.studio/ok?token=\(token)&id=\(id)")
     }
-    
-    func updateSnapshot() {
+
+    func updateData() {
         Task {
-            let data = await fetchSnapshotData(
+            async let snapshot = fetchSnapshotData(
                 sportType: .run,
                 intervalType: .monthly
             )
-            
-            guard let data else { return }
-
-            self.snapshotWidgetEntity = .init(
+            async let goal1 = fetchGoalData(
                 sportType: .run,
                 intervalType: .monthly,
-                snapshotTypes: [.activity, .time, .distance],
-                data: data
+                metricType: .distance
             )
+            async let goal2 = fetchGoalData(
+                sportType: .ride,
+                intervalType: .monthly,
+                metricType: .distance
+            )
+
+            let data = await (snapshot, goal1, goal2)
+            
+            if let entity = data.0 {
+                self.snapshotWidgetEntity = .init(
+                    sportType: .run,
+                    intervalType: .monthly,
+                    snapshotTypes: [.activity, .time, .distance],
+                    data: entity
+                )
+            }
+            
+            if let ent1 = data.1, let ent2 = data.2 {
+                self.goalWidgetEntities = [
+                    HomeGoalWidgetEntity(
+                        id: UUID(),
+                        order: 0,
+                        sportType: .run,
+                        intervalType: .monthly,
+                        metricType: .distance,
+                        goal: 200,
+                        data: ent1
+                    ),
+                    HomeGoalWidgetEntity(
+                        id: UUID(),
+                        order: 1,
+                        sportType: .ride,
+                        intervalType: .monthly,
+                        metricType: .distance,
+                        goal: 100,
+                        data: ent2
+                    )
+                ]
+            }
         }
     }
 }
@@ -97,6 +118,25 @@ extension HomeViewModel {
         let result = await widgetDataService.getSnapshotData(
             sportType: sportType.rawValue,
             interval: intervalType.rawValue
+        )
+        
+        switch result {
+        case let .success(entity):
+            return entity
+        case .failure:
+            return nil
+        }
+    }
+    
+    private func fetchGoalData(
+        sportType: SportType,
+        intervalType: IntervalType,
+        metricType: MetricType
+    ) async -> TotalMetricData? {
+        let result = await widgetDataService.getTotalMetricData(
+            for: sportType.rawValue,
+            interval: intervalType.rawValue,
+            metric: metricType.rawValue
         )
         
         switch result {

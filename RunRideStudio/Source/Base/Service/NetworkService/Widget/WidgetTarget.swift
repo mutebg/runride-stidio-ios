@@ -33,7 +33,8 @@ extension WidgetTarget: BaseTarget {
         case let .snapshotData(sportType, interval):
             return [
                 "type": sportType,
-                "interval": interval
+                "interval": interval,
+                "full": "true"
             ]
         }
     }

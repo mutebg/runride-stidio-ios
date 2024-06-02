@@ -27,7 +27,7 @@ struct HomeView: View {
         }
         .background(Color(uiColor: .systemGroupedBackground))
         .onAppear {
-            viewModel.updateSnapshot()
+            viewModel.updateData()
         }
     }
 }
@@ -66,9 +66,9 @@ extension HomeView {
                             sportType: entity.sportType,
                             metricType: entity.metricType,
                             intervalType: entity.intervalType,
-                            currentValue: 143.232,
+                            currentValue: entity.data.currentValue,
                             goalValue: entity.goal,
-                            activitiesCount: 12
+                            activitiesCount: entity.data.activitiesCount
                         )
                     } onEdit: {
                     } onDestroy: {
