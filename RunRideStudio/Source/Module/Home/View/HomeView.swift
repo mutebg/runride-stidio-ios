@@ -21,7 +21,8 @@ struct HomeView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 snapshotSectionView
-                goalsSectionView
+                // TODO: - Add goals section
+//                goalsSectionView
                 moreSectionView
             }
             .padding(Spacing.space20)
@@ -127,12 +128,21 @@ extension HomeView {
             } label: {
                 HomeBigCardView(
                     title: "Discover more statistics on our website",
-                    image: .website
+                    image: .websiteCover
                 )
             }
             
-            // Strava club card
-            // FAQ cards: How to add widgets
+            Button {
+                guard let url = viewModel.stravaClubUrl else { return }
+                UIApplication.shared.open(url)
+            } label: {
+                HomeBigCardView(
+                    title: "Join our\nStrava Club",
+                    image: .stravaClubCover
+                )
+            }
+
+            // TODO: - FAQ cards: How to add widgets
         } header: {
             HomeSectionHeaderView(title: "More")
         } footer: {

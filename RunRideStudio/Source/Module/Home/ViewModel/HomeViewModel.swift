@@ -52,6 +52,10 @@ extension HomeViewModel {
         return URL(string: "https://runride.studio/ok?token=\(token)&id=\(id)")
     }
     
+    var stravaClubUrl: URL? {
+        return URL(string: "https://www.strava.com/clubs/1200264")
+    }
+    
     func value(
         for sportType: SportType,
         intervalType: IntervalType,
