@@ -96,14 +96,10 @@ extension HomeViewModel {
         WidgetCenter.shared.reloadAllTimelines()
 
         Task {
-            async let asyncSnapshot = fetchUserSnapshotWidget()
-            async let asyncGoals = fetchUserGoalWidgets()
-            
-            let (snapshot, goals) = await (asyncSnapshot, asyncGoals)
+            let snapshot = await fetchUserSnapshotWidget()
             await fetchData()
 
             self.snapshotWidgetEntity = snapshot
-            self.goalWidgetEntities = goals
         }
     }
 }
@@ -114,7 +110,7 @@ extension HomeViewModel {
         let snapshot = HomeSnapshotWidgetEntity(
             sportType: .run,
             intervalType: .monthly,
-            snapshotTypes: [.time, .activity, .elevation]
+            snapshotTypes: [.activity, .time, .distance]
         )
         return snapshot
     }
@@ -142,11 +138,9 @@ extension HomeViewModel {
     }
     
     private func fetchData() async {
-        async let runWeekly = fetchSnapshotData(sportType: .run, intervalType: .weekly)
         async let runMonthly = fetchSnapshotData(sportType: .run, intervalType: .monthly)
-        async let rideMonthly = fetchSnapshotData(sportType: .ride, intervalType: .monthly)
         
-        let results = await [runWeekly, runMonthly, rideMonthly]
+        let results = await [runMonthly]
         self.datas = results.compactMap { $0 }
     }
     

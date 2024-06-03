@@ -63,10 +63,6 @@ extension HomeView {
                     )
                 )
             }
-            .if(viewModel.snapshotWidgetEntity != nil) { view in
-                view.onEdit {
-                }
-            }
         } footer: {
             Spacer()
                 .frame(height: Spacing.space24)
