@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MetricType: String, CaseIterable {
+enum MetricType: String, CaseIterable, Identifiable {
     case distance, time, elevation
 
     var shortTitle: String {
@@ -19,5 +19,9 @@ enum MetricType: String, CaseIterable {
         case .elevation:
             return ElevationMeasureType.current.title
         }
+    }
+    
+    var id: String {
+        rawValue
     }
 }

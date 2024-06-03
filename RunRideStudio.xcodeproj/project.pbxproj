@@ -58,6 +58,7 @@
 		C297CF632C0BA25B003612FE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF622C0BA25B003612FE /* SettingsView.swift */; };
 		C297CF652C0BA263003612FE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF642C0BA263003612FE /* SettingsViewModel.swift */; };
 		C297CF6A2C0BD072003612FE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297CF692C0BD072003612FE /* Theme.swift */; };
+		C2C0BB9B2C0DB0310052E47D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0BB9A2C0DB0310052E47D /* View+Extension.swift */; };
 		C2CDA73E2C09123600E1B378 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73D2C09123600E1B378 /* AuthView.swift */; };
 		C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */; };
 		C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDA7432C0915CC00E1B378 /* HomeView.swift */; };
@@ -83,6 +84,8 @@
 		C2E6942A2C08D3D000020F8F /* DistanceMeasureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E694282C08D3D000020F8F /* DistanceMeasureType.swift */; };
 		C2E6942C2C08DA8B00020F8F /* ElevationMeasureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6942B2C08DA8B00020F8F /* ElevationMeasureType.swift */; };
 		C2E6942D2C08DA8B00020F8F /* ElevationMeasureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6942B2C08DA8B00020F8F /* ElevationMeasureType.swift */; };
+		C2F9FE6E2C0CBF3D0089E413 /* HomeWidgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F9FE6D2C0CBF3D0089E413 /* HomeWidgetDetailView.swift */; };
+		C2F9FE712C0CBF7B0089E413 /* WidgetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F9FE702C0CBF7B0089E413 /* WidgetDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +161,7 @@
 		C297CF622C0BA25B003612FE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C297CF642C0BA263003612FE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		C297CF692C0BD072003612FE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C2C0BB9A2C0DB0310052E47D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		C2CDA73D2C09123600E1B378 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		C2CDA73F2C09128C00E1B378 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C2CDA7432C0915CC00E1B378 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 		C2E694242C08D2B400020F8F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		C2E694282C08D3D000020F8F /* DistanceMeasureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasureType.swift; sourceTree = "<group>"; };
 		C2E6942B2C08DA8B00020F8F /* ElevationMeasureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationMeasureType.swift; sourceTree = "<group>"; };
+		C2F9FE6D2C0CBF3D0089E413 /* HomeWidgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWidgetDetailView.swift; sourceTree = "<group>"; };
+		C2F9FE702C0CBF7B0089E413 /* WidgetDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -536,6 +542,7 @@
 		C297CF4F2C0B6030003612FE /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C2F9FE6B2C0CBF250089E413 /* WidgetModal */,
 				C297CF5F2C0BA24B003612FE /* Settings */,
 				C297CF502C0B6044003612FE /* Root */,
 				C2CDA7412C0915C100E1B378 /* Home */,
@@ -704,6 +711,7 @@
 			children = (
 				C2E694212C08D26400020F8F /* Date+Extension.swift */,
 				C2E694242C08D2B400020F8F /* Double+Extension.swift */,
+				C2C0BB9A2C0DB0310052E47D /* View+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -718,6 +726,31 @@
 				C264C9792C0A630F004BE4B2 /* SportType.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		C2F9FE6B2C0CBF250089E413 /* WidgetModal */ = {
+			isa = PBXGroup;
+			children = (
+				C2F9FE6F2C0CBF6A0089E413 /* ViewModel */,
+				C2F9FE6C2C0CBF340089E413 /* View */,
+			);
+			path = WidgetModal;
+			sourceTree = "<group>";
+		};
+		C2F9FE6C2C0CBF340089E413 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C2F9FE6D2C0CBF3D0089E413 /* HomeWidgetDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C2F9FE6F2C0CBF6A0089E413 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C2F9FE702C0CBF7B0089E413 /* WidgetDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -864,6 +897,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C284E9C42C04D2B40064D086 /* BaseTarget.swift in Sources */,
+				C2F9FE712C0CBF7B0089E413 /* WidgetDetailViewModel.swift in Sources */,
 				C284E9BD2C04CC800064D086 /* UserDefaultsWrapper.swift in Sources */,
 				C284E9C12C04D23C0064D086 /* BaseNetworkService.swift in Sources */,
 				C2E694292C08D3D000020F8F /* DistanceMeasureType.swift in Sources */,
@@ -879,10 +913,12 @@
 				C284E9C82C04D77F0064D086 /* WidgetTarget.swift in Sources */,
 				C264C97A2C0A630F004BE4B2 /* SportType.swift in Sources */,
 				C297CF4E2C0B5C86003612FE /* HomeAddGoalWidgetView.swift in Sources */,
+				C2F9FE6E2C0CBF3D0089E413 /* HomeWidgetDetailView.swift in Sources */,
 				C2D0F41B2C0A1A6C00B11805 /* IntervalType.swift in Sources */,
 				C297CF592C0B6465003612FE /* NavigationBarView.swift in Sources */,
 				C2E694252C08D2B400020F8F /* Double+Extension.swift in Sources */,
 				C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */,
+				C2C0BB9B2C0DB0310052E47D /* View+Extension.swift in Sources */,
 				C297CF652C0BA263003612FE /* SettingsViewModel.swift in Sources */,
 				C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */,
 				C2E6942C2C08DA8B00020F8F /* ElevationMeasureType.swift in Sources */,

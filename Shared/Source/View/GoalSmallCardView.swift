@@ -84,6 +84,10 @@ extension GoalSmallCardView {
             return "100%"
         }
         
+        if diff > 9999 {
+            return "Progress: \(progressPercent * 100)%"
+        }
+        
         let diffText = value(diff, for: metricType).formatted()
         return "\(diffText) \(metricType.shortTitle) to goal"
     }

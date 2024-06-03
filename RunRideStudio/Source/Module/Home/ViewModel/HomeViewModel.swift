@@ -35,6 +35,7 @@ struct HomeSnapshotWidgetEntity {
 final class HomeViewModel: ObservableObject {
     @Published var snapshotWidgetEntity: HomeSnapshotWidgetEntity?
     @Published var goalWidgetEntities: [HomeGoalWidgetEntity] = []
+    @Published var selectedGoalWidgetEntity: HomeGoalWidgetEntity?
 
     private let stravaId: String?
     private let stravaToken: String?

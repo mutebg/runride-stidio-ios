@@ -10,14 +10,14 @@ import SwiftUI
 struct HomeWidgetView<Content: View, Background: View>: View {
     let content: Content
     let background: Background
-    let onEdit: () -> Void
-    let onDestroy: () -> Void
+    let onEdit: (() -> Void)?
+    let onDestroy: (() -> Void)?
     
     init(
         background: Background,
         @ViewBuilder content: () -> Content,
-        onEdit: @escaping () -> Void,
-        onDestroy: @escaping () -> Void
+        onEdit: (() -> Void)? = nil,
+        onDestroy: (() -> Void)? = nil
     ) {
         self.background = background
         self.content = content()
@@ -38,18 +38,23 @@ struct HomeWidgetView<Content: View, Background: View>: View {
             .background(background)
             .clipShape(.rect(cornerRadius: 22))
             .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 22))
-            .foregroundColor(.white)
-            .contextMenu {
-                Button() {
-                    onEdit()
-                } label: {
-                    Label("Customize", systemImage: "pencil")
-                }
-
-                Button(role: .destructive) {
-                    onDestroy()
-                } label: {
-                    Label("Delete", systemImage: "trash")
+            .if(onEdit != nil || onDestroy != nil) { view in
+                view.contextMenu {
+                    if let onEdit {
+                        Button() {
+                            onEdit()
+                        } label: {
+                            Label("Customize", systemImage: "pencil")
+                        }
+                    }
+                    
+                    if let onDestroy {
+                        Button(role: .destructive) {
+                            onDestroy()
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
                 }
             }
     }
@@ -59,8 +64,8 @@ extension HomeWidgetView where Background == Color {
     init(
         color: Color = Color(uiColor: .secondarySystemGroupedBackground),
         @ViewBuilder content: () -> Content,
-        onEdit: @escaping () -> Void,
-        onDestroy: @escaping () -> Void
+        onEdit: (() -> Void)? = nil,
+        onDestroy: (() -> Void)? = nil
     ) {
         self.init(
             background: color,

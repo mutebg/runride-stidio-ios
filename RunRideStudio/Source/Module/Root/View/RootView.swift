@@ -42,11 +42,9 @@ extension RootView {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        VStack {
-                            NavigationBarView(
-                                title: "Hello, athlete",
-                                subtitle: "Today, \(viewModel.formattedCurrentDate)")
-                        }
+                        NavigationBarView(
+                            title: "Hello, athlete",
+                            subtitle: "Today, \(viewModel.formattedCurrentDate)")
                     }
                 }
         }

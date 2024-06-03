@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @State private var onEditGoalSectionMode: Bool = false
+    @State private var showModal: Bool = false
 
     private let columns: [GridItem] = [
         GridItem(.flexible(), spacing: Spacing.space16),
@@ -29,6 +30,21 @@ struct HomeView: View {
         .onAppear {
             viewModel.updateData()
         }
+        .sheet(isPresented: $showModal) {
+            if let entity = viewModel.selectedGoalWidgetEntity {
+                HomeWidgetDetailView(
+                    isPresented: $showModal,
+                    viewModel: WidgetDetailViewModel(
+                        sportType: entity.sportType,
+                        intervalType: entity.intervalType,
+                        metricType: entity.metricType,
+                        goalValue: entity.goal
+                    )
+                )
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
+            }
+        }
     }
 }
 
@@ -46,7 +62,6 @@ extension HomeView {
                         entity: entity.data
                     )
                 } onEdit: {
-                } onDestroy: {
                 }
             } footer: {
                 Spacer()
@@ -71,6 +86,10 @@ extension HomeView {
                             activitiesCount: entity.data.activitiesCount
                         )
                     } onEdit: {
+                        withAnimation {
+                            viewModel.selectedGoalWidgetEntity = entity
+                            showModal = true
+                        }
                     } onDestroy: {
                     }
                     .aspectRatio(1.0, contentMode: .fill)
@@ -118,4 +137,6 @@ extension HomeView {
 
 #Preview {
     RootView()
+        .environmentObject(AuthViewModel())
+        .environmentObject(SettingsViewModel())
 }
