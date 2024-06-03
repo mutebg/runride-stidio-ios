@@ -9,6 +9,8 @@ import Foundation
 
 struct SnapshotData: Decodable {
     private enum CodingKeys: String, CodingKey {
+        case period
+        case sport
         case distance = "d"
         case distanceDifference = "dd"
         case time = "t"
@@ -18,6 +20,9 @@ struct SnapshotData: Decodable {
         case activities = "a"
         case activitiesDifference = "ad"
     }
+
+    var period: IntervalType?
+    var sport: SportType?
 
     let distance: Double
     let distanceDifference: Double

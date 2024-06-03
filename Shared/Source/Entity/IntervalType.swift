@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IntervalType: String, CaseIterable, Identifiable {
+enum IntervalType: String, CaseIterable, Identifiable, Codable {
     case weekly, monthly, yearly
     
     var title: String {

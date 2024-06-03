@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SportType: String, CaseIterable, Identifiable {
+enum SportType: String, CaseIterable, Identifiable, Codable {
     case run, ride, swim, walk, hike, rowing
     
     var title: String {
