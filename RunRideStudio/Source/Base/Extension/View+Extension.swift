@@ -15,4 +15,22 @@ extension View {
             self
         }
     }
+    
+    func onEdit(_ action: @escaping () -> Void) -> some View {
+        modifier(EditActionModifier(action: action))
+    }
+}
+
+struct EditActionModifier: ViewModifier {
+    let action: () -> Void
+
+    func body(content: Content) -> some View {
+        content.contextMenu {
+            Button {
+                action()
+            } label: {
+                Label("Customize", systemImage: "pencil")
+            }
+        }
+    }
 }

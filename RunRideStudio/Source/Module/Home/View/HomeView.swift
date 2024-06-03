@@ -61,7 +61,10 @@ extension HomeView {
                         intervalType: viewModel.snapshotWidgetEntity?.intervalType
                     )
                 )
-            } onEdit: {
+            }
+            .if(viewModel.snapshotWidgetEntity != nil) { view in
+                view.onEdit {
+                }
             }
         } footer: {
             Spacer()
@@ -89,12 +92,12 @@ extension HomeView {
                                 intervalType: entity.intervalType
                             )
                         )
-                    } onEdit: {
+                    } 
+                    .onEdit {
                         withAnimation {
                             viewModel.selectedGoalWidgetEntity = entity
                             showModal = true
                         }
-                    } onDestroy: {
                     }
                     .aspectRatio(1.0, contentMode: .fill)
                 }
