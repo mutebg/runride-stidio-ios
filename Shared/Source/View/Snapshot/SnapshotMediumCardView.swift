@@ -33,16 +33,29 @@ enum SnapshotDataType: String, Identifiable {
 
 struct SnapshotMediumCardView: View {
     let types: [SnapshotDataType]
-    let sportType: SportType
-    let intervalType: IntervalType
-    let entity: SnapshotData
+    let sportType: SportType?
+    let intervalType: IntervalType?
+    let entity: SnapshotData?
+    
+    init(
+        types: [SnapshotDataType]?,
+        sportType: SportType?,
+        intervalType: IntervalType?,
+        entity: SnapshotData?
+    ) {
+        self.types = types ?? [.activity, .time, .distance]
+        self.sportType = sportType
+        self.intervalType = intervalType
+        self.entity = entity
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("your \(intervalType.rawValue) snapshot | \(sportType.title)".lowercased())
+            Text(headerText)
                 .font(.footnote)
                 .foregroundStyle(.textBrand1)
                 .padding(.bottom, Spacing.space8)
+                .redacted(reason: sportType == nil ? .placeholder : [])
             
             HStack(spacing: Spacing.space8) {
                 ForEach(types) { type in
@@ -52,6 +65,7 @@ struct SnapshotMediumCardView: View {
                         diff: formattedDifferenceText(from: entity, for: type),
                         isNegative: isDifferenceNegative(from: entity, for: type)
                     )
+                    .redacted(reason: entity == nil ? .placeholder : [])
                     
                     if type != types.last {
                         Spacer()
@@ -64,36 +78,44 @@ struct SnapshotMediumCardView: View {
 
 // MARK: - Private methods
 extension SnapshotMediumCardView {
+    private var headerText: String {
+        let intervalTitle = (intervalType ?? .weekly).rawValue
+        let sportTitle = (sportType ?? .run).title
+        return "your \(intervalTitle) snapshot | \(sportTitle)".lowercased()
+    }
+
     private func formattedValueText(
-        from entity: SnapshotData,
+        from entity: SnapshotData?,
         for type: SnapshotDataType
     ) -> String {
         switch type {
         case .activity:
-            return entity.activities.description
+            return (entity?.activities ?? .zero).description
         case .time:
-            let absoluteSeconds = abs(entity.time)
+            let absoluteSeconds = abs(entity?.time ?? .zero)
             let (hours, remainingSeconds) = absoluteSeconds.quotientAndRemainder(dividingBy: 3600)
             let minutes = remainingSeconds / 60
             return String(format: "%dh %02dm", hours, minutes)
         case .distance:
-            let value = entity.distance.distanceInLocalSettings.formatted()
-            return "\(value) \(DistanceMeasureType.current.title)"
+            let value = entity?.distance.distanceInLocalSettings ?? .zero
+            return "\(value.formatted()) \(DistanceMeasureType.current.title)"
         case .elevation:
-            let value = entity.elevation.elevationInLocalSettings.formatted()
-            return "\(value) \(ElevationMeasureType.current.title)"
+            let value = entity?.elevation.elevationInLocalSettings ?? .zero
+            return "\(value.formatted()) \(ElevationMeasureType.current.title)"
         }
     }
     
     private func formattedDifferenceText(
-        from entity: SnapshotData,
+        from entity: SnapshotData?,
         for type: SnapshotDataType
     ) -> String {
+        guard let entity else { return "" }
+
         switch type {
         case .activity:
             let value = abs(entity.activitiesDifference)
             guard value != .zero else { return "-" }
-            return abs(entity.activitiesDifference).description
+            return value.description
         case .time:
             let absoluteSeconds = abs(entity.timeDifference)
             guard absoluteSeconds != .zero else { return "-" }
@@ -112,9 +134,11 @@ extension SnapshotMediumCardView {
     }
 
     private func isDifferenceNegative(
-        from entity: SnapshotData,
+        from entity: SnapshotData?,
         for type: SnapshotDataType
     ) -> Bool? {
+        guard let entity else { return nil }
+
         let difference: Double
 
         switch type {

@@ -27,9 +27,7 @@ struct HomeView: View {
             .padding(Spacing.space20)
         }
         .background(Color(uiColor: .systemGroupedBackground))
-        .onAppear {
-            viewModel.updateData()
-        }
+        
         .sheet(isPresented: $showModal) {
             if let entity = viewModel.selectedGoalWidgetEntity {
                 HomeWidgetDetailView(
@@ -52,23 +50,22 @@ struct HomeView: View {
 extension HomeView {
     @ViewBuilder
     private var snapshotSectionView: some View {
-        if let entity = viewModel.snapshotWidgetEntity {
-            Section {
-                HomeWidgetView {
-                    SnapshotMediumCardView(
-                        types: entity.snapshotTypes,
-                        sportType: entity.sportType,
-                        intervalType: entity.intervalType,
-                        entity: entity.data
+        Section {
+            HomeWidgetView {
+                SnapshotMediumCardView(
+                    types: viewModel.snapshotWidgetEntity?.snapshotTypes,
+                    sportType: viewModel.snapshotWidgetEntity?.sportType,
+                    intervalType: viewModel.snapshotWidgetEntity?.intervalType,
+                    entity: viewModel.snapshotData(
+                        for: viewModel.snapshotWidgetEntity?.sportType,
+                        intervalType: viewModel.snapshotWidgetEntity?.intervalType
                     )
-                } onEdit: {
-                }
-            } footer: {
-                Spacer()
-                    .frame(height: Spacing.space24)
+                )
+            } onEdit: {
             }
-        } else {
-            EmptyView()
+        } footer: {
+            Spacer()
+                .frame(height: Spacing.space24)
         }
     }
 
@@ -81,9 +78,16 @@ extension HomeView {
                             sportType: entity.sportType,
                             metricType: entity.metricType,
                             intervalType: entity.intervalType,
-                            currentValue: entity.data.currentValue,
+                            currentValue: viewModel.value(
+                                for: entity.sportType,
+                                intervalType: entity.intervalType,
+                                metricType: entity.metricType
+                            ),
                             goalValue: entity.goal,
-                            activitiesCount: entity.data.activitiesCount
+                            activitiesCount: viewModel.activitiesCount(
+                                for: entity.sportType,
+                                intervalType: entity.intervalType
+                            )
                         )
                     } onEdit: {
                         withAnimation {

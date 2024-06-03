@@ -25,10 +25,7 @@ struct SnapshotItemView: View {
                 .foregroundColor(.textBrand1)
             
             HStack {
-                if isNegative == nil {
-                    Spacer()
-                        .frame(width: Spacing.space4 )
-                } else {
+                if isNegative != nil {
                     Image(systemName: currentImageName)
                         .font(.caption2)
                         .fontWeight(.medium)
@@ -39,13 +36,9 @@ struct SnapshotItemView: View {
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundStyle(currentAccentColor)
-                
-                if isNegative == nil {
-                    Spacer()
-                        .frame(width: Spacing.space4 )
-                }
             }
-            .padding(Spacing.space4)
+            .padding(.horizontal, Spacing.space6)
+            .padding(.vertical, Spacing.space4)
             .background(currentAccentColor.opacity(0.1))
             .clipShape(.rect(cornerRadius: 8))
         }
