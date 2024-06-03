@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 struct HomeGoalWidgetEntity: Identifiable {
     let id: UUID
@@ -92,6 +93,8 @@ extension HomeViewModel {
     }
 
     func updateData() {
+        WidgetCenter.shared.reloadAllTimelines()
+
         Task {
             async let asyncSnapshot = fetchUserSnapshotWidget()
             async let asyncGoals = fetchUserGoalWidgets()
