@@ -69,7 +69,9 @@ extension WidgetService: WidgetServiceProtocol {
         switch result {
         case let .success(data):
             do {
-                let snapshotData = try JSONDecoder().decode(SnapshotData.self, from: data)
+                var snapshotData = try JSONDecoder().decode(SnapshotData.self, from: data)
+                snapshotData.sport = .init(rawValue: sportType)
+                snapshotData.period = .init(rawValue: interval)
                 return .success(snapshotData)
             } catch let error {
                 return .failure(.invalidData(error))

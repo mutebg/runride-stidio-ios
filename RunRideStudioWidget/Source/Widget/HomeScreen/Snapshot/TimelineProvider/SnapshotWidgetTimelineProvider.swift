@@ -39,17 +39,10 @@ struct SnapshotWidgetTimelineProvider: AppIntentTimelineProvider {
         )
         
         switch result {
-        case let .success(data):
+        case let .success(entity):
             let entry = SnapshotWidgetEntry(
                 date: currentDate,
-                d: data.d,
-                dd: data.dd,
-                t: data.t,
-                td: data.td,
-                e: data.e,
-                ed: data.ed,
-                a: data.a,
-                ad: data.ad,
+                entity: entity,
                 configuration: configuration
             )
             return Timeline(entries: [entry], policy: .after(nextUpdate))

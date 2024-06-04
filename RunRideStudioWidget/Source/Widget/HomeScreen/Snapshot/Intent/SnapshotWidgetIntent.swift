@@ -11,8 +11,8 @@ struct SnapshotWidgetIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Configuration"
 
     @Parameter(title: "Sport", default: .run)
-    var sport: SportType
+    var sport: AppIntentSportType
     
     @Parameter(title: "Time frame", default: .weekly)
-    var period: IntervalType
+    var period: AppIntentIntervalType
 }

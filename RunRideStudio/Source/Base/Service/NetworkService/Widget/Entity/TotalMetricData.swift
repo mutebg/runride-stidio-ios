@@ -8,7 +8,7 @@
 import Foundation
 
 struct TotalMetricData: Decodable {
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case currentValue = "v"
         case activitiesCount = "a"
     }
