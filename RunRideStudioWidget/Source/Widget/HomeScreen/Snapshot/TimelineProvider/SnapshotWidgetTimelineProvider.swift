@@ -34,7 +34,7 @@ struct SnapshotWidgetTimelineProvider: AppIntentTimelineProvider {
         let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
         
         let result = await networkService.getSnapshotData(
-            sportType: configuration.sport.rawValue,
+            sport: configuration.sport.rawValue,
             interval: configuration.period.rawValue
         )
         

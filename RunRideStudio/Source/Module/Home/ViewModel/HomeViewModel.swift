@@ -138,26 +138,26 @@ extension HomeViewModel {
     }
     
     private func fetchData() async {
-        async let runMonthly = fetchSnapshotData(sportType: .run, intervalType: .monthly)
-        
-        let results = await [runMonthly]
-        self.datas = results.compactMap { $0 }
+        self.datas = await fetchSnapshotData(
+            sports: [.run],
+            intervals: [.weekly, .monthly]
+        )
     }
     
     private func fetchSnapshotData(
-        sportType: SportType,
-        intervalType: IntervalType
-    ) async -> SnapshotData? {
-        let result = await widgetDataService.getSnapshotData(
-            sportType: sportType.rawValue,
-            interval: intervalType.rawValue
+        sports: [SportType],
+        intervals: [IntervalType]
+    ) async -> [SnapshotData] {
+        let result = await widgetDataService.getSnapshots(
+            sports: sports.map(\.rawValue),
+            intervals: intervals.map(\.rawValue)
         )
         
         switch result {
-        case let .success(entity):
-            return entity
+        case let .success(entities):
+            return entities
         case .failure:
-            return nil
+            return []
         }
     }
 }

@@ -8,8 +8,9 @@
 import Foundation
 
 enum WidgetTarget {
-    case goalData(sportType: String, interval: String, metric: String)
-    case snapshotData(sportType: String, interval: String)
+    case goalData(sport: String, interval: String, metric: String)
+    case snapshotData(sport: String, interval: String)
+    case snapshots(sports: [String], intervals: [String])
 }
 
 extension WidgetTarget: BaseTarget {
@@ -19,22 +20,31 @@ extension WidgetTarget: BaseTarget {
             return "/simple"
         case .snapshotData:
             return "/snapshot"
+        case .snapshots:
+            return "/snapshot"
         }
     }
     
     var queryParameters: [String: String]? {
         switch self {
-        case let .goalData(sportType, interval, metric):
+        case let .goalData(sport, interval, metric):
             return [
-                "type": sportType,
+                "type": sport,
                 "interval": interval,
                 "metric": metric
             ]
-        case let .snapshotData(sportType, interval):
+        case let .snapshotData(sport, interval):
             return [
-                "type": sportType,
+                "type": sport,
                 "interval": interval,
                 "full": "true"
+            ]
+        case let .snapshots(sports, intervals):
+            return [
+                "type": sports.joined(separator: ","),
+                "interval": intervals.joined(separator: ","),
+                "full": "true",
+                "multi": "true"
             ]
         }
     }
