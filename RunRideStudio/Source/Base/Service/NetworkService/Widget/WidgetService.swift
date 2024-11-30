@@ -17,6 +17,12 @@ protocol WidgetServiceProtocol {
         sportType: String,
         interval: String
     ) async -> Result<SnapshotData, BaseNetworkError>
+    func getGearData(
+        for gerID: String,
+        interval: String,
+        metric: String
+    ) async -> Result<TotalMetricData, BaseNetworkError>
+    
 }
 
 final class WidgetService {
@@ -73,6 +79,33 @@ extension WidgetService: WidgetServiceProtocol {
                 snapshotData.sport = .init(rawValue: sportType)
                 snapshotData.period = .init(rawValue: interval)
                 return .success(snapshotData)
+            } catch let error {
+                return .failure(.invalidData(error))
+            }
+        case let .failure(error):
+            return .failure(error)
+        }
+    }
+    
+    
+    func getGearData(
+        for gearID: String,
+        interval: String,
+        metric: String
+    ) async -> Result<TotalMetricData, BaseNetworkError> {
+        let result = await provider.request(
+            with: WidgetTarget.gearData(
+                gearID: gearID,
+                interval: interval,
+                metric: metric
+            )
+        )
+        
+        switch result {
+        case let .success(data):
+            do {
+                let entity = try JSONDecoder().decode(TotalMetricData.self, from: data)
+                return .success(entity)
             } catch let error {
                 return .failure(.invalidData(error))
             }

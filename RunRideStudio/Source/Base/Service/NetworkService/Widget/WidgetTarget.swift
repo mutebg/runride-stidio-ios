@@ -10,6 +10,7 @@ import Foundation
 enum WidgetTarget {
     case goalData(sportType: String, interval: String, metric: String)
     case snapshotData(sportType: String, interval: String)
+    case gearData(gearID: String, interval: String, metric: String)
 }
 
 extension WidgetTarget: BaseTarget {
@@ -19,6 +20,8 @@ extension WidgetTarget: BaseTarget {
             return "/simple"
         case .snapshotData:
             return "/snapshot"
+        case .gearData:
+            return "/gear"
         }
     }
     
@@ -36,6 +39,13 @@ extension WidgetTarget: BaseTarget {
                 "interval": interval,
                 "full": "true"
             ]
+        case let .gearData(gearID, interval, metric):
+            return [
+                "gear": gearID,
+                "interval": interval,
+                "metric": metric
+            ]
         }
+        
     }
 }
