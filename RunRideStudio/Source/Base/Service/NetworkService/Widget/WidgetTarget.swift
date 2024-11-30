@@ -11,6 +11,7 @@ enum WidgetTarget {
     case goalData(sportType: String, interval: String, metric: String)
     case snapshotData(sportType: String, interval: String)
     case gearData(gearID: String, interval: String, metric: String)
+    case gearListData
 }
 
 extension WidgetTarget: BaseTarget {
@@ -21,7 +22,9 @@ extension WidgetTarget: BaseTarget {
         case .snapshotData:
             return "/snapshot"
         case .gearData:
-            return "/gear"
+            return "/gear-data"
+        case .gearListData:
+            return "/gear-list"
         }
     }
     
@@ -41,10 +44,13 @@ extension WidgetTarget: BaseTarget {
             ]
         case let .gearData(gearID, interval, metric):
             return [
-                "gear": gearID,
+                "gear_id": gearID,
                 "interval": interval,
                 "metric": metric
             ]
+        case let .gearListData:
+            // Gear list does not have Query Parameters
+            return ["none": "none"]
         }
         
     }

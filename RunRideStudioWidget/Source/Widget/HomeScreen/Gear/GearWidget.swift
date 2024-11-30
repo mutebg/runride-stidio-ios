@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct GearWidget: Widget {
-    let kind: String = "RunRide_Widget"
+    let kind: String = "RunRide_Gear"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(
