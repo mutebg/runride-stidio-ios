@@ -48,7 +48,7 @@ extension WidgetTarget: BaseTarget {
                 "interval": interval,
                 "metric": metric
             ]
-        case let .gearListData:
+        case .gearListData:
             // Gear list does not have Query Parameters
             return ["none": "none"]
         }

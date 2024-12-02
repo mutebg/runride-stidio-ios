@@ -18,7 +18,7 @@ struct GearWidget: Widget {
             provider: GearWidgetTimelineProvider()
         ) { entry in
             GearSmallCardView(
-                gearID: entry.configuration.gearID,
+                gearName: entry.configuration.gearID,
                 metricType: entry.configuration.metric.defaultType,
                 intervalType: entry.configuration.period.defaultType,
                 currentValue: entry.value,

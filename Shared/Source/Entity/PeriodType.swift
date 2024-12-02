@@ -8,18 +8,18 @@
 import Foundation
 
 enum PeriodType: String, CaseIterable, Identifiable, Codable {
-    case weekly, monthly, yearly, alltime, last7days, last30days, last12months
+    case  alltime, weekly, monthly, yearly,last7days, last30days, last12months
     
     var title: String {
         switch self {
+        case .alltime:
+            return "All time"
         case .weekly:
             return "Week"
         case .monthly:
             return "Month"
         case .yearly:
             return "Year"
-        case .alltime:
-            return "All time"
         case .last7days:
             return "Last 7 days"
         case .last30days:

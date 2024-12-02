@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GearSmallCardView: View {
-    let gearID: String
+    let gearName: String
     let metricType: MetricType
     let intervalType: PeriodType
 
@@ -64,7 +64,7 @@ struct GearSmallCardView: View {
 // MARK: - Private methods
 extension GearSmallCardView {
     private var headerText: String {
-        "this \(intervalType.title) | \(gearID)".lowercased()
+        "\(gearName) | \(intervalType.title)"
     }
     
     private var valueText: String {
@@ -107,11 +107,11 @@ extension GearSmallCardView {
 
 #Preview {
     GearSmallCardView(
-        gearID: "Hoka Mach X2",
+        gearName: "Asics Superblast",
         metricType: .distance,
-        intervalType: .monthly,
-        currentValue: 150.654,
-        goalValue: 0,
+        intervalType: .alltime,
+        currentValue: 342,
+        goalValue: 600,
         activitiesCount: 12
     )
     .frame(width: 160, height: 160)
