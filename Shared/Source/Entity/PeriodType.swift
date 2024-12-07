@@ -1,4 +1,12 @@
 //
+//  PeriodType 2.swift
+//  RunRideStudio
+//
+//  Created by Stoyan Delev on 2.12.24.
+//
+
+
+//
 //  IntervalType.swift
 //  RunRideStudio
 //

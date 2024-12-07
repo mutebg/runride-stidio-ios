@@ -12,8 +12,9 @@
 		611E069D2CFB02EC008C0D8A /* GearWidgetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E06972CFB02EC008C0D8A /* GearWidgetTimelineProvider.swift */; };
 		611E069E2CFB02EC008C0D8A /* GearWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E06992CFB02EC008C0D8A /* GearWidget.swift */; };
 		611E06A02CFB03A2008C0D8A /* AppIntentPeriodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E069F2CFB03A2008C0D8A /* AppIntentPeriodType.swift */; };
-		611E06A22CFB04AC008C0D8A /* PeriodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E06A12CFB04AC008C0D8A /* PeriodType.swift */; };
 		611E06A42CFB0742008C0D8A /* GearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E06A32CFB0742008C0D8A /* GearData.swift */; };
+		614530842CFDD699004EB9F2 /* PeriodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614530832CFDD699004EB9F2 /* PeriodType.swift */; };
+		614530852CFDD699004EB9F2 /* PeriodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614530832CFDD699004EB9F2 /* PeriodType.swift */; };
 		614C38AD2B99F58E001A1F32 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AC2B99F58E001A1F32 /* WidgetKit.framework */; };
 		614C38AF2B99F58E001A1F32 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AE2B99F58E001A1F32 /* SwiftUI.framework */; };
 		614C38BE2B99F594001A1F32 /* RunRideStudioWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -127,10 +128,10 @@
 		611E06972CFB02EC008C0D8A /* GearWidgetTimelineProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearWidgetTimelineProvider.swift; sourceTree = "<group>"; };
 		611E06992CFB02EC008C0D8A /* GearWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearWidget.swift; sourceTree = "<group>"; };
 		611E069F2CFB03A2008C0D8A /* AppIntentPeriodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntentPeriodType.swift; sourceTree = "<group>"; };
-		611E06A12CFB04AC008C0D8A /* PeriodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodType.swift; sourceTree = "<group>"; };
 		611E06A32CFB0742008C0D8A /* GearData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearData.swift; sourceTree = "<group>"; };
 		6124F5ED2B9DB6E40030C54C /* RunRideStudio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunRideStudio.entitlements; sourceTree = "<group>"; };
 		6124F5EE2B9DB7760030C54C /* RunRideStudioWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunRideStudioWidgetExtension.entitlements; sourceTree = "<group>"; };
+		614530832CFDD699004EB9F2 /* PeriodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodType.swift; sourceTree = "<group>"; };
 		614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RunRideStudioWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		614C38AC2B99F58E001A1F32 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		614C38AE2B99F58E001A1F32 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -776,12 +777,12 @@
 		C2E694272C08D3C600020F8F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				614530832CFDD699004EB9F2 /* PeriodType.swift */,
 				C2E694282C08D3D000020F8F /* DistanceMeasureType.swift */,
 				C2E6942B2C08DA8B00020F8F /* ElevationMeasureType.swift */,
 				C2D0F4172C0A1A6200B11805 /* MetricType.swift */,
 				C2D0F41A2C0A1A6C00B11805 /* IntervalType.swift */,
 				C264C9792C0A630F004BE4B2 /* SportType.swift */,
-				611E06A12CFB04AC008C0D8A /* PeriodType.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -933,13 +934,13 @@
 				611E069E2CFB02EC008C0D8A /* GearWidget.swift in Sources */,
 				C284E9BE2C04CE300064D086 /* UserDefaultsWrapper.swift in Sources */,
 				C264C97B2C0A630F004BE4B2 /* SportType.swift in Sources */,
+				614530852CFDD699004EB9F2 /* PeriodType.swift in Sources */,
 				C22971C22C08A83000241D92 /* GoalWidgetIntent.swift in Sources */,
 				C22971D72C08C08900241D92 /* MonthAccessoryWidgetEntry.swift in Sources */,
 				C2D0F4192C0A1A6200B11805 /* MetricType.swift in Sources */,
 				C22971AD2C08A17100241D92 /* SnapshotItemView.swift in Sources */,
 				611E069D2CFB02EC008C0D8A /* GearWidgetTimelineProvider.swift in Sources */,
 				C2D0F41E2C0A1ACF00B11805 /* AppIntentSportType.swift in Sources */,
-				611E06A22CFB04AC008C0D8A /* PeriodType.swift in Sources */,
 				C284E9CC2C04D78A0064D086 /* WidgetService.swift in Sources */,
 				C284E9B72C04ABFA0064D086 /* RunRideStudioWidgetBundle.swift in Sources */,
 				C2E6941F2C08D06400020F8F /* TotalMetricData.swift in Sources */,
@@ -991,6 +992,7 @@
 				C284E9CB2C04D78A0064D086 /* WidgetService.swift in Sources */,
 				C284E9D22C04DDC50064D086 /* SnapshotData.swift in Sources */,
 				C2D0F4152C0A11DD00B11805 /* GoalSmallCardView.swift in Sources */,
+				614530842CFDD699004EB9F2 /* PeriodType.swift in Sources */,
 				C297CF5E2C0B737C003612FE /* SnapshotItemView.swift in Sources */,
 				615CF8B82CFB17FF00675A02 /* GearSmallCardView.swift in Sources */,
 				C297CF562C0B606E003612FE /* RootView.swift in Sources */,

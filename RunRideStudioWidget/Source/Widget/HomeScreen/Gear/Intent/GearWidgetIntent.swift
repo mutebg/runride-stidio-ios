@@ -10,6 +10,7 @@ import AppIntents
 struct GearWidgetIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Configuration"
     
+    // TODO: id of the gear, this needs to be a list, coming from the API
     @Parameter(title: "Gear", default: "")
     var gearID: String
 
