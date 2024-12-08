@@ -21,6 +21,24 @@ struct RootView: View {
                     )
                 }
                 .tag(RootViewModel.Tab.overview)
+            
+            WebView(urlPath: "https://runride.studio/app/timeline?hideNav=1&auth_token=\(UserDefaultsConfig.stravaToken ?? "")")
+                .tabItem {
+                    Label(
+                        RootViewModel.Tab.timeline.title,
+                        systemImage: RootViewModel.Tab.timeline.imageName
+                    )
+                }
+                .tag(RootViewModel.Tab.timeline)
+
+            WebView(urlPath: "https://runride.studio/app/compare?hideNav=1&auth_token=\(UserDefaultsConfig.stravaToken ?? "")")
+                .tabItem {
+                    Label(
+                        RootViewModel.Tab.compare.title,
+                        systemImage: RootViewModel.Tab.compare.imageName
+                    )
+                }
+                .tag(RootViewModel.Tab.compare)
 
             SettingsView()
                 .tabItem {
