@@ -34,7 +34,7 @@ struct GearWidgetTimelineProvider: AppIntentTimelineProvider {
         let nextUpdate = Calendar.current.date(byAdding: .hour, value: 2, to: currentDate)!
         
         let result = await networkService.getGearData(
-            for: configuration.gearID,
+            for: configuration.gear.gearID,
             interval: configuration.period.rawValue,
             metric: configuration.metric.rawValue
         )

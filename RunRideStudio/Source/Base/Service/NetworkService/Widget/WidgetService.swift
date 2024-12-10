@@ -22,7 +22,7 @@ protocol WidgetServiceProtocol {
         interval: String,
         metric: String
     ) async -> Result<TotalMetricData, BaseNetworkError>
-    
+    func getGears() async -> Result<[GearModel], BaseNetworkError>
 }
 
 final class WidgetService {
@@ -106,6 +106,24 @@ extension WidgetService: WidgetServiceProtocol {
             do {
                 let entity = try JSONDecoder().decode(TotalMetricData.self, from: data)
                 return .success(entity)
+            } catch let error {
+                return .failure(.invalidData(error))
+            }
+        case let .failure(error):
+            return .failure(error)
+        }
+    }
+    
+    func getGears() async -> Result<[GearModel], BaseNetworkError> {
+        let result = await provider.request(
+            with: WidgetTarget.gearListData
+        )
+        
+        switch result {
+        case let .success(data):
+            do {
+                let response = try JSONDecoder().decode(GearsResponseModel.self, from: data)
+                return .success(response.data ?? [])
             } catch let error {
                 return .failure(.invalidData(error))
             }

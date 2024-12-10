@@ -18,7 +18,7 @@ struct GearWidget: Widget {
             provider: GearWidgetTimelineProvider()
         ) { entry in
             GearSmallCardView(
-                gearName: entry.configuration.gearID,
+                gearName: entry.configuration.gear.gearName,
                 metricType: entry.configuration.metric.defaultType,
                 intervalType: entry.configuration.period.defaultType,
                 currentValue: entry.value,
@@ -44,7 +44,7 @@ extension GearWidgetIntent {
     fileprivate static var runner: GearWidgetIntent {
         let intent = GearWidgetIntent()
         intent.goal = 200.0
-        intent.gearID = "Hoka Mach X2"
+        intent.gear = .init(gearID: "0", gearName: "Hoka Mach X2")
         intent.period = .alltime
         intent.metric = .distance
         return intent
@@ -53,7 +53,7 @@ extension GearWidgetIntent {
     fileprivate static var ridder: GearWidgetIntent {
         let intent = GearWidgetIntent()
         intent.goal = 1600.0
-        intent.gearID = "Trek Marlin 4"
+        intent.gear = .init(gearID: "1", gearName: "Trek Marlin 4")
         intent.period = .last12months
         intent.metric = .distance
         return intent
