@@ -41,6 +41,7 @@ struct UserDefaultsConfig {
         case stravaToken = "token"
         case useImperial
         case theme
+        case gears
     }
 
     // TODO: - Add to keychain
@@ -56,4 +57,7 @@ struct UserDefaultsConfig {
     
     @UserDefaultsWrapper(Keys.theme.rawValue, defaultValue: nil)
     static var theme: String?
+    
+    @UserDefaultsWrapper(Keys.gears.rawValue, defaultValue: nil)
+    static var gears: String?
 }

@@ -28,7 +28,6 @@ struct HomeView: View {
             .padding(Spacing.space20)
         }
         .background(Color(uiColor: .systemGroupedBackground))
-        
         .sheet(isPresented: $showModal) {
             if let entity = viewModel.selectedGoalWidgetEntity {
                 HomeWidgetDetailView(

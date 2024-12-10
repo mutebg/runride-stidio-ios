@@ -98,6 +98,9 @@ extension HomeViewModel {
         Task {
             let snapshot = await fetchUserSnapshotWidget()
             await fetchData()
+            
+            let gears = await fetchGears()
+            saveGears(gears)
 
             self.snapshotWidgetEntity = snapshot
         }
@@ -158,6 +161,24 @@ extension HomeViewModel {
             return entity
         case .failure:
             return nil
+        }
+    }
+    
+    private func fetchGears() async -> [GearModel] {
+        let result = await widgetDataService.getGears()
+        
+        switch result {
+        case let .success(entities):
+            return entities
+        case .failure:
+            return []
+        }
+    }
+    
+    private func saveGears(_ gears: [GearModel]) {
+        let data = try? JSONEncoder().encode(gears)
+        if let data, let jsonString = String(data: data, encoding: .utf8) {
+            UserDefaultsConfig.gears = jsonString
         }
     }
 }
