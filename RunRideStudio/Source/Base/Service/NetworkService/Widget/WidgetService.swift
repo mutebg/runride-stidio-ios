@@ -23,6 +23,11 @@ protocol WidgetServiceProtocol {
         metric: String
     ) async -> Result<TotalMetricData, BaseNetworkError>
     func getGears() async -> Result<[GearModel], BaseNetworkError>
+    func getMonthlyData(
+        for sportType: String,
+        interval: String,
+        metric: String
+    ) async -> Result<[MonthlyStats], BaseNetworkError>
 }
 
 final class WidgetService {
@@ -35,6 +40,11 @@ final class WidgetService {
 
 // MARK: - WidgetServiceProtocol
 extension WidgetService: WidgetServiceProtocol {
+
+  
+    
+   
+    
     func getTotalMetricData(
         for sportType: String,
         interval: String,
@@ -131,4 +141,29 @@ extension WidgetService: WidgetServiceProtocol {
             return .failure(error)
         }
     }
+    
+    func getMonthlyData(for sportType: String, interval: String, metric: String) async -> Result<[MonthlyStats], BaseNetworkError> {
+        let result = await provider.request(
+            with: WidgetTarget.monthlyData(
+                sportType: sportType,
+                interval: interval,
+                metric: metric
+            )
+        )
+        
+        switch result {
+            case let .success(data):
+                do {
+                    let response = try JSONDecoder().decode([MonthlyStats].self, from: data)
+                    return .success(response)
+                } catch let error {
+                    return .failure(.invalidData(error))
+                }
+            case let .failure(error):
+                return .failure(error)
+            }
+    }
+    
+    
+    
 }

@@ -75,8 +75,6 @@ enum AppIntentSportType: String, AppEnum {
             return .alpineski
         case .weighttraining:
             return .weighttraining
-            
-        
         case .badminton:
             return .badminton
         case .backcountryski:

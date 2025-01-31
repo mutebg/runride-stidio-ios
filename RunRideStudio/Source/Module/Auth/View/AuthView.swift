@@ -11,7 +11,7 @@ struct AuthView: View {
     @State var toLogin = false
 
     var body: some View {
-        NavigationView {
+        // NavigationView {
             ZStack {
                 Color(uiColor: .secondarySystemGroupedBackground)
                     .ignoresSafeArea()
@@ -77,7 +77,7 @@ struct AuthView: View {
                 }
             }
         }
-    }
+    //}
 }
 
 #Preview {

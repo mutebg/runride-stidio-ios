@@ -14,7 +14,9 @@ struct RunRideStudioWidgetBundle: WidgetBundle {
     var body: some Widget {
         SnapshotWidget()
         GoalWidget()
+        MultiGoalWidget()
         GearWidget()
+        MonthlyWidget()
         RideMonthAccessoryWidget()
         RunMonthAccessoryWidget()
     }

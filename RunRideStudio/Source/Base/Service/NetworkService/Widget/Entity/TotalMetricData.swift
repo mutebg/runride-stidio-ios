@@ -94,3 +94,4 @@ struct GearModel: Codable {
         self.usageDays = usageDays
     }
 }
+
