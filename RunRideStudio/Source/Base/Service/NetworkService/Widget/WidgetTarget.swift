@@ -13,6 +13,7 @@ enum WidgetTarget {
     case gearData(gearID: String, interval: String, metric: String)
     case gearListData
     case monthlyData(sportType: String, interval: String, metric: String)
+    case bestEfforts(sportType: String, interval: String)
 }
 
 extension WidgetTarget: BaseTarget {
@@ -28,6 +29,8 @@ extension WidgetTarget: BaseTarget {
             return "/gear-list"
         case .monthlyData:
             return "/calendar"
+        case .bestEfforts:
+            return "/bestefforts"
         }
     }
     
@@ -52,7 +55,6 @@ extension WidgetTarget: BaseTarget {
                 "metric": metric
             ]
         case .gearListData:
-            // Gear list does not have Query Parameters
             return ["none": "none"]
             
         case let .monthlyData(sportType, interval, metric):
@@ -60,6 +62,12 @@ extension WidgetTarget: BaseTarget {
                 "type": sportType,
                 "interval": interval,
                 "metric": metric
+            ]
+        
+        case let .bestEfforts(sportType, interval):
+            return [
+                "type": sportType,
+                "interval": interval,
             ]
         }
         

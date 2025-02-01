@@ -47,7 +47,9 @@ struct GridWidget: View {
                         )
                 }
             }
-        }
+        }.frame(maxWidth: .infinity, // Full Screen Width
+            maxHeight: .infinity, // Full Screen Height
+            alignment: .topLeading) // Align To top
     }
 
 }

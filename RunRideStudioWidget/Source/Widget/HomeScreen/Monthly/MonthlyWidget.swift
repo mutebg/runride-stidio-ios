@@ -23,8 +23,7 @@ struct MonthlyWidget: Widget {
                 metricType: entry.configuration.metric.defaultType,
                 periodType: entry.configuration.period.defaultType,
                 data: entry.data
-            )
-            //.containerBackground(.fill.tertiary, for: .widget)
+            ).containerBackground(.fill.tertiary, for: .widget)
         }
         .configurationDisplayName("Monthly Widget")
         .supportedFamilies([.systemSmall])

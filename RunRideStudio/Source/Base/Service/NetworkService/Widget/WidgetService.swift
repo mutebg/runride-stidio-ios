@@ -28,6 +28,10 @@ protocol WidgetServiceProtocol {
         interval: String,
         metric: String
     ) async -> Result<[MonthlyStats], BaseNetworkError>
+    func getBestEfforts(
+        for sportType: String,
+        period: String
+    ) async -> Result<[BestEffortData], BaseNetworkError>
 }
 
 final class WidgetService {
@@ -162,6 +166,30 @@ extension WidgetService: WidgetServiceProtocol {
             case let .failure(error):
                 return .failure(error)
             }
+    }
+    
+    func getBestEfforts(
+        for sportType: String,
+        period: String
+    ) async -> Result<[BestEffortData], BaseNetworkError> {
+        let result = await provider.request(
+            with: WidgetTarget.bestEfforts(
+                sportType: sportType,
+                interval: period
+            )
+        )
+        
+        switch result {
+        case let .success(data):
+            do {
+                let response = try JSONDecoder().decode([BestEffortData].self, from: data)
+                return .success(response)
+            } catch let error {
+                return .failure(.invalidData(error))
+            }
+        case let .failure(error):
+            return .failure(error)
+        }
     }
     
     

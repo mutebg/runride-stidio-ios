@@ -29,6 +29,12 @@
 		61CD13DF2D4BC9FD003F5FD8 /* MonthlyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CD13DE2D4BC9F6003F5FD8 /* MonthlyData.swift */; };
 		61CD13E02D4BC9FD003F5FD8 /* MonthlyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CD13DE2D4BC9F6003F5FD8 /* MonthlyData.swift */; };
 		61CD13E22D4CB1CB003F5FD8 /* AppIntentMonthlyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CD13E12D4CB1C1003F5FD8 /* AppIntentMonthlyType.swift */; };
+		61E0BE132D4CFADB00E78FF8 /* BestEffortsWidgetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0BE0F2D4CFADB00E78FF8 /* BestEffortsWidgetTimelineProvider.swift */; };
+		61E0BE142D4CFADB00E78FF8 /* BestEffortsWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0BE0D2D4CFADB00E78FF8 /* BestEffortsWidgetIntent.swift */; };
+		61E0BE152D4CFADB00E78FF8 /* BestEffortsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0BE112D4CFADB00E78FF8 /* BestEffortsWidget.swift */; };
+		61E0BE162D4CFADB00E78FF8 /* BestEffortsWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0BE0B2D4CFADB00E78FF8 /* BestEffortsWidgetEntry.swift */; };
+		61E0BE182D4CFD4200E78FF8 /* BestEffortData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0BE172D4CFD3800E78FF8 /* BestEffortData.swift */; };
+		61E0BE192D4CFD4200E78FF8 /* BestEffortData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0BE172D4CFD3800E78FF8 /* BestEffortData.swift */; };
 		61E420CA2D42265100F8414E /* MultiGoalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E420C92D42263B00F8414E /* MultiGoalCard.swift */; };
 		61E420CB2D42265100F8414E /* MultiGoalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E420C92D42263B00F8414E /* MultiGoalCard.swift */; };
 		61F9F8102D4B5C0300AE2EC4 /* GridWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F9F80F2D4B5BDF00AE2EC4 /* GridWidget.swift */; };
@@ -158,6 +164,11 @@
 		61CD13DC2D4BBA74003F5FD8 /* MonthlyWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyWidgetIntent.swift; sourceTree = "<group>"; };
 		61CD13DE2D4BC9F6003F5FD8 /* MonthlyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyData.swift; sourceTree = "<group>"; };
 		61CD13E12D4CB1C1003F5FD8 /* AppIntentMonthlyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntentMonthlyType.swift; sourceTree = "<group>"; };
+		61E0BE0B2D4CFADB00E78FF8 /* BestEffortsWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestEffortsWidgetEntry.swift; sourceTree = "<group>"; };
+		61E0BE0D2D4CFADB00E78FF8 /* BestEffortsWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestEffortsWidgetIntent.swift; sourceTree = "<group>"; };
+		61E0BE0F2D4CFADB00E78FF8 /* BestEffortsWidgetTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestEffortsWidgetTimelineProvider.swift; sourceTree = "<group>"; };
+		61E0BE112D4CFADB00E78FF8 /* BestEffortsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestEffortsWidget.swift; sourceTree = "<group>"; };
+		61E0BE172D4CFD3800E78FF8 /* BestEffortData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestEffortData.swift; sourceTree = "<group>"; };
 		61E420C92D42263B00F8414E /* MultiGoalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGoalCard.swift; sourceTree = "<group>"; };
 		61F9F80F2D4B5BDF00AE2EC4 /* GridWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridWidget.swift; sourceTree = "<group>"; };
 		C22971A42C089F3000241D92 /* SnapshotWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotWidget.swift; sourceTree = "<group>"; };
@@ -369,6 +380,41 @@
 			path = Entry;
 			sourceTree = "<group>";
 		};
+		61E0BE0C2D4CFADB00E78FF8 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				61E0BE0B2D4CFADB00E78FF8 /* BestEffortsWidgetEntry.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		61E0BE0E2D4CFADB00E78FF8 /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				61E0BE0D2D4CFADB00E78FF8 /* BestEffortsWidgetIntent.swift */,
+			);
+			path = Intent;
+			sourceTree = "<group>";
+		};
+		61E0BE102D4CFADB00E78FF8 /* TimelineProvider */ = {
+			isa = PBXGroup;
+			children = (
+				61E0BE0F2D4CFADB00E78FF8 /* BestEffortsWidgetTimelineProvider.swift */,
+			);
+			path = TimelineProvider;
+			sourceTree = "<group>";
+		};
+		61E0BE122D4CFADB00E78FF8 /* BestEfforts */ = {
+			isa = PBXGroup;
+			children = (
+				61E0BE0C2D4CFADB00E78FF8 /* Entry */,
+				61E0BE0E2D4CFADB00E78FF8 /* Intent */,
+				61E0BE102D4CFADB00E78FF8 /* TimelineProvider */,
+				61E0BE112D4CFADB00E78FF8 /* BestEffortsWidget.swift */,
+			);
+			path = BestEfforts;
+			sourceTree = "<group>";
+		};
 		C229719E2C089D6400241D92 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +554,7 @@
 		C22971CB2C08AD3300241D92 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				61E0BE122D4CFADB00E78FF8 /* BestEfforts */,
 				61CD13D22D4BB993003F5FD8 /* Monthly */,
 				61E420BB2D412C0D00F8414E /* MultiGoal */,
 				611E069A2CFB02EC008C0D8A /* Gear */,
@@ -650,6 +697,7 @@
 		C284E9CD2C04DDB80064D086 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				61E0BE172D4CFD3800E78FF8 /* BestEffortData.swift */,
 				61CD13DE2D4BC9F6003F5FD8 /* MonthlyData.swift */,
 				C284E9D12C04DDC50064D086 /* SnapshotData.swift */,
 				C2E6941D2C08D05E00020F8F /* TotalMetricData.swift */,
@@ -982,11 +1030,16 @@
 			files = (
 				C2D0F41C2C0A1A6C00B11805 /* IntervalType.swift in Sources */,
 				61CD13DD2D4BBA7B003F5FD8 /* MonthlyWidgetIntent.swift in Sources */,
+				61E0BE182D4CFD4200E78FF8 /* BestEffortData.swift in Sources */,
 				61F9F8112D4B5C0300AE2EC4 /* GridWidget.swift in Sources */,
 				C2E6942D2C08DA8B00020F8F /* ElevationMeasureType.swift in Sources */,
 				C2E6942A2C08D3D000020F8F /* DistanceMeasureType.swift in Sources */,
 				C2D0F4162C0A11DD00B11805 /* GoalSmallCardView.swift in Sources */,
 				611E06A02CFB03A2008C0D8A /* AppIntentPeriodType.swift in Sources */,
+				61E0BE132D4CFADB00E78FF8 /* BestEffortsWidgetTimelineProvider.swift in Sources */,
+				61E0BE142D4CFADB00E78FF8 /* BestEffortsWidgetIntent.swift in Sources */,
+				61E0BE152D4CFADB00E78FF8 /* BestEffortsWidget.swift in Sources */,
+				61E0BE162D4CFADB00E78FF8 /* BestEffortsWidgetEntry.swift in Sources */,
 				61CD13D92D4BBA57003F5FD8 /* MonthlyWidgetEntry.swift in Sources */,
 				611E069C2CFB02EC008C0D8A /* GearWidgetIntent.swift in Sources */,
 				C22971A52C089F3000241D92 /* SnapshotWidget.swift in Sources */,
@@ -1046,6 +1099,7 @@
 				C284E9C12C04D23C0064D086 /* BaseNetworkService.swift in Sources */,
 				C2E694292C08D3D000020F8F /* DistanceMeasureType.swift in Sources */,
 				C297CF632C0BA25B003612FE /* SettingsView.swift in Sources */,
+				61E0BE192D4CFD4200E78FF8 /* BestEffortData.swift in Sources */,
 				C2E6941E2C08D05E00020F8F /* TotalMetricData.swift in Sources */,
 				C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */,
 				C256E4572C09F95C00FA9C75 /* HomeWidgetView.swift in Sources */,
@@ -1286,7 +1340,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = RunRideStudio/Resource/RunRideStudio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"RunRideStudio/Preview Content\"";
 				DEVELOPMENT_TEAM = 3668S4ATNC;
 				ENABLE_PREVIEWS = YES;
@@ -1302,7 +1356,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "runride.studio.RunRide-Studio-Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1323,7 +1377,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = RunRideStudio/Resource/RunRideStudio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"RunRideStudio/Preview Content\"";
 				DEVELOPMENT_TEAM = 3668S4ATNC;
 				ENABLE_PREVIEWS = YES;
@@ -1339,7 +1393,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "runride.studio.RunRide-Studio-Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

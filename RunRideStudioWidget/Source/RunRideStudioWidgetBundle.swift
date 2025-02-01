@@ -17,6 +17,7 @@ struct RunRideStudioWidgetBundle: WidgetBundle {
         MultiGoalWidget()
         GearWidget()
         MonthlyWidget()
+        BestEffortsWidget()
         RideMonthAccessoryWidget()
         RunMonthAccessoryWidget()
     }
