@@ -10,11 +10,13 @@ struct MonthlyStats: Decodable {
     let movingTime: Double
     let totalElevationGain: Double
     let date: String
+    let emoji: String?
 
     enum CodingKeys: String, CodingKey {
         case distance
         case movingTime = "moving_time"
         case totalElevationGain = "total_elevation_gain"
         case date
+        case emoji = "icon"
     }
 }

@@ -11,11 +11,14 @@ struct MonthlyWidgetIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Configuration"
 
     @Parameter(title: "Sport", default: .run)
-    var sport: AppIntentSportType
+    var sport: AppIntentMonthlyWidgetSportType
     
     @Parameter(title: "Period", default: .last30days)
     var period: AppIntentMonthlyType
     
     @Parameter(title: "Metric", default: .distance)
     var metric: AppIntentMetricType
+    
+    @Parameter(title: "Show Emoji", default: false)
+    var showEmoji: Bool
 }

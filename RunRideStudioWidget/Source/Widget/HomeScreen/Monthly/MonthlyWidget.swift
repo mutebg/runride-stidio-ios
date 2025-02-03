@@ -22,7 +22,9 @@ struct MonthlyWidget: Widget {
                 sportType: entry.configuration.sport.defaultType,
                 metricType: entry.configuration.metric.defaultType,
                 periodType: entry.configuration.period.defaultType,
-                data: entry.data
+                data: entry.data,
+                showEmoji: entry.configuration.showEmoji
+                
             ).containerBackground(.fill.tertiary, for: .widget)
         }
         .configurationDisplayName("Monthly Widget")
@@ -44,14 +46,16 @@ extension MonthlyWidgetIntent {
         intent.sport = .run
         intent.metric = .distance
         intent.period = .last30days
+        intent.showEmoji = true
         return intent
     }
     
     fileprivate static var ridder: MonthlyWidgetIntent {
         let intent = MonthlyWidgetIntent()
-        intent.sport = .ride
+        intent.sport = .all
         intent.metric = .distance
         intent.period = .last30days
+        intent.showEmoji = false
         return intent
     }
 }

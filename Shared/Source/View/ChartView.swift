@@ -5,55 +5,71 @@
 //  Created by Stoyan Delev on 3.02.25.
 //
 
-//
-//  GridWidget.swift
-//  RunRideStudio
-//
-//  Created by Stoyan Delev on 30.01.25.
-//
 import SwiftUI
 
 struct ChartView: View {
     
     let sportType: SportType
-    let metricType: MetricType
     let periodType: PeriodType
     let data: [MonthlyStats]
-    let showEmoji: Bool
+    let useMetric = !UserDefaultsConfig.useImperial
+    
     
     var body: some View {
-        HStack(alignment: .top, spacing: 16) {
+        HStack(alignment: .top, spacing: 12) {
             // Left side - Stats
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 12) {
                 // Stats values
-                Text("\(formatTotalDistance(data))")
-                    .foregroundStyle(.pink)
-                    .font(.system(size: 24, weight: .semibold))
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("DISTANCE")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+
+                    Text("\(formatTotalDistance(data))")
+                        .foregroundStyle(.pink)
+                        .font(.system(size: 18, weight: .semibold))
+            
+                }
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("TIME")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+
+                    Text("\(formatTotalTime(data))")
+                        .foregroundStyle(.green)
+                        .font(.system(size: 18, weight: .semibold))
+    
+                }
                 
-                Text("\(formatTotalTime(data))")
-                    .foregroundStyle(.green)
-                    .font(.system(size: 24, weight: .semibold))
-                
-                Text("\(formatTotalElevation(data))")
-                    .foregroundStyle(.cyan)
-                    .font(.system(size: 24, weight: .semibold))
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("ELEVATION ")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+
+                    Text("\(formatTotalElevation(data))")
+                        .foregroundStyle(.cyan)
+                        .font(.system(size: 18, weight: .semibold))
+                }
             }
+            .frame(maxHeight: .infinity) // Make VStack take full height
             
             // Right side - Activity bars
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 12) {
                 // Move (Distance) bar
                 ActivityBar(
                     title: "DISTANCE",
                     values: data.map { $0.distance },
                     color: .pink
                 )
+                .frame(height: 40)
                 
                 // Exercise (Time) bar
                 ActivityBar(
-                    title: "MOVINT TIME",
+                    title: "MOVING TIME",
                     values: data.map { $0.movingTime },
                     color: .green
                 )
+                .frame(height: 40)
                 
                 // Stand (Elevation) bar
                 ActivityBar(
@@ -61,15 +77,18 @@ struct ChartView: View {
                     values: data.map { $0.totalElevationGain },
                     color: .cyan
                 )
+                .frame(height: 40)
             }
         }
-        .padding()
-        .background(Color(UIColor.systemBackground))
+        .frame(maxWidth: .infinity, // Full Screen Width
+            maxHeight: .infinity, // Full Screen Height
+            alignment: .leading)
     }
     
     private func formatTotalDistance(_ data: [MonthlyStats]) -> String {
-        let total = data.reduce(0) { $0 + $1.distance }
-        return String(format: "%.1f km", total)
+        let totalMeters = data.reduce(0) { $0 + $1.distance }
+        let convertedValue = useMetric ? totalMeters / 1000.0 : (totalMeters / 1000.0) * 0.621371
+        return String(format: "%.1f %@", convertedValue, useMetric ? "km" : "mi")
     }
     
     private func formatTotalTime(_ data: [MonthlyStats]) -> String {
@@ -80,8 +99,9 @@ struct ChartView: View {
     }
     
     private func formatTotalElevation(_ data: [MonthlyStats]) -> String {
-        let total = data.reduce(0) { $0 + $1.totalElevationGain }
-        return "\(Int(total))m"
+        let totalMeters = data.reduce(0) { $0 + $1.totalElevationGain }
+        let convertedValue = useMetric ? totalMeters : totalMeters * 3.28084
+        return String(format: "%.0f %@", convertedValue, useMetric ? "m" : "ft")
     }
 }
 
@@ -91,10 +111,10 @@ struct ActivityBar: View {
     let color: Color
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title)
-                .font(.caption)
-                .foregroundStyle(.secondary)
+        VStack(alignment: .leading, spacing: 2) {
+            // Text(title)
+            //     .font(.caption)
+            //     .foregroundStyle(.secondary)
             
             GeometryReader { geometry in
                 HStack(alignment: .bottom, spacing: 2) {
@@ -105,9 +125,9 @@ struct ActivityBar: View {
                             .frame(height: geometry.size.height * normalizedValue)
                     }
                 }
-                .frame(maxHeight: geometry.size.height, alignment: .bottom)
+                .frame(idealWidth: 2, maxHeight: geometry.size.height, alignment: .bottom)
             }
-            .frame(height: 20)
+            .frame(height: 30)
         }
     }
     
@@ -190,7 +210,6 @@ extension ChartView {
 #Preview {
     ChartView(
         sportType: .run,
-        metricType: .distance,
         periodType: .last30days,
         
         data: [
@@ -224,8 +243,7 @@ extension ChartView {
             MonthlyStats(distance: 68, movingTime: 13, totalElevationGain: 2890, date: "2024-01-28", emoji: "🏃"),
             MonthlyStats(distance: 84, movingTime: 16, totalElevationGain: 3456, date: "2024-01-29", emoji: "🏃"),
             MonthlyStats(distance: 79, movingTime: 15, totalElevationGain: 3345, date: "2024-01-30", emoji: "🏃"),
-        ],
-        showEmoji: true
+        ]
     )
     .frame(width: 320, height: 160)
 }

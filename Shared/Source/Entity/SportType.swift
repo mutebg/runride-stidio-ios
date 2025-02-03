@@ -8,10 +8,12 @@
 import Foundation
 
 enum SportType: String, CaseIterable, Identifiable, Codable {
-    case run, weighttraining, ride, walk, swim, hike, alpineski, badminton, backcountryski, canoeing, crossfit, elliptical, golf, iceskate, inlineskate, handcycle, highintensityintervaltraining, kayaking, kitesurf, nordicski, pickleball, pilates, racquetball, rockclimbing, rollerski, rowing, sail, skateboard, snowboard, snowshoe, soccer, squash, standuppaddling, stairstepper, surfing, tabletennis, tennis, velomobile, windsurf, wheelchair, workout, yoga
+    case all, run, weighttraining, ride, walk, swim, hike, alpineski, badminton, backcountryski, canoeing, crossfit, elliptical, golf, iceskate, inlineskate, handcycle, highintensityintervaltraining, kayaking, kitesurf, nordicski, pickleball, pilates, racquetball, rockclimbing, rollerski, rowing, sail, skateboard, snowboard, snowshoe, soccer, squash, standuppaddling, stairstepper, surfing, tabletennis, tennis, velomobile, windsurf, wheelchair, workout, yoga
     
     var title: String {
         switch self {
+        case .all:
+            return "All"
         case .run:
             return "Run"
         case .ride:

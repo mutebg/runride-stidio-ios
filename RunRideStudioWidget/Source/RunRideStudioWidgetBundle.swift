@@ -12,6 +12,7 @@ import WidgetKit
 struct RunRideStudioWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
+        ChartWidget()
         SnapshotWidget()
         GoalWidget()
         MultiGoalWidget()
