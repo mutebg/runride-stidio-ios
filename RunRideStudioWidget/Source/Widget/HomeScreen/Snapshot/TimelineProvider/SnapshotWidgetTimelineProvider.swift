@@ -35,7 +35,8 @@ struct SnapshotWidgetTimelineProvider: AppIntentTimelineProvider {
         
         let result = await networkService.getSnapshotData(
             sportType: configuration.sport.rawValue,
-            interval: configuration.period.rawValue
+            interval: configuration.period.rawValue,
+            full: String(configuration.full)
         )
         
         switch result {

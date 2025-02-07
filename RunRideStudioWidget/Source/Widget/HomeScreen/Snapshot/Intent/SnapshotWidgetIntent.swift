@@ -15,4 +15,7 @@ struct SnapshotWidgetIntent: WidgetConfigurationIntent {
     
     @Parameter(title: "Time frame", default: .weekly)
     var period: AppIntentIntervalType
+
+    @Parameter(title: "Full period comparison", default: false)
+    var full: Bool
 }

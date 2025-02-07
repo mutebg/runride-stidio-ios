@@ -153,7 +153,8 @@ extension HomeViewModel {
     ) async -> SnapshotData? {
         let result = await widgetDataService.getSnapshotData(
             sportType: sportType.rawValue,
-            interval: intervalType.rawValue
+            interval: intervalType.rawValue,
+            full: "true"
         )
         
         switch result {

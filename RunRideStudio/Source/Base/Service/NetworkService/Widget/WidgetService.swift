@@ -15,7 +15,8 @@ protocol WidgetServiceProtocol {
     ) async -> Result<TotalMetricData, BaseNetworkError>
     func getSnapshotData(
         sportType: String,
-        interval: String
+        interval: String,
+        full: String
     ) async -> Result<SnapshotData, BaseNetworkError>
     func getGearData(
         for gerID: String,
@@ -77,12 +78,14 @@ extension WidgetService: WidgetServiceProtocol {
     
     func getSnapshotData(
         sportType: String,
-        interval: String
+        interval: String,
+        full: String
     ) async -> Result<SnapshotData, BaseNetworkError> {
         let result = await provider.request(
             with: WidgetTarget.snapshotData(
                 sportType: sportType,
-                interval: interval
+                interval: interval,
+                full: full
             )
         )
         
