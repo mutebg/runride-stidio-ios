@@ -68,7 +68,11 @@ extension GearSmallCardView {
     }
     
     private var valueText: String {
-        value(currentValue, for: metricType).formatted()
+        currentValueFormatted.formatted()
+    }
+
+    private var currentValueFormatted: Double {
+        value(currentValue, for: metricType)
     }
 
     private var progressPercent: Double {
@@ -80,16 +84,12 @@ extension GearSmallCardView {
     }
     
     private var progressFooterText: String {
-        let diff = max(goalValue - currentValue, 0)
+        let diff = max(goalValue - currentValueFormatted, 0)
         guard diff > 0 else {
             return "100%"
         }
-        
-        if diff > 9999 {
-            return "Progress: \(progressPercent * 100)%"
-        }
-        
-        let diffText = value(diff, for: metricType).formatted()
+
+        let diffText = diff.formatted()
         return "\(diffText) \(metricType.shortTitle) to goal"
     }
     

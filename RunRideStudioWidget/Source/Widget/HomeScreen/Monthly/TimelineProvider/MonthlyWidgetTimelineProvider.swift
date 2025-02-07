@@ -25,7 +25,16 @@ struct MonthlyWidgetTimelineProvider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: MonthlyWidgetIntent, in context: Context) async -> MonthlyWidgetEntry {
-        MonthlyWidgetEntry(date: Date(), data: [], configuration: configuration)
+        let demoData = (1...31).map { day in
+            MonthlyStats(
+                distance: Double.random(in: 5000...25000),
+                movingTime: Double.random(in: 3600...7200),
+                totalElevationGain: Double.random(in: 10...100),
+                date: String(format: "2024-01-%02d", day),
+                emoji: nil
+            )
+        }
+        return MonthlyWidgetEntry(date: Date(), data: demoData, configuration: configuration)
     }
     
     private func monthlyData(for configuration: MonthlyWidgetIntent) async -> Timeline<MonthlyWidgetEntry> {

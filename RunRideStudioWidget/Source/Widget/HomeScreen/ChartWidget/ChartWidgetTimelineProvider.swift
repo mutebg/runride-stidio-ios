@@ -25,7 +25,16 @@ struct ChartWidgetTimelineProvider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: ChartWidgetIntent, in context: Context) async -> ChartWidgetEntry {
-        ChartWidgetEntry(date: Date(), data: [], configuration: configuration)
+        let demoData = (1...31).map { day in
+            MonthlyStats(
+                distance: Double.random(in: 5000...25000),
+                movingTime: Double.random(in: 3600...7200),
+                totalElevationGain: Double.random(in: 10...100),
+                date: String(format: "2024-01-%02d", day),
+                emoji: nil
+            )
+        }
+        return ChartWidgetEntry(date: Date(), data: demoData, configuration: configuration)
     }
     
     private func monthlyData(for configuration: ChartWidgetIntent) async -> Timeline<ChartWidgetEntry> {
