@@ -33,6 +33,10 @@ protocol WidgetServiceProtocol {
         for sportType: String,
         period: String
     ) async -> Result<[BestEffortData], BaseNetworkError>
+    func getAveragesData(
+        for sportType: String,
+        interval: String
+    ) async -> Result<AveragesData, BaseNetworkError>
 }
 
 final class WidgetService {
@@ -195,6 +199,28 @@ extension WidgetService: WidgetServiceProtocol {
         }
     }
     
-    
+    func getAveragesData(
+        for sportType: String,
+        interval: String
+    ) async -> Result<AveragesData, BaseNetworkError> {
+        let result = await provider.request(
+            with: WidgetTarget.averagesData(
+                sportType: sportType,
+                interval: interval
+            )
+        )
+
+        switch result {
+        case let .success(data):
+            do {
+                let response = try JSONDecoder().decode(AveragesData.self, from: data)
+                return .success(response)
+            } catch let error {
+                return .failure(.invalidData(error))
+            }
+        case let .failure(error):
+            return .failure(error)
+        }
+    }
     
 }

@@ -35,19 +35,13 @@ struct MultiGoalCard: View {
 
                         Spacer()
 
-//                        Text(String(activitiesCount[index]) + " activities")
-//                            .font(.system(size: 14))
-//                            .foregroundStyle(.textBrand1)
                         
                         if let item = goalValue[safe: index] {
                             if item > 0 {
-                                ProgressView(value: progressPercent( currentValue[index], goalValue: item))
+                                ProgressView(value: progressPercent( value(currentValue[index], for: metricType), goalValue: item))
                                     .scaleEffect(x: 1.0, y: 1.0, anchor: .center)
                                     .tint(.accent)
-                                //                            Text( String(item))
-                                //                                .font(.footnote)
-                                //                                .foregroundColor(.textBrand1)
-                            }
+                           }
                         }
             
                     }

@@ -20,6 +20,14 @@
 		614C38BE2B99F594001A1F32 /* RunRideStudioWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		615CF8B82CFB17FF00675A02 /* GearSmallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615CF8B72CFB17FF00675A02 /* GearSmallCardView.swift */; };
 		615CF8B92CFB17FF00675A02 /* GearSmallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615CF8B72CFB17FF00675A02 /* GearSmallCardView.swift */; };
+		616067F02D567A7C00198A80 /* AveragesWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616067EC2D567A7C00198A80 /* AveragesWidgetEntry.swift */; };
+		616067F12D567A7C00198A80 /* AveragesWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616067ED2D567A7C00198A80 /* AveragesWidgetIntent.swift */; };
+		616067F22D567A7C00198A80 /* AveragesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616067E92D567A7C00198A80 /* AveragesView.swift */; };
+		616067F32D567A7C00198A80 /* AveragesWidgetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616067EE2D567A7C00198A80 /* AveragesWidgetTimelineProvider.swift */; };
+		616067F42D567A7C00198A80 /* AveragesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616067EB2D567A7C00198A80 /* AveragesWidget.swift */; };
+		616067F62D567AB700198A80 /* AveragesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616067F52D567AB700198A80 /* AveragesData.swift */; };
+		616067F72D567AB700198A80 /* AveragesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616067F52D567AB700198A80 /* AveragesData.swift */; };
+		6174D6A62D5762C000A988E8 /* AppIntenAveragesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6174D6A52D5762C000A988E8 /* AppIntenAveragesType.swift */; };
 		61789DA92B94CB60000E8B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DA82B94CB60000E8B0B /* Assets.xcassets */; };
 		61789DAC2B94CB60000E8B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */; };
 		61CD13D72D4BBA09003F5FD8 /* MonthlyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CD13D62D4BBA03003F5FD8 /* MonthlyWidget.swift */; };
@@ -160,6 +168,13 @@
 		614C38AE2B99F58E001A1F32 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		614C38BB2B99F594001A1F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		615CF8B72CFB17FF00675A02 /* GearSmallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearSmallCardView.swift; sourceTree = "<group>"; };
+		616067E92D567A7C00198A80 /* AveragesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragesView.swift; sourceTree = "<group>"; };
+		616067EB2D567A7C00198A80 /* AveragesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragesWidget.swift; sourceTree = "<group>"; };
+		616067EC2D567A7C00198A80 /* AveragesWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragesWidgetEntry.swift; sourceTree = "<group>"; };
+		616067ED2D567A7C00198A80 /* AveragesWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragesWidgetIntent.swift; sourceTree = "<group>"; };
+		616067EE2D567A7C00198A80 /* AveragesWidgetTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragesWidgetTimelineProvider.swift; sourceTree = "<group>"; };
+		616067F52D567AB700198A80 /* AveragesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragesData.swift; sourceTree = "<group>"; };
+		6174D6A52D5762C000A988E8 /* AppIntenAveragesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntenAveragesType.swift; sourceTree = "<group>"; };
 		61789D9F2B94CB5F000E8B0B /* RunRideStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunRideStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61789DA82B94CB60000E8B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61789DAB2B94CB60000E8B0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -316,6 +331,26 @@
 				C229719E2C089D6400241D92 /* Source */,
 			);
 			path = RunRideStudioWidget;
+			sourceTree = "<group>";
+		};
+		616067EA2D567A7C00198A80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				616067E92D567A7C00198A80 /* AveragesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		616067EF2D567A7C00198A80 /* Averages */ = {
+			isa = PBXGroup;
+			children = (
+				616067EA2D567A7C00198A80 /* View */,
+				616067EB2D567A7C00198A80 /* AveragesWidget.swift */,
+				616067EC2D567A7C00198A80 /* AveragesWidgetEntry.swift */,
+				616067ED2D567A7C00198A80 /* AveragesWidgetIntent.swift */,
+				616067EE2D567A7C00198A80 /* AveragesWidgetTimelineProvider.swift */,
+			);
+			path = Averages;
 			sourceTree = "<group>";
 		};
 		61789D962B94CB5F000E8B0B = {
@@ -556,6 +591,7 @@
 		C22971C92C08A9B100241D92 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				6174D6A52D5762C000A988E8 /* AppIntenAveragesType.swift */,
 				61CD13E12D4CB1C1003F5FD8 /* AppIntentMonthlyType.swift */,
 				C2D0F41D2C0A1ACF00B11805 /* AppIntentSportType.swift */,
 				C2D0F41F2C0A1ADE00B11805 /* AppIntentIntervalType.swift */,
@@ -576,6 +612,7 @@
 		C22971CB2C08AD3300241D92 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				616067EF2D567A7C00198A80 /* Averages */,
 				61E0BE332D50A8EA00E78FF8 /* ChartWidget */,
 				61E0BE122D4CFADB00E78FF8 /* BestEfforts */,
 				61CD13D22D4BB993003F5FD8 /* Monthly */,
@@ -720,6 +757,7 @@
 		C284E9CD2C04DDB80064D086 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				616067F52D567AB700198A80 /* AveragesData.swift */,
 				61E0BE172D4CFD3800E78FF8 /* BestEffortData.swift */,
 				61CD13DE2D4BC9F6003F5FD8 /* MonthlyData.swift */,
 				C284E9D12C04DDC50064D086 /* SnapshotData.swift */,
@@ -1053,6 +1091,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D0F41C2C0A1A6C00B11805 /* IntervalType.swift in Sources */,
+				616067F02D567A7C00198A80 /* AveragesWidgetEntry.swift in Sources */,
+				616067F12D567A7C00198A80 /* AveragesWidgetIntent.swift in Sources */,
+				616067F22D567A7C00198A80 /* AveragesView.swift in Sources */,
+				616067F32D567A7C00198A80 /* AveragesWidgetTimelineProvider.swift in Sources */,
+				616067F42D567A7C00198A80 /* AveragesWidget.swift in Sources */,
 				61CD13DD2D4BBA7B003F5FD8 /* MonthlyWidgetIntent.swift in Sources */,
 				61E0BE182D4CFD4200E78FF8 /* BestEffortData.swift in Sources */,
 				61F9F8112D4B5C0300AE2EC4 /* GridWidget.swift in Sources */,
@@ -1072,6 +1115,7 @@
 				611E069B2CFB02EC008C0D8A /* GearWidgetEntry.swift in Sources */,
 				C2D0F4202C0A1ADE00B11805 /* AppIntentIntervalType.swift in Sources */,
 				C284E9C92C04D77F0064D086 /* WidgetTarget.swift in Sources */,
+				6174D6A62D5762C000A988E8 /* AppIntenAveragesType.swift in Sources */,
 				C22971B62C08A65400241D92 /* GoalWidget.swift in Sources */,
 				61E420CA2D42265100F8414E /* MultiGoalCard.swift in Sources */,
 				615CF8B92CFB17FF00675A02 /* GearSmallCardView.swift in Sources */,
@@ -1104,6 +1148,7 @@
 				61CD13E02D4BC9FD003F5FD8 /* MonthlyData.swift in Sources */,
 				C22971DC2C08C71900241D92 /* Spacing.swift in Sources */,
 				C2D0F4222C0A1AEE00B11805 /* AppIntentMetricType.swift in Sources */,
+				616067F72D567AB700198A80 /* AveragesData.swift in Sources */,
 				C22971A92C08A12900241D92 /* SnapshotWidgetView.swift in Sources */,
 				C284E9D32C04DDC50064D086 /* SnapshotData.swift in Sources */,
 				61E0BE3C2D50A9A700E78FF8 /* ChartWidgetIntent.swift in Sources */,
@@ -1147,6 +1192,7 @@
 				C284E9A62C049CCB0064D086 /* RunRideStudioApp.swift in Sources */,
 				C2C0BB9B2C0DB0310052E47D /* View+Extension.swift in Sources */,
 				C297CF652C0BA263003612FE /* SettingsViewModel.swift in Sources */,
+				616067F62D567AB700198A80 /* AveragesData.swift in Sources */,
 				C2CDA7442C0915CC00E1B378 /* HomeView.swift in Sources */,
 				C2E6942C2C08DA8B00020F8F /* ElevationMeasureType.swift in Sources */,
 				C284E9CB2C04D78A0064D086 /* WidgetService.swift in Sources */,
@@ -1370,7 +1416,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = RunRideStudio/Resource/RunRideStudio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"RunRideStudio/Preview Content\"";
 				DEVELOPMENT_TEAM = 3668S4ATNC;
 				ENABLE_PREVIEWS = YES;
@@ -1386,7 +1432,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.11;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "runride.studio.RunRide-Studio-Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1407,7 +1453,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = RunRideStudio/Resource/RunRideStudio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"RunRideStudio/Preview Content\"";
 				DEVELOPMENT_TEAM = 3668S4ATNC;
 				ENABLE_PREVIEWS = YES;
@@ -1423,7 +1469,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.11;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "runride.studio.RunRide-Studio-Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
