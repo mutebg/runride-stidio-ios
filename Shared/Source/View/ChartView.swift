@@ -87,21 +87,23 @@ struct ChartView: View {
     
     private func formatTotalDistance(_ data: [MonthlyStats]) -> String {
         let totalMeters = data.reduce(0) { $0 + $1.distance }
-        let convertedValue = useMetric ? totalMeters / 1000.0 : (totalMeters / 1000.0) * 0.621371
-        return String(format: "%.1f %@", convertedValue, useMetric ? "km" : "mi")
+        let convertedValue = (totalMeters / 1000).distanceInLocalSettings
+        return String(format: "%.1f %@", convertedValue, MetricType.distance.shortTitle)
     }
     
     private func formatTotalTime(_ data: [MonthlyStats]) -> String {
-        let totalMinutes = data.reduce(0) { $0 + $1.movingTime }
-        let hours = Int(totalMinutes) / 60
-        let minutes = Int(totalMinutes) % 60
-        return "\(hours):\(String(format: "%02d", minutes))"
+        let totalSeconds = data.reduce(0) { $0 + $1.movingTime }
+        let hours = Int(totalSeconds / 3600)
+        let minutes = Int((totalSeconds.truncatingRemainder(dividingBy: 3600)) / 60)
+        let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
+        return String(format: "%d:%02d:%02d", hours, minutes, seconds)
     }
     
     private func formatTotalElevation(_ data: [MonthlyStats]) -> String {
         let totalMeters = data.reduce(0) { $0 + $1.totalElevationGain }
-        let convertedValue = useMetric ? totalMeters : totalMeters * 3.28084
-        return String(format: "%.0f %@", convertedValue, useMetric ? "m" : "ft")
+        let convertedValue = totalMeters.elevationInLocalSettings
+        return String(format: "%.1f %@", convertedValue, MetricType.elevation.shortTitle)
+
     }
 }
 
@@ -112,10 +114,6 @@ struct ActivityBar: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            // Text(title)
-            //     .font(.caption)
-            //     .foregroundStyle(.secondary)
-            
             GeometryReader { geometry in
                 HStack(alignment: .bottom, spacing: 2) {
                     ForEach(values.indices, id: \.self) { index in
