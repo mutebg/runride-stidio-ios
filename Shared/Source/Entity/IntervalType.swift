@@ -8,7 +8,7 @@
 import Foundation
 
 enum IntervalType: String, CaseIterable, Identifiable, Codable {
-    case weekly, monthly, yearly
+    case weekly, monthly, yearly, last7days, last30days, last12months
     
     var title: String {
         switch self {
@@ -18,6 +18,12 @@ enum IntervalType: String, CaseIterable, Identifiable, Codable {
             return "Month"
         case .yearly:
             return "Year"
+        case .last7days:
+            return "Last 7 days"
+        case .last30days:
+            return "Last 30 days"
+        case .last12months:
+            return "Last 12 months"
         }
     }
     

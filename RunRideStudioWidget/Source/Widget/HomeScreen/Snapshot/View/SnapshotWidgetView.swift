@@ -91,7 +91,19 @@ struct SnapshotWidgetView: View {
     }
     
     func getTitle(_ sport: String, _ interval: String) -> String {
-        let intervalWord = interval.lowercased().replacingOccurrences(of: "ly", with: "")
-        return "This " + intervalWord + " " + sport.lowercased()
+        if interval.lowercased().hasSuffix("ly") {
+            let intervalWord = interval.lowercased().replacingOccurrences(of: "ly", with: "")
+            return "This " + intervalWord + " " + sport.lowercased()
+        }
+        switch interval.lowercased() {
+        case "last7days":
+            return "Last 7 days - " + sport.lowercased()
+        case "last30days":
+            return "Last 30 days - " + sport.lowercased()
+        case "last12months":
+            return "Last 12 months - " + sport.lowercased()
+        default:
+            return interval + " - " + sport.lowercased()
+        }
     }
 }

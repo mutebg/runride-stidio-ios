@@ -8,13 +8,16 @@
 import AppIntents
 
 enum AppIntentIntervalType: String, AppEnum {
-    case weekly, monthly, yearly
+    case weekly, monthly, yearly, last7days, last30days, last12months
 
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Intervals"
     static var caseDisplayRepresentations: [AppIntentIntervalType: DisplayRepresentation] = [
         .weekly: "Weekly",
         .monthly: "Monthly",
         .yearly: "Yearly",
+        .last7days: "Last 7 days",
+        .last30days: "Last 30 days",
+        .last12months: "Last 12 months"
     ]
     
     var defaultType: IntervalType {
@@ -25,6 +28,12 @@ enum AppIntentIntervalType: String, AppEnum {
             return .monthly
         case .yearly:
             return .yearly
+        case .last7days:
+            return .last7days
+        case .last30days:
+            return .last30days
+        case .last12months:
+            return .last12months
         }
     }
 }
