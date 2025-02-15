@@ -63,7 +63,7 @@ struct GoalSmallCardView: View {
 // MARK: - Private methods
 extension GoalSmallCardView {
     private var headerText: String {
-        "this \(intervalType.title) | \(sportType.title)".lowercased()
+        "\(intervalType.title) | \(sportType.title)"
     }
     
     private var valueText: String {
