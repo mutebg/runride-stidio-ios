@@ -15,7 +15,7 @@ enum BaseNetworkError: Error {
 }
 
 enum NetworkConstants {
-    static let baseHost: String = "https://api-izq36taffa-uc.a.run.app"
+    static let baseHost: String = "https://api.runride.studio"
     static let mobile: String = baseHost + "/mobile"
     static let login: String = baseHost + "/login"
 }
