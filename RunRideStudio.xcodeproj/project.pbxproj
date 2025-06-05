@@ -13,6 +13,13 @@
 		611E069E2CFB02EC008C0D8A /* GearWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E06992CFB02EC008C0D8A /* GearWidget.swift */; };
 		611E06A02CFB03A2008C0D8A /* AppIntentPeriodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E069F2CFB03A2008C0D8A /* AppIntentPeriodType.swift */; };
 		611E06A42CFB0742008C0D8A /* GearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E06A32CFB0742008C0D8A /* GearData.swift */; };
+		6141CF6D2DF0AD7E00EAE435 /* TriathlonWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141CF6C2DF0AD6E00EAE435 /* TriathlonWidget.swift */; };
+		6141CF6F2DF0AD8700EAE435 /* TriathlonWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141CF6E2DF0AD8300EAE435 /* TriathlonWidgetEntry.swift */; };
+		6141CF712DF0AD9000EAE435 /* TriathlonWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141CF702DF0AD8C00EAE435 /* TriathlonWidgetIntent.swift */; };
+		6141CF732DF0AD9A00EAE435 /* TriathlonWidgetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141CF722DF0AD9400EAE435 /* TriathlonWidgetTimelineProvider.swift */; };
+		6141CF752DF0B02400EAE435 /* TriathlonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141CF742DF0B02400EAE435 /* TriathlonData.swift */; };
+		6141CF762DF0B02400EAE435 /* TriathlonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141CF742DF0B02400EAE435 /* TriathlonData.swift */; };
+		6141CF782DF0B45000EAE435 /* TriathlonWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141CF772DF0B45000EAE435 /* TriathlonWidgetView.swift */; };
 		614530842CFDD699004EB9F2 /* PeriodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614530832CFDD699004EB9F2 /* PeriodType.swift */; };
 		614530852CFDD699004EB9F2 /* PeriodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614530832CFDD699004EB9F2 /* PeriodType.swift */; };
 		614C38AD2B99F58E001A1F32 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614C38AC2B99F58E001A1F32 /* WidgetKit.framework */; };
@@ -162,6 +169,12 @@
 		611E06A32CFB0742008C0D8A /* GearData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearData.swift; sourceTree = "<group>"; };
 		6124F5ED2B9DB6E40030C54C /* RunRideStudio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunRideStudio.entitlements; sourceTree = "<group>"; };
 		6124F5EE2B9DB7760030C54C /* RunRideStudioWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunRideStudioWidgetExtension.entitlements; sourceTree = "<group>"; };
+		6141CF6C2DF0AD6E00EAE435 /* TriathlonWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriathlonWidget.swift; sourceTree = "<group>"; };
+		6141CF6E2DF0AD8300EAE435 /* TriathlonWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriathlonWidgetEntry.swift; sourceTree = "<group>"; };
+		6141CF702DF0AD8C00EAE435 /* TriathlonWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriathlonWidgetIntent.swift; sourceTree = "<group>"; };
+		6141CF722DF0AD9400EAE435 /* TriathlonWidgetTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriathlonWidgetTimelineProvider.swift; sourceTree = "<group>"; };
+		6141CF742DF0B02400EAE435 /* TriathlonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriathlonData.swift; sourceTree = "<group>"; };
+		6141CF772DF0B45000EAE435 /* TriathlonWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriathlonWidgetView.swift; sourceTree = "<group>"; };
 		614530832CFDD699004EB9F2 /* PeriodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodType.swift; sourceTree = "<group>"; };
 		614C38AA2B99F58E001A1F32 /* RunRideStudioWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RunRideStudioWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		614C38AC2B99F58E001A1F32 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -314,6 +327,18 @@
 			name = Gear;
 			path = RunRideStudioWidget/Source/Widget/HomeScreen/Gear;
 			sourceTree = SOURCE_ROOT;
+		};
+		6141CF6B2DF0AD6000EAE435 /* Triathlon */ = {
+			isa = PBXGroup;
+			children = (
+				6141CF772DF0B45000EAE435 /* TriathlonWidgetView.swift */,
+				6141CF722DF0AD9400EAE435 /* TriathlonWidgetTimelineProvider.swift */,
+				6141CF702DF0AD8C00EAE435 /* TriathlonWidgetIntent.swift */,
+				6141CF6E2DF0AD8300EAE435 /* TriathlonWidgetEntry.swift */,
+				6141CF6C2DF0AD6E00EAE435 /* TriathlonWidget.swift */,
+			);
+			path = Triathlon;
+			sourceTree = "<group>";
 		};
 		614C38AB2B99F58E001A1F32 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -612,6 +637,7 @@
 		C22971CB2C08AD3300241D92 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				6141CF6B2DF0AD6000EAE435 /* Triathlon */,
 				616067EF2D567A7C00198A80 /* Averages */,
 				61E0BE332D50A8EA00E78FF8 /* ChartWidget */,
 				61E0BE122D4CFADB00E78FF8 /* BestEfforts */,
@@ -757,6 +783,7 @@
 		C284E9CD2C04DDB80064D086 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				6141CF742DF0B02400EAE435 /* TriathlonData.swift */,
 				616067F52D567AB700198A80 /* AveragesData.swift */,
 				61E0BE172D4CFD3800E78FF8 /* BestEffortData.swift */,
 				61CD13DE2D4BC9F6003F5FD8 /* MonthlyData.swift */,
@@ -1103,6 +1130,7 @@
 				C2E6942A2C08D3D000020F8F /* DistanceMeasureType.swift in Sources */,
 				C2D0F4162C0A11DD00B11805 /* GoalSmallCardView.swift in Sources */,
 				611E06A02CFB03A2008C0D8A /* AppIntentPeriodType.swift in Sources */,
+				6141CF762DF0B02400EAE435 /* TriathlonData.swift in Sources */,
 				61E0BE3A2D50A99700E78FF8 /* ChartWidgetTimelineProvider.swift in Sources */,
 				61E0BE132D4CFADB00E78FF8 /* BestEffortsWidgetTimelineProvider.swift in Sources */,
 				61E0BE142D4CFADB00E78FF8 /* BestEffortsWidgetIntent.swift in Sources */,
@@ -1115,6 +1143,7 @@
 				611E069B2CFB02EC008C0D8A /* GearWidgetEntry.swift in Sources */,
 				C2D0F4202C0A1ADE00B11805 /* AppIntentIntervalType.swift in Sources */,
 				C284E9C92C04D77F0064D086 /* WidgetTarget.swift in Sources */,
+				6141CF6D2DF0AD7E00EAE435 /* TriathlonWidget.swift in Sources */,
 				6174D6A62D5762C000A988E8 /* AppIntenAveragesType.swift in Sources */,
 				C22971B62C08A65400241D92 /* GoalWidget.swift in Sources */,
 				61E420CA2D42265100F8414E /* MultiGoalCard.swift in Sources */,
@@ -1132,6 +1161,7 @@
 				C284E9BE2C04CE300064D086 /* UserDefaultsWrapper.swift in Sources */,
 				61CD13DB2D4BBA6E003F5FD8 /* MonthlyWidgetTimelineProvider.swift in Sources */,
 				C264C97B2C0A630F004BE4B2 /* SportType.swift in Sources */,
+				6141CF6F2DF0AD8700EAE435 /* TriathlonWidgetEntry.swift in Sources */,
 				614530852CFDD699004EB9F2 /* PeriodType.swift in Sources */,
 				C22971C22C08A83000241D92 /* GoalWidgetIntent.swift in Sources */,
 				C22971D72C08C08900241D92 /* MonthAccessoryWidgetEntry.swift in Sources */,
@@ -1139,14 +1169,17 @@
 				C22971AD2C08A17100241D92 /* SnapshotItemView.swift in Sources */,
 				611E069D2CFB02EC008C0D8A /* GearWidgetTimelineProvider.swift in Sources */,
 				C2D0F41E2C0A1ACF00B11805 /* AppIntentSportType.swift in Sources */,
+				6141CF782DF0B45000EAE435 /* TriathlonWidgetView.swift in Sources */,
 				C284E9CC2C04D78A0064D086 /* WidgetService.swift in Sources */,
 				C284E9B72C04ABFA0064D086 /* RunRideStudioWidgetBundle.swift in Sources */,
 				C2E6941F2C08D06400020F8F /* TotalMetricData.swift in Sources */,
 				C22971B32C08A46900241D92 /* SnapshotWidgetIntent.swift in Sources */,
 				C2D0F4272C0A2A3800B11805 /* CircularProgressView.swift in Sources */,
 				C22971CF2C08ADAA00241D92 /* MonthAccessoryWidget.swift in Sources */,
+				6141CF712DF0AD9000EAE435 /* TriathlonWidgetIntent.swift in Sources */,
 				61CD13E02D4BC9FD003F5FD8 /* MonthlyData.swift in Sources */,
 				C22971DC2C08C71900241D92 /* Spacing.swift in Sources */,
+				6141CF732DF0AD9A00EAE435 /* TriathlonWidgetTimelineProvider.swift in Sources */,
 				C2D0F4222C0A1AEE00B11805 /* AppIntentMetricType.swift in Sources */,
 				616067F72D567AB700198A80 /* AveragesData.swift in Sources */,
 				C22971A92C08A12900241D92 /* SnapshotWidgetView.swift in Sources */,
@@ -1177,6 +1210,7 @@
 				C2E6941E2C08D05E00020F8F /* TotalMetricData.swift in Sources */,
 				C2CDA7402C09128C00E1B378 /* AuthViewModel.swift in Sources */,
 				C256E4572C09F95C00FA9C75 /* HomeWidgetView.swift in Sources */,
+				6141CF752DF0B02400EAE435 /* TriathlonData.swift in Sources */,
 				C297CF6A2C0BD072003612FE /* Theme.swift in Sources */,
 				C2D0F4182C0A1A6200B11805 /* MetricType.swift in Sources */,
 				C297CF532C0B605D003612FE /* RootViewModel.swift in Sources */,

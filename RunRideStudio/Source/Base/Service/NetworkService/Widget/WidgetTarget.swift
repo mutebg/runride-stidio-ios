@@ -15,6 +15,7 @@ enum WidgetTarget {
     case monthlyData(sportType: String, interval: String, metric: String)
     case bestEfforts(sportType: String, interval: String)
     case averagesData(sportType: String, interval: String)
+    case triathlonData(interval: String)
 }
 
 extension WidgetTarget: BaseTarget {
@@ -34,6 +35,8 @@ extension WidgetTarget: BaseTarget {
             return "/bestefforts"
         case .averagesData:
             return "/averages"
+        case .triathlonData:
+            return "/tri"
         }
     }
     
@@ -75,6 +78,10 @@ extension WidgetTarget: BaseTarget {
         case let .averagesData(sportType, interval):
             return [
                 "type": sportType,
+                "interval": interval
+            ]
+        case let .triathlonData(interval):
+            return [
                 "interval": interval
             ]
         }

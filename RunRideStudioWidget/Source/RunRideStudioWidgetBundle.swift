@@ -20,6 +20,7 @@ struct RunRideStudioWidgetBundle: WidgetBundle {
         MonthlyWidget()
         BestEffortsWidget()
         AveragesWidget()
+        TriathlonWidget()
         RideMonthAccessoryWidget()
         RunMonthAccessoryWidget()
     }

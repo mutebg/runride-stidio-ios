@@ -37,6 +37,9 @@ protocol WidgetServiceProtocol {
         for sportType: String,
         interval: String
     ) async -> Result<AveragesData, BaseNetworkError>
+    func getTriathlonData(
+        for interval: String,
+    ) async -> Result<TriathlonData, BaseNetworkError>
 }
 
 final class WidgetService {
@@ -214,6 +217,28 @@ extension WidgetService: WidgetServiceProtocol {
         case let .success(data):
             do {
                 let response = try JSONDecoder().decode(AveragesData.self, from: data)
+                return .success(response)
+            } catch let error {
+                return .failure(.invalidData(error))
+            }
+        case let .failure(error):
+            return .failure(error)
+        }
+    }
+
+    func getTriathlonData(
+        for interval: String
+    ) async -> Result<TriathlonData, BaseNetworkError> {
+        let result = await provider.request(
+            with: WidgetTarget.triathlonData(
+                interval: interval
+            )
+        )
+
+        switch result {
+        case let .success(data):
+            do {
+                let response = try JSONDecoder().decode(TriathlonData.self, from: data)
                 return .success(response)
             } catch let error {
                 return .failure(.invalidData(error))

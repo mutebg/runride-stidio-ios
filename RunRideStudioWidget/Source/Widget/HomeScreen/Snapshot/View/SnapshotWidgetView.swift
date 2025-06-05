@@ -14,10 +14,10 @@ struct SnapshotWidgetView: View {
     let useMetric = !UserDefaultsConfig.useImperial
     
     var d: String {
-        return getDistance(entry.entity?.distance ?? .zero, useMetric: useMetric)
+        return getDistance(entry.entity?.distance ?? .zero)
     }
     var dd: String {
-        return ((entry.entity?.distanceDifference ?? .zero) > 0 ? "+" : "" ) + getDistance(entry.entity?.distanceDifference ?? .zero, useMetric: useMetric)
+        return ((entry.entity?.distanceDifference ?? .zero) > 0 ? "+" : "" ) + getDistance(entry.entity?.distanceDifference ?? .zero)
     }
     var t: String {
         return getTime(entry.entity?.time ?? .zero)
@@ -26,10 +26,10 @@ struct SnapshotWidgetView: View {
         return ((entry.entity?.timeDifference ?? .zero) > 0 ? "+" : "" ) + getTime(entry.entity?.timeDifference ?? .zero)
     }
     var e: String {
-        return getElevation(entry.entity?.elevation ?? .zero, useMetric: useMetric)
+        return getElevation(entry.entity?.elevation ?? .zero)
     }
     var ed: String {
-        return ((entry.entity?.elevationDifference ?? .zero) > 0 ? "+" : "" ) + getElevation(entry.entity?.elevationDifference ?? .zero, useMetric: useMetric)
+        return ((entry.entity?.elevationDifference ?? .zero) > 0 ? "+" : "" ) + getElevation(entry.entity?.elevationDifference ?? .zero )
     }
     var a: String {
         return String(entry.entity?.activities ?? .zero)
@@ -69,25 +69,15 @@ struct SnapshotWidgetView: View {
     }
     
     func getTime(_ seconds: Int) -> String {
-        let showNegativeSign = seconds < 0
-        let absoluteSeconds = abs(seconds) // Use abs() for absolute value
-
-        let hours = absoluteSeconds / 3600
-        let remainingSeconds = absoluteSeconds % 3600
-        let minutes = remainingSeconds / 60
-
-        let timeString = String(format: "%@%dh %02dm", showNegativeSign ? "-" : "", hours, minutes)
-        return timeString
+        return Double(seconds).secondsToTimeString;
     }
     
-    func getDistance(_ value: Double, useMetric: Bool) -> String {
-        let convertedValue = useMetric ? value : value * 0.621371
-        return String(format: "%.2f", convertedValue) + (useMetric ? "km" : "mi")
+    func getDistance(_ value: Double) -> String {
+        return value.distanceInLocalSettings.formatted() + MetricType.distance.shortTitle
     }
-    
-    func getElevation(_ value: Double, useMetric: Bool) -> String {
-       let convertedValue: Double = useMetric ? Double(value) : Double(value) * 3.28084
-       return String(format: "%.2f", convertedValue) + (useMetric ? " m" : " ft")
+
+    func getElevation(_ value: Double) -> String {
+       return value.elevationInLocalSettings.formatted() + MetricType.elevation.shortTitle
     }
     
     func getTitle(_ sport: String, _ interval: String) -> String {

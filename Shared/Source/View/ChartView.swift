@@ -87,22 +87,19 @@ struct ChartView: View {
     
     private func formatTotalDistance(_ data: [MonthlyStats]) -> String {
         let totalMeters = data.reduce(0) { $0 + $1.distance }
-        let convertedValue = (totalMeters / 1000).distanceInLocalSettings
-        return String(format: "%.0f %@", convertedValue, MetricType.distance.shortTitle)
+        let convertedValue = (totalMeters / 1000).distanceInLocalSettings;
+        return convertedValue.formatted() + MetricType.distance.shortTitle;
     }
     
     private func formatTotalTime(_ data: [MonthlyStats]) -> String {
         let totalSeconds = data.reduce(0) { $0 + $1.movingTime }
-        let hours = Int(totalSeconds / 3600)
-        let minutes = Int((totalSeconds.truncatingRemainder(dividingBy: 3600)) / 60)
-        let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
-        return String(format: "%d:%02d:%02d", hours, minutes, seconds)
+        return totalSeconds.secondsToTimeString;
     }
     
     private func formatTotalElevation(_ data: [MonthlyStats]) -> String {
         let totalMeters = data.reduce(0) { $0 + $1.totalElevationGain }
-        let convertedValue = totalMeters.elevationInLocalSettings
-        return String(format: "%.0f %@", convertedValue, MetricType.elevation.shortTitle)
+        let convertedValue = totalMeters.elevationInLocalSettings;
+        return convertedValue.formatted() + MetricType.elevation.shortTitle;
     }
 }
 
