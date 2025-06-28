@@ -34,20 +34,27 @@ struct TriathlonView: View {
 }
 
 struct TriathlonDisciplineView: View {
+    @Environment(\.colorScheme) private var colorScheme
+    
     let label: String
     let disciplineData: TriathlonData.TriathlonDiscipline
+
+    private var image: some View {
+        Image(label.lowercased())
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 24, height: 24)
+            .foregroundColor(Color.primary)
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            // Text(label)
-            //     .font(.footnote)
-            //     .foregroundColor(.textBrand1)
-            Image(label.lowercased())
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 24, height:24)
-                .foregroundColor(.textBrand1)
-
+            if colorScheme == .dark {
+                image.colorInvert()
+            } else {
+                image
+            }
+            
             VStack(alignment: .leading, spacing: 0) {
                 Text("Distance")
                     .font(.caption)
@@ -59,7 +66,6 @@ struct TriathlonDisciplineView: View {
                     .minimumScaleFactor(0.9)
                     .foregroundColor(.accent)
             }
-        
 
             VStack(alignment: .leading, spacing: 0) {
                 Text("Time")
@@ -68,9 +74,9 @@ struct TriathlonDisciplineView: View {
 
                 Text("\(disciplineData.time.secondsToTimeString)")
                     .font(.system(size: 20))
-                .fontWeight(.bold)
-                .minimumScaleFactor(0.9)
-                .foregroundColor(.accent)
+                    .fontWeight(.bold)
+                    .minimumScaleFactor(0.9)
+                    .foregroundColor(.accent)
             }
         }
     }
@@ -85,4 +91,4 @@ struct TriathlonDisciplineView: View {
         ),
        
     )
-} 
+}
